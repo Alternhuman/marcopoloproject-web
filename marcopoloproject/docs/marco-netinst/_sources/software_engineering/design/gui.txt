@@ -1,0 +1,13 @@
+Interfaz gráfica de usuario
+===========================
+
+Se define una única interfaz de usuario clasificada en pestañas para cada una de las acciones realizables.
+
+.. image:: ../img/marcobootstrap.*
+	:align: center
+
+El contexto navegacional, es por tanto, sencillo.
+
+.. image:: ../img/web.*
+	:align: center
+	

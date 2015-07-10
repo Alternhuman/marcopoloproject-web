@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>marcodeployer.receiver &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>marcodeployer.receiver</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for marcodeployer.receiver</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">tornado.web</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">RequestHandler</span><span class="p">,</span> <span class="n">StaticFileHandler</span>
+<span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">ioloop</span>
+<span class="kn">from</span> <span class="nn">tornado.websocket</span> <span class="kn">import</span> <span class="n">WebSocketHandler</span>
+<span class="kn">import</span> <span class="nn">tornado.web</span>
+<span class="kn">from</span> <span class="nn">tornado.httpserver</span> <span class="kn">import</span> <span class="n">HTTPServer</span> 
+<span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">ioloop</span>
+<span class="kn">from</span> <span class="nn">tornado.gen</span> <span class="kn">import</span> <span class="n">coroutine</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">shlex</span> <span class="kn">import</span> <span class="n">split</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">pwd</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+
+
+<span class="kn">from</span> <span class="nn">tornado.ioloop</span> <span class="kn">import</span> <span class="n">PeriodicCallback</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">makedirs</span>
+
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">fcntl</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">concurrent</span> <span class="kn">import</span> <span class="n">futures</span>
+<span class="kn">from</span> <span class="nn">tornado.web</span> <span class="kn">import</span> <span class="n">decode_signed_value</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">ssl</span>
+
+<span class="kn">from</span> <span class="nn">marcopolo.bindings.polo</span> <span class="kn">import</span> <span class="n">Polo</span><span class="p">,</span> <span class="n">PoloInternalException</span><span class="p">,</span> <span class="n">PoloException</span>
+
+<span class="kn">import</span> <span class="nn">six</span>
+<span class="kn">from</span> <span class="nn">six.moves.urllib</span> <span class="kn">import</span> <span class="n">parse</span> <span class="k">as</span> <span class="n">urlparse</span>
+
+<span class="kn">from</span> <span class="nn">marcodeployer.bufferprocessor</span> <span class="kn">import</span> <span class="n">ProcessReactor</span>
+<span class="kn">from</span> <span class="nn">marcodeployer.statusmonitor</span> <span class="kn">import</span> <span class="n">get_data</span>
+<span class="kn">from</span> <span class="nn">marcodeployer.utils</span> <span class="kn">import</span> <span class="n">getip</span> 
+<span class="kn">from</span> <span class="nn">marcodeployer</span> <span class="kn">import</span> <span class="n">conf</span>
+
+<span class="c">#ip = &quot;&quot;</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="n">getip</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">INTERFACE</span><span class="p">)</span>
+<span class="n">opensockets</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">io_loop</span> <span class="o">=</span> <span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data_json</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+<span class="n">response_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">statusmonitor_open_sockets</span> <span class="o">=</span>  <span class="p">[]</span>
+<span class="n">getDataCallback</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">processes</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="shutdown"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.shutdown">[docs]</a><span class="k">def</span> <span class="nf">shutdown</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Stops the application gracefully, closing all socket connections</span>
+<span class="sd">    and unpublishing the MarcoPolo services.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Stopping gracefully&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">socket</span> <span class="ow">in</span> <span class="n">statusmonitor_open_sockets</span><span class="p">:</span>
+        <span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">Polo</span><span class="p">()</span><span class="o">.</span><span class="n">unpublish_service</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_SERVICE_NAME</span><span class="p">,</span> <span class="n">delete_file</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">Polo</span><span class="p">()</span><span class="o">.</span><span class="n">unpublish_service</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">STATUS_MONITOR_SERVICE_NAME</span><span class="p">,</span> <span class="n">delete_file</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">io_loop</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="sigint_handler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.sigint_handler">[docs]</a><span class="k">def</span> <span class="nf">sigint_handler</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="n">io_loop</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">shutdown</span><span class="p">)</span>
+</div>
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">sigint_handler</span><span class="p">)</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">,</span> <span class="n">sigint_handler</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DeployHandler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.DeployHandler">[docs]</a><span class="k">class</span> <span class="nc">DeployHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="nd">@tornado.web.asynchronous</span>
+<div class="viewcode-block" id="DeployHandler.post"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.DeployHandler.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        POST handler received from ``deployer.py``. </span>
+<span class="sd">        It handles the deployment of the file and the execution of the desired command.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">file1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s">&#39;file&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;command&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">idpolo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;idpolo&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">tomcat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;tomcat&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tomcat</span><span class="p">:</span>
+            <span class="n">folder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;folder&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">folder</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">TOMCAT_PATH</span>
+
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">file1</span><span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">]</span>
+        
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
+        
+        <span class="n">user_pwd</span> <span class="o">=</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwnam</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        
+        <span class="c">#Handling of relative paths</span>
+        <span class="n">folder</span> <span class="o">=</span> <span class="n">folder</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;~&#39;</span><span class="p">,</span> <span class="n">user_pwd</span><span class="o">.</span><span class="n">pw_dir</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">folder</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_pwd</span><span class="o">.</span><span class="n">pw_dir</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">folder</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">folder</span> <span class="o">=</span> <span class="n">user_pwd</span><span class="o">.</span><span class="n">pw_dir</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+            <span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+            <span class="n">chown</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+
+
+        <span class="n">final_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+        
+        <span class="n">overwrite</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;overwrite&#39;</span><span class="p">,</span> <span class="s">&#39;false&#39;</span><span class="p">)</span>
+        
+        <span class="n">overwrite</span> <span class="o">=</span> <span class="bp">False</span> <span class="k">if</span> <span class="n">overwrite</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;false&#39;</span> <span class="k">else</span> <span class="bp">True</span><span class="p">;</span>
+
+
+        <span class="n">thread_pool</span> <span class="o">=</span> <span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">thread_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span> <span class="n">file_desc</span><span class="o">=</span><span class="n">file1</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">final_directory</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">folder</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user_pwd</span><span class="p">,</span> <span class="n">tomcat</span><span class="o">=</span><span class="n">tomcat</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">overwrite</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s">&#39;OK&#39;</span><span class="p">)</span>
+</div>
+    <span class="nd">@tornado.web.asynchronous</span>
+<div class="viewcode-block" id="DeployHandler.execute"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.DeployHandler.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">file_desc</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">tomcat</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">):</span>
+        
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">def</span> <span class="nf">demote</span><span class="p">(</span><span class="n">user_uid</span><span class="p">,</span> <span class="n">user_gid</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">setgid</span><span class="p">(</span><span class="n">user_gid</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">setuid</span><span class="p">(</span><span class="n">user_uid</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">filename</span><span class="p">)):</span>
+            <span class="n">output_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_desc</span><span class="p">[</span><span class="s">&#39;body&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tomcat</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwnam</span><span class="p">(</span><span class="s">&#39;tomcat7&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwnam</span><span class="p">(</span><span class="s">&#39;tomcat7&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+        <span class="n">output_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">command</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">ProcessReactor</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">io_loop</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">opensockets</span><span class="p">,</span> <span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">processes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">processes</span><span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="n">processes</span><span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</div></div>
+<span class="n">secret</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">SECRET_FILE</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">secret_file</span><span class="p">:</span>
+        <span class="n">secret</span> <span class="o">=</span> <span class="n">secret_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Could not open secret file&quot;</span><span class="p">)</span>
+    <span class="c">#sys.exit(1)</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;debug&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">&quot;static_path&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">STATIC_PATH</span><span class="p">,</span> <span class="c">#os.path.join(os.path.dirname(__file__), &quot;static&quot;),</span>
+    <span class="s">&quot;cookie_secret&quot;</span><span class="p">:</span> <span class="n">secret</span>
+<span class="p">}</span>
+
+<div class="viewcode-block" id="LoggerHandler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.LoggerHandler">[docs]</a><span class="k">class</span> <span class="nc">LoggerHandler</span><span class="p">(</span><span class="n">WebSocketHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processes the logging messages</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="LoggerHandler.check_origin"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.LoggerHandler.check_origin">[docs]</a>    <span class="k">def</span> <span class="nf">check_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Overrides the parent method to return True for any request, since we are</span>
+<span class="sd">        working without names</span>
+
+<span class="sd">        :returns: bool True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    </div>
+<div class="viewcode-block" id="LoggerHandler.open"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.LoggerHandler.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Notifies the opening of a new Logger connection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;A new connection was open&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LoggerHandler.on_message"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.LoggerHandler.on_message">[docs]</a>    <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A message is sent by the client after creating the connection. The method verifies the user</span>
+<span class="sd">        secret cookie and appends the connection to the opensockets dictionary.</span>
+
+<span class="sd">        :param str message: The received message</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">decode_signed_value</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s">&quot;cookie_secret&quot;</span><span class="p">],</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;register&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the user_id is other than None the verification has succeded, and the connection is appended to the </span>
+<span class="sd">        rest of the websockets related to the user.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">opensockets</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">opensockets</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">opensockets</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;The user could not be found&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LoggerHandler.on_line"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.LoggerHandler.on_line">[docs]</a>    <span class="k">def</span> <span class="nf">on_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">stream_name</span><span class="o">=</span><span class="s">&quot;stdout&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The io_loop calls the function when a new message appears.</span>
+<span class="sd">        :param str user: The name of the user</span>
+<span class="sd">        :param str command: The command in execution</span>
+<span class="sd">        :param str message: The message to deliver</span>
+<span class="sd">        :param str ip: The ip of the server, so the client knows where the message comes from</span>
+<span class="sd">        :param boolean stop: Determines if the connection must be closed or not *deprecated*</span>
+<span class="sd">        :param str stream_name: The name of the stream</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;command&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">command</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;ip&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;identifier&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">identifier</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;stop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stop</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;stream_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stream_name</span>
+        <span class="n">msg</span><span class="p">[</span><span class="s">&quot;shell&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;shell&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="LoggerHandler.on_close"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.LoggerHandler.on_close">[docs]</a>    <span class="k">def</span> <span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes the connection from the opensockets dictionary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="k">for</span> <span class="n">ws</span> <span class="ow">in</span> <span class="n">opensockets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">opensockets</span><span class="p">[</span><span class="n">ws</span><span class="p">]:</span>
+                <span class="n">opensockets</span><span class="p">[</span><span class="n">ws</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;The websocket could not be found&quot;</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="ShellHandler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ShellHandler">[docs]</a><span class="k">class</span> <span class="nc">ShellHandler</span><span class="p">(</span><span class="n">LoggerHandler</span><span class="p">):</span>
+    
+<div class="viewcode-block" id="ShellHandler.on_message"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ShellHandler.on_message">[docs]</a>    <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="n">message_json</span> <span class="o">=</span> <span class="n">message</span><span class="c">#.decode(&#39;utf-8&#39;)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">message_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message_json</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">v</span><span class="p">:</span>
+            <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;register&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">user_id</span> <span class="o">=</span> <span class="n">decode_signed_value</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s">&quot;cookie_secret&quot;</span><span class="p">],</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="n">message_dict</span><span class="p">[</span><span class="s">&quot;register&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">opensockets</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">opensockets</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">opensockets</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="k">elif</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;command&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">user_id</span> <span class="o">=</span> <span class="n">decode_signed_value</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s">&quot;cookie_secret&quot;</span><span class="p">],</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;user_id&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">))</span>
+            
+            <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+                <span class="n">user_pwd</span> <span class="o">=</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwnam</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">command</span> <span class="o">=</span> <span class="n">message_dict</span><span class="p">[</span><span class="s">&quot;command&quot;</span><span class="p">]</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="n">ProcessReactor</span><span class="p">(</span><span class="n">user_pwd</span><span class="p">,</span> <span class="n">user_pwd</span><span class="o">.</span><span class="n">pw_dir</span><span class="p">,</span> <span class="n">io_loop</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">opensockets</span><span class="p">,</span> <span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">processes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">processes</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+                    <span class="n">processes</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;remove&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;remove&quot;</span><span class="p">)</span>
+            <span class="n">user_id</span> <span class="o">=</span> <span class="n">decode_signed_value</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s">&quot;cookie_secret&quot;</span><span class="p">],</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;user_id&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">identifier</span> <span class="o">=</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;remove&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">identifier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s">&quot;identifier&quot;</span><span class="p">,</span> <span class="n">identifier</span><span class="p">)</span>
+                    <span class="n">process</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">processes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">identifier</span> <span class="o">==</span> <span class="n">identifier</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                        <span class="n">process</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+                        <span class="n">processes</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">process</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;removeshell&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;removeshell&quot;</span><span class="p">)</span>
+            <span class="n">user_id</span> <span class="o">=</span> <span class="n">decode_signed_value</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s">&quot;cookie_secret&quot;</span><span class="p">],</span> <span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;user_id&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">user_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">identifiers</span> <span class="o">=</span> <span class="n">message_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;removeshell&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">identifiers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">identifiers_dict</span> <span class="o">=</span> <span class="n">message_dict</span><span class="p">[</span><span class="s">&quot;removeshell&quot;</span><span class="p">]</span>
+                        <span class="k">for</span> <span class="n">identifier</span> <span class="ow">in</span> <span class="n">identifiers</span><span class="p">:</span>
+                            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+                            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">processes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">()))</span>
+                            <span class="n">process</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">processes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">identifier</span> <span class="o">==</span> <span class="n">identifier</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                                <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Killing&quot;</span><span class="p">)</span>
+                                <span class="n">process</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+                                <span class="n">processes</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">process</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">v</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">k</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="ProbeWSHandler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ProbeWSHandler">[docs]</a><span class="k">class</span> <span class="nc">ProbeWSHandler</span><span class="p">(</span><span class="n">WebSocketHandler</span><span class="p">):</span>
+<div class="viewcode-block" id="ProbeWSHandler.check_origin"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ProbeWSHandler.check_origin">[docs]</a>    <span class="k">def</span> <span class="nf">check_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Overrides the parent method to return True for any request, since we are</span>
+<span class="sd">        working without names</span>
+
+<span class="sd">        :returns: bool True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</div>
+<div class="viewcode-block" id="ProbeWSHandler.open"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ProbeWSHandler.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a confirmation message</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</div></div>
+<div class="viewcode-block" id="ProbeHandler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ProbeHandler">[docs]</a><span class="k">class</span> <span class="nc">ProbeHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+<div class="viewcode-block" id="ProbeHandler.get"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.ProbeHandler.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;You should be able to create websocket connections now&quot;</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="start_callback"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.start_callback">[docs]</a><span class="k">def</span> <span class="nf">start_callback</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Starts the collection callback</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">getDataCallback</span>
+    <span class="k">if</span> <span class="n">getDataCallback</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">getDataCallback</span> <span class="o">=</span> <span class="n">PeriodicCallback</span><span class="p">(</span><span class="n">process_data</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">REFRESH_FREQ</span><span class="p">)</span>  
+        <span class="n">getDataCallback</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">getDataCallback</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
+        <span class="n">getDataCallback</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="stop_callback"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.stop_callback">[docs]</a><span class="k">def</span> <span class="nf">stop_callback</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    If the number of open connections is zero, stops the collection callback of data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">getDataCallback</span>
+    <span class="k">if</span> <span class="n">getDataCallback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">statusmonitor_open_sockets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">getDataCallback</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="process_data"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.process_data">[docs]</a><span class="k">def</span> <span class="nf">process_data</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processes the statusmonitor data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">data_json</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">statusmonitor_open_sockets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">data_dict</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>
+        <span class="n">data_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data_dict</span><span class="p">,</span><span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="s">&#39;:&#39;</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="SocketHandler"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.SocketHandler">[docs]</a><span class="k">class</span> <span class="nc">SocketHandler</span><span class="p">(</span><span class="n">WebSocketHandler</span><span class="p">):</span>
+
+<div class="viewcode-block" id="SocketHandler.check_origin"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.SocketHandler.check_origin">[docs]</a>    <span class="k">def</span> <span class="nf">check_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Overrides the parent method to return True for any request, since we are</span>
+<span class="sd">        working without names</span>
+
+<span class="sd">        :returns: bool True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</div>
+<div class="viewcode-block" id="SocketHandler.open"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.SocketHandler.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Connection open from &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">remote_ip</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">statusmonitor_open_sockets</span><span class="p">:</span>
+            <span class="n">statusmonitor_open_sockets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="c">#http://stackoverflow.com/a/19571205</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">PeriodicCallback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">send_data</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">start_callback</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SocketHandler.send_data"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.SocketHandler.send_data">[docs]</a>    <span class="k">def</span> <span class="nf">send_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="n">data_json</span><span class="p">)</span>
+        <span class="k">return</span>
+
+        </div>
+<div class="viewcode-block" id="SocketHandler.on_close"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.SocketHandler.on_close">[docs]</a>    <span class="k">def</span> <span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span> <span class="ow">in</span> <span class="n">statusmonitor_open_sockets</span><span class="p">:</span>
+            <span class="n">statusmonitor_open_sockets</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">stop_callback</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="SocketHandler.send_update"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.SocketHandler.send_update">[docs]</a>    <span class="k">def</span> <span class="nf">send_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+</div></div>
+<span class="n">routes</span> <span class="o">=</span>  <span class="p">[</span>
+    <span class="p">(</span><span class="s">r&#39;/deploy/?&#39;</span><span class="p">,</span> <span class="n">DeployHandler</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">routes_ws</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">r&#39;/ws/probe/&#39;</span><span class="p">,</span> <span class="n">ProbeWSHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/ws/status/&#39;</span><span class="p">,</span> <span class="n">SocketHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/ws/logger/&#39;</span><span class="p">,</span> <span class="n">ShellHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/probe/&#39;</span><span class="p">,</span> <span class="n">ProbeHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/&#39;</span><span class="p">,</span> <span class="n">ProbeHandler</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">routes</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+
+<span class="n">wsapp</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">routes_ws</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">);</span>
+
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../reference/receiver.html#marcodeployer.receiver.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates the servers, initializes the logging facility, publishes the ``MarcoPolo`` services and starts the ``io_loop``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">getip</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">INTERFACE</span><span class="p">)</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+
+    <span class="c">#if not os.path.exists(&#39;/var/run/marcopolo&#39;):</span>
+    <span class="c">#    makedirs(&#39;/var/run/marcopolo&#39;)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_LOG_FILE</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_LOGLEVEL</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+
+
+    <span class="n">httpServer</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">ssl_options</span><span class="o">=</span><span class="p">{</span>
+        <span class="s">&quot;certfile&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">RECEIVERCERT</span><span class="p">,</span>
+        <span class="s">&quot;keyfile&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">RECEIVERKEY</span><span class="p">,</span>
+        <span class="s">&quot;cert_reqs&quot;</span><span class="p">:</span> <span class="n">ssl</span><span class="o">.</span><span class="n">CERT_REQUIRED</span><span class="p">,</span>
+        <span class="s">&quot;ca_certs&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPCERT</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="n">httpServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_PORT</span><span class="p">)</span>
+
+    <span class="n">wsapp</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_WEBSOCKET_PORT</span><span class="p">,</span> 
+            <span class="n">ssl_options</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;certfile&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPCERT</span><span class="p">,</span>
+                         <span class="s">&quot;keyfile&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPKEY</span><span class="p">})</span>
+
+
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">Polo</span><span class="p">()</span><span class="o">.</span><span class="n">publish_service</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_SERVICE_NAME</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="n">Polo</span><span class="p">()</span><span class="o">.</span><span class="n">publish_service</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">STATUS_MONITOR_SERVICE_NAME</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="n">PoloInternalException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">PoloException</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Starting receiver on port </span><span class="si">%d</span><span class="s">. WebSockets on </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_PORT</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_WEBSOCKET_PORT</span><span class="p">))</span>
+    <span class="n">io_loop</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+</div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

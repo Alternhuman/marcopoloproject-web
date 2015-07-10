@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Identificación de actores &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Requisitos de información" href="ir.html"/>
+        <link rel="prev" title="Objetivos" href="goals.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Implementation Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco/index.html">Marco reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/polo/index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Identificación de actores</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/actors.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="identificacion-de-actores">
+<h1>Identificación de actores<a class="headerlink" href="#identificacion-de-actores" title="Permalink to this headline">¶</a></h1>
+<p>Para el presente producto <strong>software</strong> se identifican los siguientes actores. Debido a que la mayoría de la funcionalidad no es utilizada de forma directa por una persona, el número de actores humanos es muy reducido.</p>
+<div class="section" id="act-1-usuarios-del-sistema">
+<h2>ACT-1: Usuarios del sistema<a class="headerlink" href="#act-1-usuarios-del-sistema" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar del sistema</li>
+<li><strong>Descripción</strong>: Interactúan con MarcoPolo a través de las diferentes interfaces dispuestas.</li>
+</ul>
+</div>
+<div class="section" id="act-2-usuarios-no-privilegiados">
+<h2>ACT-2: Usuarios no privilegiados<a class="headerlink" href="#act-2-usuarios-no-privilegiados" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo</li>
+<li><strong>Descripción</strong>: Se plantean diferentes tipos de servicios a ofrecer en virtud de los privilegios de usuario. Los usuarios no &#8220;privilegiados&#8221; no tendrán acceso a una serie de características de la aplicación, tales como la creación de servicios a nivel de nodo (Ver NFR).</li>
+</ul>
+</div>
+<div class="section" id="act-3-usuarios-privilegiados">
+<h2>ACT-3: Usuarios privilegiados<a class="headerlink" href="#act-3-usuarios-privilegiados" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo</li>
+<li><strong>Descripción</strong>: Son usuarios sin ningún tipo de restricción en el uso de la funcionalidad que el sistema provee.</li>
+</ul>
+</div>
+<div class="section" id="act-4-aplicacion-no-privilegiada">
+<h2>ACT-4: Aplicación no privilegiada<a class="headerlink" href="#act-4-aplicacion-no-privilegiada" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo</li>
+<li><strong>Descripción</strong>: Diferentes aplicaciones utilizan MarcoPolo como herramienta de apoyo a la funcionalidad que ofrecen. De la misma forma que los usuarios, existen aplicaciones con privilegios restringidos.</li>
+<li><strong>Comentarios</strong></li>
+</ul>
+</div>
+<div class="section" id="act-5-aplicacion-privilegiada">
+<h2>ACT-5: Aplicación privilegiada<a class="headerlink" href="#act-5-aplicacion-privilegiada" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo</li>
+<li><strong>Descripción</strong>: Aplicación sin restricciones de uso.</li>
+</ul>
+</div>
+<div class="section" id="act-6-administradores">
+<h2>ACT-6: Administradores<a class="headerlink" href="#act-6-administradores" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo</li>
+<li><strong>Descripción</strong>: Deben realizar la instalación del <strong>software</strong> en un entorno multiusuario.</li>
+</ul>
+</div>
+<div class="section" id="diagrama-de-actores">
+<h2>Diagrama de actores<a class="headerlink" href="#diagrama-de-actores" title="Permalink to this headline">¶</a></h2>
+<div align="center" class="align-center"><img alt="Diagrama de actores completo" src="../../_images/actores.svg" /></div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ir.html" class="btn btn-neutral float-right" title="Requisitos de información">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="goals.html" class="btn btn-neutral" title="Objetivos"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

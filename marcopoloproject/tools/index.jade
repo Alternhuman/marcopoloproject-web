@@ -1,0 +1,195 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        title MarcoPolo cluster - Tools
+        
+        link(href='/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/css/modern-business.css', rel='stylesheet')
+        link(href='/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    
+    body
+        nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+            .container
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                                       
+                    a.navbar-brand(href='/') Start Bootstrap
+                    // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href='/documentation') Tools
+                        li
+                            a(href='about.html') About
+                        li
+                            a(href='services.html') Services
+                        li
+                            a(href='contact.html') Contact
+                        li.dropdown
+                            a.dropdown-toggle(href='#', data-toggle='dropdown') Portfolio 
+                                b.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href='portfolio-1-col.html') 1 Column Portfolio                    
+                                li
+                                    a(href='portfolio-2-col.html') 2 Column Portfolio
+                                                             
+                                li
+                                    a(href='portfolio-3-col.html') 3 Column Portfolio
+                                                             
+                                li
+                                    a(href='portfolio-4-col.html') 4 Column Portfolio
+                                                             
+                                li
+                                    a(href='portfolio-item.html') Single Portfolio Item
+        
+        .container
+            .row
+                .col-md-12
+                    h1 Tools
+                    p The different toolset
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4 
+                                i.fa.fa-fw marcopolo
+                            p MarcoPolo is a service discovery protocol
+                    
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/marcopolo") 
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/marcopolo") 
+                                    i.fa.fa-bitbucket Code
+                                a.list-group-item(href="pypi.python.org/pypi/marcopolo") 
+                                    i.fa.fa-download Package
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4 
+                                i.fa.fa-fw marcopolo.bindings
+                            p Language-specific connections to MarcoPolo
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/marcopolo/bindings/intro.html") 
+                                    i.fa.fa-book Documentation
+                                ul.list-group.row
+                                    a.list-group-item.col-xs-4(href="https://bitbucket.org/Alternhuman/marcopolo-bindings-python")
+                                        i.fa.fa-bitbucket Python
+                                    a.list-group-item.col-xs-4(href="https://bitbucket.org/Alternhuman/marcopolo-bindings-java")
+                                        i.fa.fa-bitbucket Java
+                                    a.list-group-item.col-xs-4(href="https://bitbucket.org/Alternhuman/marcopolo-bindings-cpp")
+                                        i.fa.fa-bitbucket C/C++
+                                a.list-group-item(href="pypi.python.org/pypi/marcopolo.bindings") 
+                                    i.fa.fa-download Python package
+                .col-md-4            
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw Marcopolo-utils
+                            p Console utilities for MarcoPolo
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/marcopolo/utilities/intro.html") 
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/marcopolo-shell")
+                                    i.fa.fa-bitbucket Code
+                                a.list-group-item(href="https://pypi.python.org/pypi/marcopolo-shell") 
+                                    i.fa.fa-download Package
+            .row
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw Deployer utility
+                            p Several monitoring, deployment and debugging utilities
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/deployer/")
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/deployer/")
+                                    i.fa.fa-bitbucket Code
+                                a.list-group-item(href="https://pypi.python.org/pypi/marcopolo-deployer")
+                                    i.fa.fa-download Package
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw.fa-check Structure
+                    
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/marcopolo-cluster-estructura/src")
+                                    i.fa.fa-book Blueprints
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw.fa-check quick2wire-cpp-api
+                            p A port of the 
+                                a(href="https://github.com/quick2wire/quick2wire-python-api") quick2wire-python-api
+                                |  API for C++.
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/quick2wire-cpp-api")
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/quick2wire-cpp-api/")
+                                    i.fa.fa-bitbucket Code
+            .row
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw marcopolo-manager
+                            p Service manager and scheduler with MarcoPolo integration
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/marcopolo-manager/")
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/marcopolo-manager/")
+                                    i.fa.fa-bitbucket Code
+                                a.list-group-item(href="https://pypi.python.org/pypi/marcopolo-manager")
+                                    i.fa.fa-download Package
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw polousers
+                            p Distributed user managerment with MarcoPolo
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/polousers/")
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/polousers/")
+                                    i.fa.fa-bitbucket Code
+                                //a.list-group-item(href="https://pypi.python.org/pypi/polousers")
+                                    i.fa.fa-download Package
+                .col-md-4
+                    .panel.panel-default
+                        .panel-heading
+                            h4
+                                i.fa.fa-fw marco-netinst
+                            p Unattended installation and system administration
+                        .panel-body
+                            ul.list-group
+                                a.list-group-item(href="/docs/marco-netinst/")
+                                    i.fa.fa-book Documentation
+                                a.list-group-item(href="https://bitbucket.org/Alternhuman/marco-netinst/")
+                                    i.fa.fa-bitbucket Code
+                                a.list-group-item(href="https://pypi.python.org/pypi/marcobootstrap.backend")
+                                    i.fa.fa-download Backend package
+                                a.list-group-item(href="https://pypi.python.org/pypi/marcobootstrap.slave")
+                                    i.fa.fa-download Slave package
+    script(src="/js/jquery.js")
+
+    script(src="/js/bootstrap.min.js")

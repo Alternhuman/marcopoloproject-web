@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gauge.js &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="JavaScript files" href="intro.html"/>
+        <link rel="next" title="graphpolo.js" href="graphpolo.html"/>
+        <link rel="prev" title="JavaScript files" href="intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Reference</a> &raquo;</li>
+      
+          <li><a href="intro.html">JavaScript files</a> &raquo;</li>
+      
+    <li>gauge.js</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/js/gauge.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="gauge-js">
+<h1>gauge.js<a class="headerlink" href="#gauge-js" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="CreateGauge">
+<code class="descname">CreateGauge</code><span class="sig-paren">(</span><em>name</em>, <em>label</em>, <em>min</em>, <em>max</em><span class="sig-paren">)</span><a class="headerlink" href="#CreateGauge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new gauge and appends it to an array of gauges</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>str</em>) &#8211; The name of the gauge and the key of the array</li>
+<li><strong>label</strong> (<em>str</em>) &#8211; An identificatory label</li>
+<li><strong>min</strong> (<em>int</em>) &#8211; The minimal value</li>
+<li><strong>max</strong> (<em>int</em>) &#8211; The maximum value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="Gauge">
+<em class="property">class </em><code class="descname">Gauge</code><span class="sig-paren">(</span><em>placeholderName</em>, <em>configuration</em><span class="sig-paren">)</span><a class="headerlink" href="#Gauge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Gauge object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>placeHolderName</strong> (<em>str</em>) &#8211; The identifier of the placeholder to which the gauge will be attached</li>
+<li><strong>configuration</strong> (<em>object</em>) &#8211; A configuration object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="buildPointerPath">
+<code class="descname">buildPointerPath</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#buildPointerPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the pointer path of the gauge</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>numbers.Number</em>) &#8211; The start point</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="configure">
+<code class="descname">configure</code><span class="sig-paren">(</span><em>configuration</em><span class="sig-paren">)</span><a class="headerlink" href="#configure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Applies the configuration passed in the constructor</dt>
+<dd><p class="first">to the internal parameters</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param object configuration:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">The configuration object passed in the constructor</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="drawBand">
+<code class="descname">drawBand</code><span class="sig-paren">(</span><em>start</em>, <em>end</em>, <em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#drawBand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the coloured bands in the circumference</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<em>int</em>) &#8211; The start of the band, measured in degrees</li>
+<li><strong>end</strong> (<em>int</em>) &#8211; The end of the band, measured in degrees</li>
+<li><strong>color</strong> (<em>str</em>) &#8211; The colour of the band</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="redraw">
+<code class="descname">redraw</code><span class="sig-paren">(</span><em>value</em>, <em>transitionDuration</em><span class="sig-paren">)</span><a class="headerlink" href="#redraw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redraws the gauge</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>float</em>) &#8211; The new value</li>
+<li><strong>transitionDuration</strong> (<em>float</em>) &#8211; The duration of the state transition</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="render">
+<code class="descname">render</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the gauge.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="updateGauges">
+<code class="descname">updateGauges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#updateGauges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates all the gauges calling its <code class="docutils literal"><span class="pre">redraw</span></code> method</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graphpolo.html" class="btn btn-neutral float-right" title="graphpolo.js">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="JavaScript files"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

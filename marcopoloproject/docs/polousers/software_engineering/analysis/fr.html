@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos funcionales &mdash; polousers 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="polousers 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Vista de paquetes de casos de uso" href="uc.html"/>
+        <link rel="prev" title="Requisitos de información" href="ir.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> polousers</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../description.html">Descripción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#module-features">Module features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#directory-creation">Directory creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#bibliografia">Bibliografía</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/pi_pam_mkhomedirs/intro.html">pi_pam_mkhomedirs reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/polousers/intro.html">Polusers reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">polousers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/fr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-funcionales">
+<h1>Requisitos funcionales<a class="headerlink" href="#requisitos-funcionales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rf-1-inicio-de-sesion">
+<h2>RF-1: Inicio de sesión<a class="headerlink" href="#rf-1-inicio-de-sesion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NRF-3, NRF-4</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Al acceder al sistema, el nodo deberá notificar este evento a todos los demás componentes del sistema distribuido.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario accede al nodo con sus credenciales.</li>
+<li>El módulo PAM validará las credenciales consultando las diferentes fuentes de datos dispuestas. En caso de que estas no sean correctas, el caso de uso finaliza y el usuario es notificado. Si las credenciales son correctas, se continúa.</li>
+<li>Se carga el módulo creado y comienza la configuración local.</li>
+<li>Una vez que la configuración local ha finalizado, se realiza la detección de los diferentes nodos utilizando <strong>Marco</strong>.</li>
+<li>Se solicita de forma iterativa la creación y configuración de los ficheros y parámetros del usuario a todos los nodos. Comienza el caso de uso RF-2 en cada uno de los nodos</li>
+<li>El nodo al que el usuario se ha conectado da acceso a este.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El sistema ha sido configurado para que el usuario se conecte al mismo.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que se dé un error en la conexión con algún nodo, se registra el incidente.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-2-creacion-y-configuracion">
+<h2>RF-2: Creación y configuración<a class="headerlink" href="#rf-2-creacion-y-configuracion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-2, NFR-4</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A petición del actor <strong>ACT-2</strong> el actor <strong>ACT-3</strong> configurará el nodo para que el usuario indicado pueda trabajar.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El actor recibe una solicitud de creación.</li>
+<li>Se verifican la identidad del solicitante según lo especificado en el requisito no funcional <strong>NFR-4</strong>.</li>
+<li>Se verifica que la petición contiene datos válidos (comando correcto, argumentos válidos, etcétera)</li>
+<li>Con el objetivo de cumplir el requisito no funcional <strong>NFR-1</strong> el solicitante es notificado de que la operación se realizará en lugar de recibir una confirmación del estado de esta cuando sea realizada. El tiempo de operación es significativo cuando el número de nodos a los que se solicita la creación es elevado y se realiza iterativamente. Este tiempo de espera bloquearía el acceso al sistema hasta que todas las operaciones concluyan.</li>
+<li>Se crea el directorio de usuario.</li>
+<li>En caso de que el directorio <code class="docutils literal"><span class="pre">/etc/skel</span></code> (o aquel donde se encuentre el directorio esqueleto) contenga una copia del contenedor de servicios <em>Tomcat</em>, comienza el caso de uso <strong>RF-3</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario puede acceder a la totalidad del sistema desde un único punto de entrada.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de algún error inesperado durante el proceso, se almacena un registro de esta situación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-3-configuracion-de-tomcat">
+<h2>RF-3: Configuración de Tomcat<a class="headerlink" href="#rf-3-configuracion-de-tomcat" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2, NFR-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que el usuario deba disponer de una instancia de Tomcat, se configuran los parámetros específicos para su cuenta.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El caso de uso comienza como extensión del caso de uso <strong>RF-2</strong>, tras la copia del directorio que contiene la instancia de Tomcat.</li>
+<li>La aplicación revisa todos los ficheros de configuración y ajusta aquellos parámetros de forma adecuada para el usuario. Un ejemplo son los puertos TCP que se abrirán para la instancia.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario dispone de una instancia de Tomcat configurada.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de algún error inesperado durante el proceso, se almacena un registro de esta situación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="vista-de-casos-de-uso">
+<h2>Vista de casos de uso<a class="headerlink" href="#vista-de-casos-de-uso" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uc.html">Vista de paquetes de casos de uso</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uc.html" class="btn btn-neutral float-right" title="Vista de paquetes de casos de uso">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ir.html" class="btn btn-neutral" title="Requisitos de información"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

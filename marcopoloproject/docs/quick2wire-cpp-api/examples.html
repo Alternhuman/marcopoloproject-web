@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; quick2wire-cpp-api 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="quick2wire-cpp-api 1 documentation" href="index.html"/>
+        <link rel="next" title="Ingeniería del Software" href="software_engineering/intro.html"/>
+        <link rel="prev" title="Usage" href="usage.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> quick2wire-cpp-api</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="principles.html">Working principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/pin.html">The Pin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/pinbank.html">The PinBank class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gpio.html">The GPIO class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gpio-admin.html">gpio-admin.c</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">quick2wire-cpp-api</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Examples</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/examples.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>In this example, some pins are light up and turned down after the time specified in the shell parameters.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;quick2wire/gpio.hpp&gt;</span>
+<span class="cp">#include &lt;unistd.h&gt;</span>
+<span class="cp">#include &lt;vector&gt;</span>
+<span class="cp">#include &lt;time.h&gt;</span>
+<span class="cp">#include &lt;math.h&gt;</span>
+
+<span class="cp">#define PIN_COUNT 7</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[]){</span>
+
+        <span class="n">GPIO</span> <span class="n">g</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">pin_numbers</span> <span class="p">[</span><span class="n">PIN_COUNT</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+        <span class="n">vector</span> <span class="o">&lt;</span><span class="n">Pin</span><span class="o">&gt;</span> <span class="n">pins</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">){</span>
+                <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;Usage %s [sleep time in seconds]&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+                <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">double</span> <span class="n">sleep_time</span> <span class="o">=</span> <span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">sleep_time</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">fprintf</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="s">&quot;Wrong sleep time value&quot;</span><span class="p">);</span>
+                <span class="n">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">PIN_COUNT</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">Pin</span> <span class="n">p</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">pins</span><span class="o">-&gt;</span><span class="n">at</span><span class="p">(</span><span class="n">pin_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+                <span class="n">p</span><span class="p">.</span><span class="n">open</span><span class="p">();</span>
+                <span class="n">pins</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span> <span class="n">m</span> <span class="o">--&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pins</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">pins</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">setDirection</span><span class="p">(</span><span class="n">OUT</span><span class="p">);</span>
+                        <span class="n">pins</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">setValue</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                        <span class="n">usleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="o">*</span><span class="mi">1000000</span><span class="p">);</span>
+                        <span class="n">pins</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">setValue</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pins</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">pins</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">close</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="software_engineering/intro.html" class="btn btn-neutral float-right" title="Ingeniería del Software">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral" title="Usage"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,893 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos funcionales &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Vista de paquetes de casos de uso" href="uc.html"/>
+        <link rel="prev" title="Requisitos de información" href="ir.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/fr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-funcionales">
+<h1>Requisitos funcionales<a class="headerlink" href="#requisitos-funcionales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rf-1-ordenar-despliegue">
+<h2>RF-1: Ordenar despliegue<a class="headerlink" href="#rf-1-ordenar-despliegue" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 2</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF4</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Diferentes usuarios solicitan al sistema la realización de operaciones de despliegue con una serie de parámetros de configuración.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El usuario deberá estar autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario solicita realizar una operación de despliegue.</li>
+<li>El sistema muestra la información sobre los diferentes nodos que admiten operaciones de despliegue.</li>
+<li>El usuario selecciona los nodos donde desea ubicar los ficheros.</li>
+<li>El usuario elige un fichero ejecutable e indica los diferentes parámetros de despliegue.</li>
+<li>Para cada uno de los ficheros a desplegar realizará esta acción.</li>
+<li>Una vez que termine de añadir ficheros, el despliegue comenzará.</li>
+<li>Si se indica un comando en uno o varios de los ficheros, el usuario recibe la salida de estos en la vista dispuesta a tal efecto.  Se ejecuta el caso de uso RF-4</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario recibe la confirmación de éxito o un mensaje de error en su defecto.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Si el usuario no dispone de los permisos de ejecución o despliegue necesarios en el directorio elegido, recibirá un mensaje informativo.</li>
+<li>En caso de que exista algún tipo de error interno, el usuario recibirá un mensaje informativo.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>El sistema deberá ser capaz de ejecutar operaciones de despliegue de forma concurrente para un volumen de usuarios estimado en 60.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Se espera que los usuarios utilicen esta funcionalidad en una frecuencia aproximada de 3 despliegues/hora.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-2-monitorizacion-de-estado">
+<h2>RF-2: Monitorización de estado<a class="headerlink" href="#rf-2-monitorizacion-de-estado" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 2</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín, Rodrigo Santamaría</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: 2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF4, NFR2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Los diferentes usuarios podrán consultar en directo diferentes valores de estado como la memoria en uso o los diferentes procesos en ejecución.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>El usuario deberá estar autenticado en el sistema.</li>
+<li>Se conoce la información sobre el estado de los nodos.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario accede a la vista de monitorización.</li>
+<li>La lógica que dirige la interfaz establece conexiones con los nodos previamente detectados.</li>
+<li>La interfaz es actualizada cada vez que los nodos emiten información de estado.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se obtiene la información sobre el estado de los diferentes nodos.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que exista algún tipo de error interno (en especial en el establecimiento de las conexiones con los diferentes nodos), el usuario recibirá un mensaje informativo.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-3-ejecucion-de-comandos">
+<h2>RF-3: Ejecución de comandos<a class="headerlink" href="#rf-3-ejecucion-de-comandos" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Entrevistas</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF4, NFR-9</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Acompañando a un despliegue o de forma independiente, el <em>software</em> permite ejecutar comandos en los diferentes nodos que conforman el sistema.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>El usuario deberá estar autenticado en el sistema.</li>
+<li>El módulo de control de la interfaz ha establecido una conexión con los diferentes nodos presentes en la red.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Si el comando se ejecuta de forma independiente, el usuario accede a la interfaz de ejecución de comandos, donde especifica el comando a ejecutar y los nodos receptores. En caso contrario dichos parámetros son especificados durante la creación de un despliegue.</li>
+<li>Los diferentes nodos reciben el comando.</li>
+<li>El comando es ejecutado, los diferentes nodos envían la información al controlador de la interfaz, que muestra el mensaje.</li>
+<li>El usuario puede en cualquier momento detener la ejecución del comando.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El comando es ejecutado y el usuario obtiene la salida del mismo</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que exista algún tipo de error interno, el usuario recibirá un mensaje informativo y se registrará el incidente en un fichero de <em>log</em>.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Paso 3: Generalmente la salida que un programa emite es muy elevada.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-4-autenticacion">
+<h2>RF-4: Autenticación<a class="headerlink" href="#rf-4-autenticacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Diseño preliminar del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A través de una interfaz de autenticación los usuarios acceden al sistema.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>El usuario debe poseer unas credenciales en el sistema.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario accede al sistema y este muestra una interfaz de autenticación.</li>
+<li>El usuario introduce las claves de acceso.</li>
+<li>El sistema valida dichas claves utilizando la fuente de datos especificada por el administrador.</li>
+<li>Si los datos son válidos, el sistema da acceso al usuario y muestra la interfaz de control. En caso de que los datos no sean válidos el sistema muestra un mensaje de error.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario es autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que exista algún tipo de error interno (como un fallo en el acceso al sistema de validación de claves), el usuario recibirá un mensaje informativo.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-5-validar-una-conexion-websocket">
+<h2>RF-5: Validar una conexión <strong>WebSocket</strong><a class="headerlink" href="#rf-5-validar-una-conexion-websocket" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de diseño del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2, OBJ-3, OBJ-4</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NRF7</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Las conexiones <strong>WebSocket</strong> cifradas utilizando HTTPS que se realizan utilizando certificados no confiables o sin un campo <strong>CN</strong> válido emiten un error no interactivo. El sistema recoge dicho error y muestra un mensaje en la interfaz de usuario, solicitando la validación del certificado de la misma forma que en una conexión HTTPS tradicional.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Precondición</strong>:</dt>
+<dd><p class="first last">El usuario debe estar autenticado en el sistema. Se da la siguiente secuencia de interacción:
+1. El usuario accede a la interfaz principal de la aplicación, y el sistema detecta los nodos presentes en el mismo.
+2. El mecanismo de control de la interfaz intenta establecer la conexión con el resto de nodos existentes y se detecta el error en la validación del certificado.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>La interfaz muestra un mensaje informativo al usuario, indicando que la funcionalidad de la aplicación se verá limitada debido a este problema.</li>
+<li>El usuario clica en el elemento solicitado por la interfaz, que muestra a través de los mecanismos del navegador la información del certificado y un elemento de control para validar el mismo.</li>
+<li>El usuario valida el certificado.</li>
+<li>La interfaz intenta establecer una conexión <strong>websocket</strong> y en caso de éxito, muestra un mensaje de confirmación al usuario.</li>
+<li>El usuario retorna a la interfaz principal. El problema ha sido resuelto.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario puede utilizar el canal <strong>WebSocket</strong></p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: Errores en la conexión entre la interfaz y el servidor, resueltos por el navegador.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Una vez por cada sesión. Se espera alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-6-instalacion-del-sistema">
+<h2>RF-6: Instalación del sistema<a class="headerlink" href="#rf-6-instalacion-del-sistema" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Entrevistas, fases de desarrollo</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El administrador contará con un conjunto de herramientas incluidas en el paquete <strong>software</strong> para realizar la instalación del mismo.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El Administrador debe contar con los permisos de instalación suficientes y contar con una copia del <strong>software</strong> o acceso a un repositorio de paquetes.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>El administrador ejecuta el <em>script</em> de instalación con las opciones que considere pertinentes.</li>
+<li>Tras la instalación, configura los diferentes certificados que el <em>software</em> requiere.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El software está instalado y configurado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: Diferentes errores relacionados con la falta de permisos pueden darse durante el paso 1. Dichos errores son descritos en el <em>script</em> de instalación en lenguaje humano, y tras actuar en consecuencia, la instalación puede retomarse, generalmente, desde el punto en el que el error aparece.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>:</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: La instalación es realizada una vez por cada uno de los nodos, salvo circunstancias particulares (reinstalación, actualización...)</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-7-gestion-de-errores">
+<h2>RF-7: Gestión de errores<a class="headerlink" href="#rf-7-gestion-de-errores" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo, análisis del sistema</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF5</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que un error ocurra, el sistema debe recuperarse del mismo de forma transparente, o en caso de que no sea posible, informar al usuario de dicha situación sugiriendo opciones para la recuperación del mismo.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Ha ocurrido un error (excepción, validación insatisfactoria de parámetros introducidos por el usuario...) fruto de una interacción con el sistema. Generalmente el código que ejecuta dicha acción cuenta con una serie de puntos de entrada para gestionar este tipo de comportamiento erróneo.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>El sistema identifica el tipo de error y envía un mensaje a la interfaz de usuario, con una serie de parámetros que indican métodos de recuperación en caso de que sea necesario.</li>
+<li>El mecanismo de control de la interfaz analiza la respuesta del servidor tras el envío de una solicitud y determina que se trata de un error.</li>
+<li>La interfaz muestra el mensaje informativo así como los elementos de control que permiten subsanar el mismo.</li>
+<li>En caso de que el usuario decida seguir el consejo dado por la interfaz, realiz las operaciones indicadas y el error es resuelto.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: La sesión es funcional de nuevo. El usuario puede en este momento repetir la operación que deseaba en primera instancia.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Si el error no es determinable, se ejecuta el caso de uso considerándolo un error &#8220;desconocido&#8221;.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Bajo</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Bajo</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-8-procesar-peticion">
+<h2>RF-8: Procesar petición<a class="headerlink" href="#rf-8-procesar-peticion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo, análisis del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-4</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El rol <strong>deployer</strong> y el controlador de la interfaz de usuario solicitan a los diferentes nodos que desempeñan el rol de <strong>receiver</strong> la realización de diferentes acciones. Estos deben identificar la acción a llevar a cabo y validar los diferentes parámetros provistos, así como verificar que el solicitante es de confianza.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic">
+<li><p class="first">El sistema recibe una petición, y valida la identidad del solicitante a través de los mecanismos dispuestos por el protocolo HTTPS.</p>
+</li>
+<li><p class="first">En caso de que la validación sea satisfactoria, el sistema identifica el tipo de acción a realizar.</p>
+</li>
+<li><p class="first">Se realiza una de las siguientes acciones:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que se solicite un despliegue, comienza el caso de uso RF-9.</li>
+<li>En caso de que se solicite recibir la información sobre el estado del nodo, el cliente es añadido a la lista de interesados y comienza el caso de uso RF-10.</li>
+<li>En caso de que se solicite la ejecución de un comando, comienza el caso de uso RF-11.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: La acción es realizada</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que la identidad del solicitante no pueda ser validada, la conexión es rechazada. El resto de errores son gestionados por los puntos de extensión.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-9-realizar-despliegue">
+<h2>RF-9: Realizar despliegue<a class="headerlink" href="#rf-9-realizar-despliegue" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Ante la petición de un usuario, se realiza un despliegue.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic">
+<li><p class="first">El nodo procesa los diferentes campos de la solicitud y extrae los mismos.</p>
+</li>
+<li><p class="first">Se validan todos los parámetros y se decide el directorio de despliegue y permisos de los archivos desplegados en función de los mismos.</p>
+</li>
+<li><p class="first">Se pueden dar las siguientes situaciones adicionales:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que el usuario lo solicite, el servicio será almacenado en su instancia local de <strong>Tomcat</strong>.</li>
+<li>En caso de que sea solicitado por el usuario, se publicará un servicio asociado al despliegue en <strong>Polo</strong> (si existe en el sistema).</li>
+<li>Si existe el fichero y la petición indica que no sea sobreescrito, la operación termina.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Los archivos son copiados.</p>
+</li>
+<li><p class="first">En caso de que se solicite la ejecución de un comando, comienza el caso de uso RF-11.</p>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El despliegue se ha realizado correctamente.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que el usuario no disponga de los suficientes permisos de ejecución, se emitirá un mensaje de error a través de la interfaz de usuario.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-10-enviar-estado">
+<h2>RF-10: Enviar estado<a class="headerlink" href="#rf-10-enviar-estado" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-3</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Periódicamente la información sobre el estado del nodo es emitida a los solicitantes.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>De forma continua (en intervalos de un segundo), se verifica que existan conexiones interesadas en la información del estado del nodo.</li>
+<li>En caso de que exista al menos una, se procede a la recolección de dichos datos. Comienza el caso de us RF-13 En caso contrario la ejecución de esta iteración termina y se espera al siguiente segundo.</li>
+<li>Los datos son enviados a todos los interesados recorriendo la colección de conexiones.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Los datos son enviados a los diferentes clientes interesados, que procesan la información y la muestran.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En el caso de que se dé un fallo en la conexión de red, se registrará el error y comenzará el caso de uso <strong>RF-7</strong></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-11-ejecutar-comando">
+<h2>RF-11: Ejecutar comando<a class="headerlink" href="#rf-11-ejecutar-comando" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Entrevistas</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-3, OBJ4</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-3</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El sistema ejecuta un comando y vincula sus canales de salida a un sistema de notificaciones que es capaz de detectar nuevos mensajes y difundirlos.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>Tras la solicitud de realización de un comando, el sistema rebaja sus permisos a los permisos del usuario, a fin de garantizar que ninguna operación no autorizada es llevada a cabo y ejecuta el comando.</li>
+<li>Se vincula el comando a los canales de difusión de los mismos.</li>
+<li>Cada vez que se emita un mensaje, el sistema recibe una notificación y difunde el mensaje. En caso de que el mensaje sea de finalización, un indicador de dicha situación es retransmitido.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Los usuarios reciben la información de la ejecución a través de la interfaz.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que el usuario no disponga de los suficientes permisos de ejecución, el usuario es notificado a través del mismo canal.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-12-procesar-mensaje">
+<h2>RF-12: Procesar mensaje<a class="headerlink" href="#rf-12-procesar-mensaje" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Entrevistas</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-3, OBJ4</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-3</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Tras la ejecución de un comando el sistema procesa la salida por los canales estándar y de error y emite un mensaje que contiene el valor de dicha salida, que es devuelto al usuario.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Tiene que haberse ejecutado un comando</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>A través de los mecanismos de comunicación entre procesos que el sistema operativo ofrece, se detecta la generación de un mensaje.</li>
+<li>El sistema determina de qué <em>buffer</em> procede el mensaje, recoge la cadena de caracteres y solicita la difusión del mismo indicándoselo a la entidad a cargo. En caso de que el mensaje sea de fin de ejecución, el mensaje recoge esta situación.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servidor es notificado del mensaje.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: Fallo en la comunicación entre procesos.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-13-recoger-estado">
+<h2>RF-13 Recoger estado<a class="headerlink" href="#rf-13-recoger-estado" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A través de llamadas al sistema, consulta de ficheros o cualquier otro mecanismo, los datos sobre el estado del sistema son incluidos en una colección que se retorna al solicitante.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Secuencia normal</strong>:</dt>
+<dd><ol class="first last arabic simple">
+<li>Mediante el punto de entrada dispuesto a tal efecto, se solicita la recolección de datos.</li>
+<li>De forma secuencial se ejecuta el procedimiento necesario para la obtención del dato en cuestión y se añade a la colección.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se retorna la colección</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de fallo en la recolección de un dato, se incluye un valor nulo.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>:</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: En caso de que exista al menos un interesado, una petición por segundo.</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong>: Los diferentes sistemas operativos con los que se debe trabajar cuentan con un conjunto diferente de mecanismos para la obtención de datos. El sistema se debe adaptar a cada uno de ellos.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="vista-de-casos-de-uso">
+<h2>Vista de casos de uso<a class="headerlink" href="#vista-de-casos-de-uso" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uc.html">Vista de paquetes de casos de uso</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uc.html#paquete-deployer">Paquete deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uc.html#paquetes-receiver-statusmonitor-y-buffereceiver">Paquetes receiver, statusmonitor y buffereceiver</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uc.html" class="btn btn-neutral float-right" title="Vista de paquetes de casos de uso">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ir.html" class="btn btn-neutral" title="Requisitos de información"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>marcodeployer.deployer &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>marcodeployer.deployer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for marcodeployer.deployer</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">import</span> <span class="nn">tornado</span>
+<span class="kn">from</span> <span class="nn">tornado.web</span> <span class="kn">import</span> <span class="n">Application</span><span class="p">,</span> <span class="n">RequestHandler</span><span class="p">,</span> \
+<span class="n">StaticFileHandler</span><span class="p">,</span> <span class="n">asynchronous</span>
+<span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">web</span><span class="p">,</span> <span class="n">websocket</span><span class="p">,</span> <span class="n">ioloop</span>
+<span class="kn">from</span> <span class="nn">tornado.httpserver</span> <span class="kn">import</span> <span class="n">HTTPServer</span>
+<span class="kn">from</span> <span class="nn">tornado.gen</span> <span class="kn">import</span> <span class="n">engine</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">mimetypes</span>
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">signal</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">makedirs</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">requests.adapters</span> <span class="kn">import</span> <span class="n">HTTPAdapter</span>
+<span class="kn">from</span> <span class="nn">requests_futures.sessions</span> <span class="kn">import</span> <span class="n">FuturesSession</span>
+<span class="kn">from</span> <span class="nn">pyjade.ext.tornado</span> <span class="kn">import</span> <span class="n">patch_tornado</span>
+<span class="n">patch_tornado</span><span class="p">()</span> <span class="c">#Allows pyjade to work with Tornado</span>
+
+<span class="kn">from</span> <span class="nn">marcopolo.bindings.marco</span> <span class="kn">import</span> <span class="n">Marco</span><span class="p">,</span> <span class="n">MarcoTimeOutException</span>
+<span class="kn">from</span> <span class="nn">marcopolo.bindings.polo</span> <span class="kn">import</span> <span class="n">Polo</span><span class="p">,</span> <span class="n">PoloInternalException</span><span class="p">,</span> <span class="n">PoloException</span>
+
+<span class="kn">from</span> <span class="nn">marcodeployer</span> <span class="kn">import</span> <span class="n">utils</span><span class="p">,</span> <span class="n">conf</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+
+<div class="viewcode-block" id="NotCheckingHostnameHTTPAdapter"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.NotCheckingHostnameHTTPAdapter">[docs]</a><span class="k">class</span> <span class="nc">NotCheckingHostnameHTTPAdapter</span><span class="p">(</span><span class="n">HTTPAdapter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A middleware that avoids the verification of the SSL Hostname field.</span>
+<span class="sd">    Since the name of the client cannot be verified,</span>
+<span class="sd">    it is simply not checked</span>
+<span class="sd">    </span>
+<span class="sd">    Generously provided by Juan Luis Boya</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="NotCheckingHostnameHTTPAdapter.cert_verify"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.NotCheckingHostnameHTTPAdapter.cert_verify">[docs]</a>    <span class="k">def</span> <span class="nf">cert_verify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Avoids the verification of the SSL Hostname field</span>
+
+<span class="sd">        :param Connection conn: The connection object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">NotCheckingHostnameHTTPAdapter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">cert_verify</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">assert_hostname</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c"># By changing the adapter no hostname is checked</span></div></div>
+<span class="n">futures_session</span> <span class="o">=</span> <span class="n">FuturesSession</span><span class="p">()</span>
+<span class="n">futures_session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s">&#39;https://&#39;</span><span class="p">,</span> <span class="n">NotCheckingHostnameHTTPAdapter</span><span class="p">())</span>
+
+<span class="c">#Creation of the temporal directory if it does not exists</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TMPDIR</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TMPDIR</span><span class="p">)</span>
+
+<span class="n">__UPLOADS__</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">TMPDIR</span> <span class="c"># temporal directory were files will be stored</span>
+
+<span class="n">open_ws</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c">#Set of the current alive websockets</span>
+
+<div class="viewcode-block" id="BaseHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.BaseHandler">[docs]</a><span class="k">class</span> <span class="nc">BaseHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The base class which the rest of HTTP handlers extends.</span>
+<span class="sd">    Provides secure cookie decryption and error handling</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BaseHandler.get_current_user"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.BaseHandler.get_current_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decrypts the secure cookie</span>
+
+<span class="sd">        :return: The name of the user or None</span>
+<span class="sd">        :rtype: string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_secure_cookie</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c">#print(os.path.join(conf.TEMPLATES_DIR, template))</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TEMPLATES_DIR</span><span class="p">,</span> <span class="n">template</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">write_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;500.jade&quot;</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="IndexHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.IndexHandler">[docs]</a><span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    In charge of handling GET requests.</span>
+<span class="sd">    Provides the client with the necessary .html/css/js</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@web.addslash</span> <span class="c">#Appends a &#39;/&#39; at the end of the request</span>
+<div class="viewcode-block" id="IndexHandler.get"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.IndexHandler.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the user is logged and sends the index files</span>
+<span class="sd">        (basic HTML, CSS and JS).</span>
+<span class="sd">        If the user is not already logged in, it is redirected </span>
+<span class="sd">        to the main page. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_user</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&quot;/login/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">tornado</span><span class="o">.</span><span class="n">escape</span><span class="o">.</span><span class="n">xhtml_escape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_user</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&quot;index.jade&quot;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="LoginHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.LoginHandler">[docs]</a><span class="k">class</span> <span class="nc">LoginHandler</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles login authentication through secure cookies and PAM</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="LoginHandler.get"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.LoginHandler.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the login page if the user is not logged.</span>
+<span class="sd">        Otherwise redirects to the index site.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_user</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&quot;login.jade&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="LoginHandler.post"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.LoginHandler.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes login requests using PAM. If the user and password combination</span>
+<span class="sd">        is valid, the response is given a secure cookie, and the user gets </span>
+<span class="sd">        redirected to the new index site.</span>
+<span class="sd">        Otherwise, a 403 page is returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">utils</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span> 
+                              <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&quot;pass&quot;</span><span class="p">)):</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_secure_cookie</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="mi">403</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&quot;badpass.jade&quot;</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="Logout"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.Logout">[docs]</a><span class="k">class</span> <span class="nc">Logout</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes the secure cookie.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Logout.get"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.Logout.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes the secure cookie and redirects the user to the index folder.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_cookie</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="UploadAndDeployHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.UploadAndDeployHandler">[docs]</a><span class="k">class</span> <span class="nc">UploadAndDeployHandler</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Listens for POST requests and performs the deployment asynchronously.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c">#The post is asynchronous due to the potencially long deploying time</span>
+    <span class="nd">@asynchronous</span>
+    <span class="nd">@engine</span>
+<div class="viewcode-block" id="UploadAndDeployHandler.post"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.UploadAndDeployHandler.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receives a set of parameters through an asynchronous POST request:</span>
+
+<span class="sd">        - file : A binary stream of data which corresponds to a file uploaded by the user.</span>
+
+<span class="sd">        - folder : The folder where the file has to be stored</span>
+
+<span class="sd">        - tomcat : Specifies that the service is a Tomcat container and that it must be added to the offered services</span>
+
+<span class="sd">        - overwrite : If true, the file will overwrite a previous file with the same name</span>
+
+<span class="sd">        - command : A command to execute when after the deployment</span>
+
+<span class="sd">        - nodes : The nodes where the file and command are to be deployed</span>
+
+<span class="sd">        Writes a status code to the client in return</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">file1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s">&#39;file&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c">#Only one file at a time</span>
+
+        <span class="n">original_fname</span> <span class="o">=</span> <span class="n">file1</span><span class="p">[</span><span class="s">&#39;filename&#39;</span><span class="p">]</span>
+       
+        <span class="n">output_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__UPLOADS__</span><span class="p">,</span> <span class="n">original_fname</span><span class="p">),</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+        <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file1</span><span class="p">[</span><span class="s">&#39;body&#39;</span><span class="p">])</span>
+        <span class="n">output_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        
+        <span class="c"># The nodes where to deploy are returned as a comma-separated string</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;nodes&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="kn">from</span> <span class="nn">concurrent</span> <span class="kn">import</span> <span class="n">futures</span>
+        
+        <span class="sd">&quot;&quot;&quot;The deployment process is performed asynchronously </span>
+<span class="sd">        using a ThreadPool, which will handle the request asynchronously&quot;&quot;&quot;</span>
+
+        <span class="n">futures_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="n">future</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="p">,</span>
+             <span class="n">request</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> 
+             <span class="n">filename</span><span class="o">=</span><span class="n">original_fname</span><span class="p">,</span> 
+             <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;command&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> 
+             <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">current_user</span><span class="p">,</span> 
+             <span class="n">folder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;folder&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> 
+             <span class="n">tomcat</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;tomcat&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> 
+             <span class="n">overwrite</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;overwrite&#39;</span><span class="p">,</span> <span class="s">&#39;false&#39;</span><span class="p">))</span>
+            
+            <span class="n">futures_set</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">future</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
+
+        <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+       
+        <span class="k">for</span> <span class="n">future</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">futures_set</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+                
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;</span> <span class="mi">400</span><span class="p">:</span>
+                    <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">node</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">node</span><span class="p">,</span> <span class="s">&quot;Could not connect to the node&quot;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s">&quot;Errors occurred &quot;</span> <span class="o">+</span> 
+                <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&quot;Node:&quot;</span><span class="o">+</span><span class="n">node</span><span class="o">+</span><span class="s">&quot;.&quot;</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">reason</span> <span class="ow">in</span> <span class="n">error</span><span class="p">]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s">&quot;file&quot;</span> <span class="o">+</span> <span class="n">original_fname</span> <span class="o">+</span> <span class="s">&quot; is uploaded and on deploy&quot;</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="UploadAndDeployHandler.deploy"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.UploadAndDeployHandler.deploy">[docs]</a>    <span class="k">def</span> <span class="nf">deploy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">idpolo</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">tomcat</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="s">&#39;false&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        </span>
+<span class="sd">        Performs the deployment asynchronously.</span>
+
+<span class="sd">        </span>
+<span class="sd">        :param str node: The IP address of the node</span>
+<span class="sd">        </span>
+<span class="sd">        :param :class:`BaseHandler` request: The related POST request which invoked this method *Deprecated*</span>
+<span class="sd">        </span>
+<span class="sd">        :param str filename: The name of the file to upload</span>
+<span class="sd">        </span>
+<span class="sd">        :param str command: The command to execute after deployment</span>
+<span class="sd">        </span>
+<span class="sd">        :param str user: The name of the user who performs the request</span>
+<span class="sd">        </span>
+<span class="sd">        :param str folder: The deployment folder</span>
+<span class="sd">        </span>
+<span class="sd">        :param str idpolo: The id of the polo service to publish</span>
+<span class="sd">        </span>
+<span class="sd">        :param str tomcat: Specifies whether the file should be deployed as a tomcat service</span>
+<span class="sd">        </span>
+<span class="sd">        :param str overwrite: Specifies if the file can overwrite existing files</span>
+
+<span class="sd">        :returns: :class:`concurrent.future` A future that encapsulates the asynchronous execution </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_content_type</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Guesses the MIME type of the file so it can be sent with the POST request</span>
+
+<span class="sd">            :param str filename: The name of the file to process</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="n">mimetypes</span><span class="o">.</span><span class="n">guess_type</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="s">&#39;application/octet-stream&#39;</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://&quot;</span><span class="o">+</span><span class="n">node</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_PORT</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;/deploy/&quot;</span>
+        
+        <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;file&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">filename</span><span class="p">,</span> 
+                    <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__UPLOADS__</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s">&#39;rb&#39;</span><span class="p">),</span> 
+                    <span class="n">get_content_type</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+                <span class="p">}</span>
+        
+        <span class="n">commands</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;command&#39;</span><span class="p">:</span><span class="n">command</span><span class="p">,</span> 
+                    <span class="s">&#39;user&#39;</span><span class="p">:</span><span class="n">user</span><span class="p">,</span> 
+                    <span class="s">&#39;folder&#39;</span><span class="p">:</span> <span class="n">folder</span><span class="p">,</span> 
+                    <span class="s">&#39;idpolo&#39;</span><span class="p">:</span> <span class="n">idpolo</span><span class="p">,</span> 
+                    <span class="s">&#39;tomcat&#39;</span><span class="p">:</span> <span class="n">tomcat</span><span class="p">,</span>
+                    <span class="s">&#39;overwrite&#39;</span><span class="p">:</span><span class="n">overwrite</span>
+                    <span class="p">}</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">futures_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">commands</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVERCERT</span><span class="p">,</span> <span class="n">cert</span><span class="o">=</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">APPCERT</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPKEY</span><span class="p">))</span>
+        
+            <span class="k">return</span> <span class="n">f</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Unknown exception in POSTing </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="NodesHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.NodesHandler">[docs]</a><span class="k">class</span> <span class="nc">NodesHandler</span><span class="p">(</span><span class="n">websocket</span><span class="o">.</span><span class="n">WebSocketHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handler for the Polo websocket connection</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="NodesHandler.check_origin"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.NodesHandler.check_origin">[docs]</a>    <span class="k">def</span> <span class="nf">check_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Overrides the parent method to return True for any request, since we are</span>
+<span class="sd">        working without names. </span>
+
+<span class="sd">        :see: :meth:`check_origin&lt;tornado.websocket.WebSocketHandler.check_origin&gt;`</span>
+
+<span class="sd">        :returns: bool True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</div>
+<div class="viewcode-block" id="NodesHandler.open"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.NodesHandler.open">[docs]</a>    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes a new WebSocket connection, storing it in open_ws.</span>
+<span class="sd">        Returns the nodes offering the deployer service</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">open_ws</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">Marco</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nodes</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_SERVICE_NAME</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&quot;Nodes&quot;</span><span class="p">:[</span><span class="n">n</span><span class="o">.</span><span class="n">address</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]}))</span>
+        <span class="k">except</span> <span class="n">MarcoTimeOutException</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&quot;Error&quot;</span><span class="p">:</span> <span class="s">&quot;Error in marco detection&quot;</span><span class="p">}))</span>
+                </div>
+    <span class="k">def</span> <span class="nf">send_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">send_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="Nodes"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.Nodes">[docs]</a><span class="k">class</span> <span class="nc">Nodes</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs a synchronous Marco request for the deployer service</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Nodes.get"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.Nodes.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a JSON string with the nodes offering the deployer service</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">Marco</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nodes</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVER_SERVICE_NAME</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&#39;nodes&#39;</span><span class="p">:[</span><span class="n">n</span><span class="o">.</span><span class="n">address</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]}))</span>
+        <span class="k">except</span> <span class="n">MarcoTimeOutException</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&quot;Error&quot;</span><span class="p">:</span> <span class="s">&quot;Error in marco detection&quot;</span><span class="p">}))</span>
+        
+</div></div>
+<div class="viewcode-block" id="ProbeHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.ProbeHandler">[docs]</a><span class="k">class</span> <span class="nc">ProbeHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A test connection to trigger the web browser certificate validation,</span>
+<span class="sd">    since WebSockets cannot request user confirmation by themselves.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;You should be able to open a WebSocket connection now&quot;</span><span class="p">)</span>
+        
+</div>
+<div class="viewcode-block" id="ProbeWSHandler"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.ProbeWSHandler">[docs]</a><span class="k">class</span> <span class="nc">ProbeWSHandler</span><span class="p">(</span><span class="n">websocket</span><span class="o">.</span><span class="n">WebSocketHandler</span><span class="p">):</span>
+<div class="viewcode-block" id="ProbeWSHandler.check_origin"><a class="viewcode-back" href="../../reference/deployer.html#marcodeployer.deployer.ProbeWSHandler.check_origin">[docs]</a>    <span class="k">def</span> <span class="nf">check_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Overrides the parent method to return True for any request, since we are</span>
+<span class="sd">        working without names</span>
+
+<span class="sd">        :see: :meth:`check_origin&lt;tornado.websocket.WebSocketHandler.check_origin&gt;`</span>
+
+<span class="sd">        :returns: bool True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</div>
+    <span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_message</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+</div>
+<span class="n">routes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">r&#39;/&#39;</span><span class="p">,</span> <span class="n">IndexHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/nodes/?&#39;</span><span class="p">,</span> <span class="n">Nodes</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/static/(.*)&#39;</span><span class="p">,</span> <span class="n">StaticFileHandler</span><span class="p">,</span> <span class="p">{</span><span class="s">&quot;path&quot;</span><span class="p">:</span><span class="n">conf</span><span class="o">.</span><span class="n">STATIC_PATH</span><span class="p">}),</span>
+    <span class="p">(</span><span class="s">r&#39;/ws/nodes/?&#39;</span><span class="p">,</span> <span class="n">NodesHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&quot;/login/?&quot;</span><span class="p">,</span> <span class="n">LoginHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&quot;/logout/?&quot;</span><span class="p">,</span> <span class="n">Logout</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/upload/?&#39;</span><span class="p">,</span> <span class="n">UploadAndDeployHandler</span><span class="p">),</span>
+    
+    <span class="c">#probes</span>
+    <span class="p">(</span><span class="s">r&#39;/probe/?&#39;</span><span class="p">,</span> <span class="n">ProbeHandler</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">r&#39;/ws/probe/?&#39;</span><span class="p">,</span> <span class="n">ProbeWSHandler</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">RedirectHandler</span><span class="p">(</span><span class="n">RequestHandler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Redirects all request to the secure port</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Redirects all requests to the secure port</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&quot;https://</span><span class="si">%s</span><span class="s">:</span><span class="si">%s%s</span><span class="s">&quot;</span> 
+            <span class="o">%</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">host</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">NON_SECURE_DEPLOYER_PORT</span><span class="p">),</span> <span class="s">&quot;&quot;</span><span class="p">),</span> 
+                <span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_PORT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">uri</span><span class="p">),</span> <span class="n">permanent</span><span class="o">=</span><span class="bp">True</span>
+            <span class="p">)</span>
+
+<span class="n">nonsecure_routes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">r&#39;/.*&#39;</span><span class="p">,</span> <span class="n">RedirectHandler</span><span class="p">)</span>    
+<span class="p">]</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;debug&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">&quot;static_path&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">STATIC_PATH</span><span class="p">,</span>
+    <span class="s">&quot;login_url&quot;</span><span class="p">:</span><span class="s">&quot;/login/&quot;</span><span class="p">,</span>
+    <span class="s">&quot;cookie_secret&quot;</span><span class="p">:</span><span class="s">&quot;2a70b29a80c23f097a074626e584c8f60a87cf33f518f0eda60db0211c82&quot;</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">routes</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">)</span>
+<span class="n">nonsecure_app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">nonsecure_routes</span><span class="p">)</span>
+<span class="n">io_loop</span> <span class="o">=</span> <span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">shutdown</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Stopping gracefully&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">Polo</span><span class="p">()</span><span class="o">.</span><span class="n">unpublish_service</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_SERVICE_NAME</span><span class="p">,</span> <span class="n">delete_file</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">io_loop</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">sigint_handler</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="n">io_loop</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">shutdown</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">sigint_handler</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_LOG_FILE</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_LOGLEVEL</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+
+    <span class="c">#Replace with SSLContext (this option is maintained for compatibility reasons)</span>
+    <span class="n">httpServer</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">ssl_options</span><span class="o">=</span><span class="p">{</span> 
+        <span class="s">&quot;certfile&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPCERT</span><span class="p">,</span>
+        <span class="s">&quot;keyfile&quot;</span><span class="p">:</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPKEY</span><span class="p">,</span>
+    <span class="p">})</span>
+
+    <span class="n">httpServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_PORT</span><span class="p">)</span>
+
+    <span class="n">nonsecure_app</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">NON_SECURE_DEPLOYER_PORT</span><span class="p">)</span>
+    
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">Polo</span><span class="p">()</span><span class="o">.</span><span class="n">publish_service</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_SERVICE_NAME</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="n">PoloInternalException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">PoloException</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">break</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Serving on port </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">conf</span><span class="o">.</span><span class="n">DEPLOYER_PORT</span><span class="p">)</span>
+    <span class="n">io_loop</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

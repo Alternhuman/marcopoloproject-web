@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Diseño procedimental &mdash; marco-netinst 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marco-netinst 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de diseño" href="intro.html"/>
+        <link rel="next" title="Etapa de desarrollo" href="../development.html"/>
+        <link rel="prev" title="Vista de interacción" href="interaction.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marco-netinst</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals/intro.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-netinst.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-minimal.html">marco-minimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-bootstrap-backend.html">marco-bootstrap-backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-netinst/intro.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-minimal/intro.html">marco-minimal reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-backend/intro.html">marco-bootstrap-backend reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-slave/intro.html">marco-bootstrap-slave reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development.html">Etapa de desarrollo</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marco-netinst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de diseño</a> &raquo;</li>
+      
+    <li>Diseño procedimental</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/design/procedimental.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="diseno-procedimental">
+<h1>Diseño procedimental<a class="headerlink" href="#diseno-procedimental" title="Permalink to this headline">¶</a></h1>
+<p>En este apartado se referencian los algoritmos implementados en el sistema que son considerados de mayor relevancia.</p>
+<div class="section" id="deteccion-del-sistema-operativo-y-descarga">
+<h2>Detección del sistema operativo y descarga<a class="headerlink" href="#deteccion-del-sistema-operativo-y-descarga" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="k">if</span> <span class="o">[</span> -e /bootfs/marco-bootstrap <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Getting marcopolo mirrors&quot;</span>
+    <span class="nv">marcomirror</span><span class="o">=</span><span class="sb">`</span>/bootfs/marco-bootstrap<span class="sb">`</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$marcomirror</span> !<span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Detected a mirror at </span><span class="nv">$marcomirror</span><span class="s2">&quot;</span>
+        <span class="nv">marcomirror</span><span class="o">=</span><span class="s2">&quot;https://</span><span class="nv">$marcomirror</span><span class="s2">:1345/tar/&quot;</span>
+        <span class="nv">mirror</span><span class="o">=</span><span class="nv">$marcomirror</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;No mirror detected. Using fallback </span><span class="si">${</span><span class="nv">mirror</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$kernel_module</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="nb">true</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$rootfstype</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;ext4&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    mkdir -p /rootfs/etc/initramfs-tools
+    <span class="nb">echo</span> <span class="nv">$rootfstype</span> &gt;&gt; /rootfs/etc/initramfs-tools/modules
+  <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Starting install process...&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="nv">$OS_IMG</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;OS image not set. Using fallback&quot;</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$rpi_hardware_version</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span> <span class="o">]]</span><span class="p">;</span><span class="k">then</span>
+        <span class="nv">TARBALL</span><span class="o">=</span><span class="s2">&quot;ArchLinuxARM-rpi-latest&quot;</span>
+    <span class="k">else</span>
+        <span class="nv">TARBALL</span><span class="o">=</span><span class="s2">&quot;ArchLinuxARM-rpi-2-latest&quot;</span>
+    <span class="k">fi</span>
+
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Using </span><span class="nv">$OS_IMG</span><span class="s2"> as OS image&quot;</span>
+    <span class="nv">TARBALL</span><span class="o">=</span><span class="nv">$OS_IMG</span>
+<span class="k">fi</span>
+
+mkdir -p /rootfs/aux
+<span class="c">#echo &quot;The mirror for marco would be ${marcomirror}&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Downloading using mirror </span><span class="si">${</span><span class="nv">mirror</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="c">#wget --certificate=app.crt --private-key=app.key --ca-certificate=app.crt --no-check-certificate -P /rootfs/aux ${mirror}${TARBALL}.tar.gz || fail</span>
+<span class="c">#https://localhost:1345/tar/ArchLinuxARM-rpi-2-latest.tar.gz</span>
+<span class="c">#/bin/wget -P /rootfs/aux ${mirror}${TARBALL}.tar.gz || fail</span>
+/bin/wget --certificate<span class="o">=</span>/bootfs/certs/app.crt --private-key<span class="o">=</span>/bootfs/certs/app.key --ca-certificate<span class="o">=</span>/bootfs/certs/app.crt --no-check-certificate -P /rootfs/aux <span class="si">${</span><span class="nv">mirror</span><span class="si">}${</span><span class="nv">TARBALL</span><span class="si">}</span>.tar.gz <span class="o">||</span> fail
+
+rm -f /rootfs/aux/<span class="si">${</span><span class="nv">TARBALL</span><span class="si">}</span>.tar
+<span class="nb">echo</span> <span class="s2">&quot;Gunzipping&quot;</span>
+gunzip -f /rootfs/aux/<span class="si">${</span><span class="nv">TARBALL</span><span class="si">}</span>.tar.gz &gt; /rootfs/aux/<span class="si">${</span><span class="nv">TARBALL</span><span class="si">}</span>.tar
+
+<span class="nb">echo</span> <span class="s2">&quot;Tar&quot;</span>
+tar -xf /rootfs/aux/<span class="si">${</span><span class="nv">TARBALL</span><span class="si">}</span>.tar -C /rootfs
+
+<span class="nb">echo</span> <span class="s2">&quot;syncing&quot;</span>
+sync
+<span class="nb">echo</span> <span class="s2">&quot;Copied&quot;</span>
+
+mv /rootfs/boot/* /rootfs/boot_mnt
+</pre></div>
+</div>
+</div>
+<div class="section" id="programacion-de-una-operacion-de-actualizacion">
+<h2>Programación de una operación de actualización<a class="headerlink" href="#programacion-de-una-operacion-de-actualizacion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">bootcode</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Executes the update operation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">unzip_bootcode</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dest_dir</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unzips the bootcode into the desired location</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c">#http://stackoverflow.com/a/640033/2628463</span>
+        <span class="n">zip_file</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+        <span class="n">zip_file</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">dest_dir</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">process_bootcode</span><span class="p">(</span><span class="n">bootcode</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes the given bootcode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">bootcode</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">BOOTCODE_FALLBACK</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Downloading bootcode </span><span class="si">%s</span><span class="s"> for operation&quot;</span> <span class="o">%</span> <span class="n">bootcode</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;https://&quot;</span><span class="o">+</span><span class="n">ip</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">BACKEND_FILES_PORT</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;/bootcode/download/&quot;</span><span class="o">+</span><span class="n">bootcode</span><span class="p">,</span>
+                             <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                             <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                             <span class="n">cert</span><span class="o">=</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">APPCERT</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPKEY</span><span class="p">))</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">bootcode</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TMP_DIR</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
+                        <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+                        <span class="n">output_file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TMP_DIR</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">unzip_bootcode</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">BOOTDIR</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">image</span> <span class="o">!=</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">BOOTDIR</span><span class="p">,</span> <span class="s">&quot;installer-config.txt&quot;</span><span class="p">),</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_desc</span><span class="p">:</span>
+                <span class="n">f_desc</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;export OS_IMG=</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">image</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;.tar.gz&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">))</span>
+
+    <span class="n">process_bootcode</span><span class="p">(</span><span class="n">bootcode</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s">&quot;shutdown -r +2 </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">conf</span><span class="o">.</span><span class="n">REBOOT_MSG</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;An update is scheduled&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creacion-de-una-operacion">
+<h2>Creación de una operación<a class="headerlink" href="#creacion-de-una-operacion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@authenticated</span>
+<span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processes a POST request with the operation parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">operation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;operation&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">schedule_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;schedule&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">operation</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">schedule_time</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s">&quot;Malformed request&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">schedule_time</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">schedule_time</span><span class="p">)</span>
+
+    <span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;nodes&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nodes_list</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s">&quot;Malformed request&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nodes_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="n">nodes_list</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;I shall schedule a </span><span class="si">%s</span><span class="s"> on </span><span class="si">%f</span><span class="s"> for </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="n">schedule_time</span><span class="p">,</span> <span class="s">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#39;{}: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nodes_list</span><span class="p">))))</span>
+
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes_list</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">socket</span><span class="o">.</span><span class="n">inet_aton</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s">&quot;reboot&quot;</span><span class="p">:</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://&quot;</span><span class="o">+</span><span class="n">node</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">SLAVE_PORT</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;/reboot&quot;</span>
+                <span class="n">commands</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;reboot&quot;</span><span class="p">,</span><span class="s">&quot;time&quot;</span><span class="p">:</span><span class="n">schedule_time</span><span class="p">}</span>
+            <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s">&quot;update&quot;</span><span class="p">:</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://&quot;</span><span class="o">+</span><span class="n">node</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">SLAVE_PORT</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;/update&quot;</span>
+                <span class="n">commands</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;update&quot;</span><span class="p">,</span>
+                            <span class="s">&quot;time&quot;</span><span class="p">:</span><span class="n">schedule_time</span><span class="p">,</span>
+                            <span class="s">&quot;image&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;image&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span>
+                            <span class="s">&quot;bootcode&quot;</span><span class="p">:</span> <span class="n">chosen_bootcode</span><span class="p">}</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;image&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
+                <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;image&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">future</span> <span class="o">=</span> <span class="n">futures_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span>
+                                        <span class="n">files</span><span class="o">=</span><span class="p">{},</span>
+                                        <span class="n">data</span><span class="o">=</span><span class="n">commands</span><span class="p">,</span>
+                                        <span class="n">verify</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">RECEIVERCERT</span><span class="p">,</span>
+                                        <span class="n">cert</span><span class="o">=</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">APPCERT</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">APPKEY</span><span class="p">))</span>
+
+            <span class="n">add_callback</span><span class="p">(</span><span class="n">future</span><span class="o">=</span><span class="n">future</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">deployed</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">se</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">se</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_to_db</span><span class="p">(</span><span class="n">operation</span><span class="p">,</span> <span class="n">schedule_time</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;image&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development.html" class="btn btn-neutral float-right" title="Etapa de desarrollo">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interaction.html" class="btn btn-neutral" title="Vista de interacción"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

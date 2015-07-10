@@ -1,0 +1,177 @@
+Diseño procedimental
+====================
+
+En este apartado se referencian los algoritmos implementados en el sistema que son considerados de mayor relevancia.
+
+Detección del sistema operativo y descarga
+------------------------------------------
+
+.. code-block:: bash
+    
+    if [ -e /bootfs/marco-bootstrap ];then
+        echo "Getting marcopolo mirrors"
+        marcomirror=`/bootfs/marco-bootstrap`
+        if [ $marcomirror != "" ];then
+            echo "Detected a mirror at $marcomirror"
+            marcomirror="https://$marcomirror:1345/tar/"
+            mirror=$marcomirror
+        else
+            echo "No mirror detected. Using fallback ${mirror}"
+        fi
+    fi
+
+    if [ "$kernel_module" = true ] ; then
+      if [ "$rootfstype" != "ext4" ] ; then
+        mkdir -p /rootfs/etc/initramfs-tools
+        echo $rootfstype >> /rootfs/etc/initramfs-tools/modules
+      fi
+    fi
+
+    echo "Starting install process..."
+
+    if [ -z $OS_IMG ]; then
+        echo "OS image not set. Using fallback"
+        if [[ $rpi_hardware_version == "1" ]];then
+            TARBALL="ArchLinuxARM-rpi-latest"
+        else
+            TARBALL="ArchLinuxARM-rpi-2-latest"
+        fi
+
+    else
+        echo "Using $OS_IMG as OS image"
+        TARBALL=$OS_IMG
+    fi
+
+    mkdir -p /rootfs/aux
+    #echo "The mirror for marco would be ${marcomirror}"
+    echo "Downloading using mirror ${mirror}"
+    #wget --certificate=app.crt --private-key=app.key --ca-certificate=app.crt --no-check-certificate -P /rootfs/aux ${mirror}${TARBALL}.tar.gz || fail
+    #https://localhost:1345/tar/ArchLinuxARM-rpi-2-latest.tar.gz
+    #/bin/wget -P /rootfs/aux ${mirror}${TARBALL}.tar.gz || fail
+    /bin/wget --certificate=/bootfs/certs/app.crt --private-key=/bootfs/certs/app.key --ca-certificate=/bootfs/certs/app.crt --no-check-certificate -P /rootfs/aux ${mirror}${TARBALL}.tar.gz || fail
+
+    rm -f /rootfs/aux/${TARBALL}.tar
+    echo "Gunzipping"
+    gunzip -f /rootfs/aux/${TARBALL}.tar.gz > /rootfs/aux/${TARBALL}.tar
+
+    echo "Tar"
+    tar -xf /rootfs/aux/${TARBALL}.tar -C /rootfs
+
+    echo "syncing"
+    sync
+    echo "Copied"
+
+    mv /rootfs/boot/* /rootfs/boot_mnt
+
+
+Programación de una operación de actualización
+----------------------------------------------
+
+.. code-block:: python
+
+    def update(self, ip, bootcode=None, image=''):
+        """
+        Executes the update operation
+        """
+        def unzip_bootcode(source, dest_dir):
+            """
+            Unzips the bootcode into the desired location
+            """
+            #http://stackoverflow.com/a/640033/2628463
+            zip_file = zipfile.ZipFile(source)
+            zip_file.extractall(path=dest_dir)
+
+        def process_bootcode(bootcode, image):
+            """
+            Processes the given bootcode
+            """
+            path = None
+            if bootcode is None:
+                path = conf.BOOTCODE_FALLBACK
+            else:
+                logging.info("Downloading bootcode %s for operation" % bootcode)
+                r = requests.get("https://"+ip+":"+str(conf.BACKEND_FILES_PORT)+"/bootcode/download/"+bootcode, 
+                                 stream=True, 
+                                 verify=False,
+                                 cert=(conf.APPCERT, conf.APPKEY))
+                filename = bootcode
+                with open(os.path.join(conf.TMP_DIR, filename), 'wb') as output_file:
+                    for chunk in r.iter_content(chunk_size=1024): 
+                        if chunk:
+                            output_file.write(chunk)
+                            output_file.flush()
+                path = os.path.join(conf.TMP_DIR, filename)
+
+            logging.debug(path)
+            unzip_bootcode(path, conf.BOOTDIR)
+            if image != '':
+                with open(os.path.join(conf.BOOTDIR, "installer-config.txt"), 'w') as f_desc:
+                    f_desc.write("export OS_IMG=%s" % image.replace(".tar.gz", ""))
+        
+        process_bootcode(bootcode, image)
+        command = "shutdown -r +2 %s" % conf.REBOOT_MSG
+        subprocess.Popen(command, shell=True)
+        logging.info("An update is scheduled")
+
+
+Creación de una operación
+-------------------------
+
+.. code-block:: python
+
+    @authenticated
+    def post(self):
+        """
+        Processes a POST request with the operation parameters
+        """
+        operation = self.get_argument('operation', None)
+        schedule_time = self.get_argument('schedule', None)
+        
+        if operation is None or schedule_time is None:
+            self.set_status(400)
+            self.finish("Malformed request")
+            return
+        else:
+            schedule_time = float(schedule_time)
+        
+        nodes = self.get_argument('nodes', None)
+        try:
+            nodes_list = nodes.split(",")[:-1]
+        except Exception as e:
+            logging.debug(e)
+            self.set_status(400)
+            self.finish("Malformed request")
+        
+        if len(nodes_list) > 0:
+            for nodes in nodes_list:
+                pass
+
+        logging.debug("I shall schedule a %s on %f for %s" % (operation, schedule_time, ",".join('{}: {}'.format(*k) for k in enumerate(nodes_list))))
+        
+        for node in nodes_list:
+            try:
+                socket.inet_aton(node)
+                if operation == "reboot":
+                    url = "https://"+node+":"+str(conf.SLAVE_PORT)+"/reboot"
+                    commands = {"type":"reboot","time":schedule_time}
+                elif operation == "update":
+                    url = "https://"+node+":"+str(conf.SLAVE_PORT)+"/update"
+                    commands = {"type":"update", 
+                                "time":schedule_time, 
+                                "image": self.get_argument('image', ''), 
+                                "bootcode": chosen_bootcode}
+                    logging.debug(self.get_argument('image', ''))
+                    print(self.get_argument('image', ''))
+                logging.debug(url)
+                future = futures_session.post(url,
+                                            files={},
+                                            data=commands,
+                                            verify=conf.RECEIVERCERT,
+                                            cert=(conf.APPCERT, conf.APPKEY))
+                
+                add_callback(future=future, callback=self.deployed, node=node)
+
+            except socket.error as se:
+                logging.debug(se)
+
+        self.add_to_db(operation, schedule_time, nodes, self.get_argument('image', ''))

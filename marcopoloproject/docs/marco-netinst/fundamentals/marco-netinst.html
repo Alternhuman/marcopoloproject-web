@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>marco-netinst &mdash; marco-netinst 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marco-netinst 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Fundamentals" href="intro.html"/>
+        <link rel="next" title="marco-minimal" href="marco-minimal.html"/>
+        <link rel="prev" title="Fundamentals" href="intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> marco-netinst</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="intro.html">Fundamentals</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marco-minimal.html">marco-minimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marco-bootstrap-backend.html">marco-bootstrap-backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/marco-netinst/intro.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/marco-minimal/intro.html">marco-minimal reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/marco-bootstrap-backend/intro.html">marco-bootstrap-backend reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/marco-bootstrap-slave/intro.html">marco-bootstrap-slave reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/development.html">Etapa de desarrollo</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">marco-netinst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fundamentals</a> &raquo;</li>
+      
+    <li>marco-netinst</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/fundamentals/marco-netinst.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="marco-netinst">
+<h1>marco-netinst<a class="headerlink" href="#marco-netinst" title="Permalink to this headline">¶</a></h1>
+<p>marco-netinst follows the same working principle as its parent, the raspbian-ua-netinst utility. It simply packages a minimal set of tools into a deployable minimal OS image that it installed in the first partition of the SD card. On start, the raspbian-based minimal system will use the <code class="docutils literal"><span class="pre">/etc/init.d/rcS</span></code> script to discover a suitable OS server in the network (using a fallback if unsuccessful), download the image and format the SD card to appropriately install all the files. <a class="reference external" href="http://busybox.net/">Busybox</a> is used to reduce the number of required packages and dependencies.</p>
+<p>The Raspberry lacks a BIOS, so it relies on several well-known files to load the operating system during the booting process <a class="footnote-reference" href="#id2" id="id1">[1]</a>. This files must be set on the first partition of the SD card to be read.</p>
+<p>The working principle of the tool is to have a set of minimal tools in a container that the configuration files specify to use as the source for the operating system. That combined with an image of a generic Linux kernel (although it could be easily replaced by a custom one, compiled for the sole purposed of space saving) boots a minimal operating system capable of performing all the required operations. These are the relevant configuration files with their parameters:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">config.txt</span></code> Defines the location of the kernel and the <a class="reference external" href="https://www.kernel.org/doc/Documentation/filesystems/ramfs-rootfs-initramfs.txt">initramfs</a> image to be the .cpio file with all the required files.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">cmdline.txt</span></code> Specifies the command-line parameters usually defined in the bootloader. In this case, the parameters are very generic:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre>consoleblank=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="scripts">
+<h2>scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h2>
+<p>The following bash scripts comprise the whole functionality of the tool. The technical reference is located in the <a class="reference internal" href="../reference/marco-bootstrap-backend/intro.html#marcobootstrapbackendreference"><span>reference</span></a>.</p>
+<div class="section" id="build-sh">
+<h3>build.sh<a class="headerlink" href="#build-sh" title="Permalink to this headline">¶</a></h3>
+<p>Creates a .cpio file with all the downloaded packages and packages it inside a zip file with the rest of the boot files (an image of the kernel, several configuration files, etc).</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Creates a temporary directory.</li>
+<li>Copies boot files to the directory.</li>
+<li>Creates a cpio file that packages all the required binaries and libraries.</li>
+<li>Copies the .cpio files to the system (one per ARM architecture).</li>
+<li>Creates a boot configuration file.</li>
+<li>Copies the marcopolo executable.</li>
+<li>Copies certificate files</li>
+<li>Copies the rest of relevant files.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="buildroot-sh">
+<h3>buildroot.sh<a class="headerlink" href="#buildroot-sh" title="Permalink to this headline">¶</a></h3>
+<p>Instead of a zip file it creates an image of the OS which can be flashed to the SD card.</p>
+</div>
+<div class="section" id="buildupdate-sh">
+<h3>buildupdate.sh<a class="headerlink" href="#buildupdate-sh" title="Permalink to this headline">¶</a></h3>
+<p>Builds an update image instead of an installation image.</p>
+</div>
+<div class="section" id="clean-sh">
+<h3>clean.sh<a class="headerlink" href="#clean-sh" title="Permalink to this headline">¶</a></h3>
+<p>Removes all temporary files.</p>
+</div>
+<div class="section" id="deploy-sh">
+<h3>deploy.sh<a class="headerlink" href="#deploy-sh" title="Permalink to this headline">¶</a></h3>
+<p>Deploys a zip package in the specified device, formatting it appropriately.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Checks that the device exists.</li>
+<li>Unmounts the device and partitions it (creates one partition).</li>
+<li>Creates the filesystems.</li>
+<li>Mounts the new partition.</li>
+<li>Unzips the file inside the device.</li>
+<li>Unmounts the involved partitions.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="update-sh">
+<h3>update.sh<a class="headerlink" href="#update-sh" title="Permalink to this headline">¶</a></h3>
+<p>Downloads all the specified packages and stores them in a temporary location.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Cleans all previously downloaded packages.</li>
+<li>Downloads the raspbian public keys for integrity and validation purposes.</li>
+<li>Downloads the release file and its signature.</li>
+<li>Search for the required packages and adds them to a list.</li>
+<li>Downloads the packages and verifies them.</li>
+<li>Adds an older Busybox, since the jessie one is known to cause trouble.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="scripts-etc-files">
+<h3><code class="docutils literal"><span class="pre">scripts/etc/</span></code> files<a class="headerlink" href="#scripts-etc-files" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><strong>init.d/rcS</strong>: The installation script. It accomplishes the following tasks:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Creates a set of temporary directories to store the temporary filesystem.</li>
+<li>Starts a Busybox-based environment.</li>
+<li>Mounts pseudo filesystems.</li>
+<li>Creates devices using <code class="docutils literal"><span class="pre">mdev</span></code> (see &lt;<a class="reference external" href="http://git.busybox.net/busybox/tree/docs/mdev.txt?h=1_18_stable">http://git.busybox.net/busybox/tree/docs/mdev.txt?h=1_18_stable</a>&gt;_)</li>
+<li>Creates a pipe with a copy of the output to a file, so it can be used later for debugging purposes.</li>
+<li>Detects the hardware of the Raspberry (as it is compatible with all models).</li>
+<li>Mounts the boot partition.</li>
+<li>Configures the network using DHCP or a previously defined static configuration.</li>
+<li>Configures the system time with a NTP server (the Raspberry Pi has no real time clock).</li>
+<li>If there is an online configuration file to download, it is done in this step.</li>
+<li>Detects a server node in the network. If unsuccessful, it will use the fallback node if it is defined.</li>
+<li>Loads the installation profile (minimal, full...).</li>
+<li>Loads the USB modules to allow the installation in a USB device.</li>
+<li>Defines the partition scheme. Three partitions are created, located in <code class="docutils literal"><span class="pre">/boot</span></code>, <code class="docutils literal"><span class="pre">/</span></code> and <code class="docutils literal"><span class="pre">/home</span></code> respectively.</li>
+<li>Formats the SD card, erasing all the content (the OS files are conveniently located in the RAM, so the system is functional).</li>
+<li>Creates the filesystems.</li>
+<li>Downloads the OS image using the mirror.</li>
+<li>Extracts the file in the root partition (the second partition).</li>
+<li>Moves the boot files to <code class="docutils literal"><span class="pre">/boot</span></code>.</li>
+<li>Executes the post install script, if any.</li>
+<li>Logs the final time variables (total time) and copies the log file to a secure location.</li>
+<li>Removes auxiliary files.</li>
+<li>Unmounts the file systems.</li>
+<li>Reboots. The system is now functional.</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<p>All the process is timed and this information is logged in the file.</p>
+<ul class="simple">
+<li><strong>udhcpc/default.script</strong> A DHCP configuration script</li>
+</ul>
+</div>
+</div>
+<div class="section" id="order">
+<h2>Order<a class="headerlink" href="#order" title="Permalink to this headline">¶</a></h2>
+<p>The scripts are parts of a pipeline in the following order:</p>
+<div class="highlight-python"><div class="highlight"><pre>update.sh -&gt; build.sh/buildupdate.sh -&gt; deploy.sh (-&gt; clean.sh)
+</pre></div>
+</div>
+<p>So if deploy.sh is executed without previously executing the preceding phases, it will do so before carrying out any own operation.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/config-txt.md">https://www.raspberrypi.org/documentation/configuration/config-txt.md</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="marco-minimal.html" class="btn btn-neutral float-right" title="marco-minimal">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Fundamentals"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

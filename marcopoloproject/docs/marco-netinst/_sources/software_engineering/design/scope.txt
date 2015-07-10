@@ -1,0 +1,5 @@
+Ámbito
+======
+
+El software se ejecuta en un contexto distribuido en el cual, en ocasiones, las capacidades del sistema operativo del nodo son mínimas. En el caso del servidor, deberá gestionar las operaciones a realizar en cada uno de los nodos. Un punto crítico del sistema es la comunicación, de carácter confidencial. Para ello se utilizan un canal HTTPS con doble validación de certificado.
+

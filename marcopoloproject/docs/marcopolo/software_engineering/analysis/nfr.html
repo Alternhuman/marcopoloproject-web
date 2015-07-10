@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Identificación de requisitos no funcionales &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Vista estática de la aplicación" href="static.html"/>
+        <link rel="prev" title="Diagramas de casos de uso" href="uc.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Implementation Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco/index.html">Marco reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/polo/index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Identificación de requisitos no funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/nfr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="identificacion-de-requisitos-no-funcionales">
+<h1>Identificación de requisitos no funcionales<a class="headerlink" href="#identificacion-de-requisitos-no-funcionales" title="Permalink to this headline">¶</a></h1>
+<p>Los siguientes requisitos no funcionales son especificados:</p>
+<div class="section" id="nfr-1-comunicacion">
+<h2>NFR-1: Comunicación<a class="headerlink" href="#nfr-1-comunicacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2</li>
+<li><strong>Descripción</strong>: El número de mensajes transmitidos por el protocolo debe reducirse a la cantidad más pequeña posible, a fin de minimizar el impacto general en la red y en los nodos receptores. Por ello, las comunicaciones se realizarán a través de mensajes <strong>multicast</strong>, que únicamente son procesados por los nodos suscritos al grupo en el que son transmitidos. De esta forma los nodos no interesados evitan dedicar tiempo de CPU al análisis de estos datagramas.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-2-minimalismo">
+<h2>NFR-2: Minimalismo<a class="headerlink" href="#nfr-2-minimalismo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: Toda aquella funcionalidad que no esté relacionada con el descubrimiento y publicación de servicios y nodos se delegará a paquetes software que se apoyen sobre MarcoPolo, delegando la responsabilidad a dichos paquetes. MarcoPolo debe conseguir un alto grado de versatilidad y aplicabilidad en un gran rango de aplicaciones. A fin de conseguir este objetivo, la simplicidad del sistema construido es clave. Esto conlleva el desacoplamiento y delegación de gran parte de la funcionalidad a otras capas superiores, independientes del protocolo, pero que aprovechan su funcionalidad, en lugar de ser integradas en el mismo.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-3-portabilidad">
+<h2>NFR-3: Portabilidad<a class="headerlink" href="#nfr-3-portabilidad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Requisitos asociados</strong>: RF-6</li>
+<li><strong>Descripción</strong>: MarcoPolo debe ser un protocolo capaz de funcionar en cualquier configuración de <strong>hardware</strong> y <strong>software</strong> que soporte los requisitos de red exigidos por el mismo. Este requisito no afecta a cualquiera de las implementaciones del mismo, que podrán ser diseñadas para aprovechar las características específicas de una arquitectura <em>hardware</em> o <em>software</em> concreta.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-4-integrabilidad">
+<h2>NFR-4: Integrabilidad<a class="headerlink" href="#nfr-4-integrabilidad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Requisitos asociados</strong>: RF-6, RF-7, RF-8, RF-9, RF-10, RF-11</li>
+<li><strong>Descripción</strong>: La funcionalidad de MarcoPolo debe ser aprovechable por usuarios de forma directa (mediante la interacción con el propio paquete) o indireta, a través de mecanismos de conexión con otras aplicaciones.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-5-independencia-del-lenguaje">
+<h2>NFR-5: Independencia del lenguaje<a class="headerlink" href="#nfr-5-independencia-del-lenguaje" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: El protocolo debe ser independiente del lenguaje de programación en el que sea implementado. Dicha implementación debe proporcionar puntos de acceso consumibles por cualquier paquete <strong>software</strong>.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-6-separacion-del-protocolo-y-la-implementacion">
+<h2>NFR-6: Separación del protocolo y la implementación<a class="headerlink" href="#nfr-6-separacion-del-protocolo-y-la-implementacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>:Análisis preliminar</li>
+<li><strong>Requisitos relacionados</strong>: RF-13</li>
+<li><strong>Descripción</strong>: MarcoPolo es un protocolo. La implementación de referencia del mismo proporciona una referencia para su aplicación, pero no es el único enfoque válido para realizar dicha implementación.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-7-gestion-de-errores">
+<h2>NFR-7: Gestión de errores<a class="headerlink" href="#nfr-7-gestion-de-errores" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Requisitos asociados</strong>: RF-4</li>
+<li><strong>Descripción</strong>: La gestión y recuperación de errores debe ser transparente para el usuario. En caso de que dicha transparencia no pueda ser satisfecha, el protocolo y la implementación deben proveer mensajes claros que describan el error, y qué agente ha causado el mismo (el usuario debido a un error de uso, un error interno, etcétera).</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-8-separacion-de-roles">
+<h2>NFR-8: Separación de roles<a class="headerlink" href="#nfr-8-separacion-de-roles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-5, RF-7, RF-8, RF-9, RF-10, RF-11</li>
+<li><strong>Descripción</strong>: En el protocolo existen dos roles claramente definidos: el descubrimiento de nodos y servicios (Marco) y la publicación de estos (Polo) en la red. Se deberá mantener la independencia entre dichos roles, de forma que puedan funcionar de forma independiente.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-9-estandares-de-comunicacion-y-representacion-de-informacion">
+<h2>NFR-9: Estándares de comunicación y representación de información<a class="headerlink" href="#nfr-9-estandares-de-comunicacion-y-representacion-de-informacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Requisitos asociados</strong>: RF-13</li>
+<li><strong>Descripción</strong>: Todos los mensajes transmitidos en el sistema deberán ser codificados en UTF-8 y serán serializados utilizando el formato <em>JavaScript Object Notation</em> (JSON), con el objetivo de mantener la legibilidad de los mensajes tanto por humanos y máquinas.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-10-configurabilidad">
+<h2>NFR-10: Configurabilidad<a class="headerlink" href="#nfr-10-configurabilidad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: Se deberá facilitar la configurabilidad de MarcoPolo a través de archivos de configuración o cualquier sistema similar. Estos archivos seguirán el formato definido en la RFC 822 <a class="footnote-reference" href="#id2" id="id1">[1]</a></li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-11-sincronizacion">
+<h2>NFR-11: Sincronización<a class="headerlink" href="#nfr-11-sincronizacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-3</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2, RF-3, RF-5, RF-6, RF-7, RF-8, RF-9, RF-10, RF-11</li>
+<li><strong>Descripción</strong>: Los diferentes mensajes transmitidos deberán ser definidos con la secuencia en la que son transmitidos, a qué mensaje responden y qué mensaje debe suceder, etcétera.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-12-documentacion">
+<h2>NFR-12: Documentación<a class="headerlink" href="#nfr-12-documentacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Los siguientes casos deberán ser documentados:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Documentación del mecanismo de comunicación</li>
+<li>Referencia de la API, que incluirá todos los aspectos internos de MarcoPolo y de los diferentes mecanismos de conexión.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="nfr-13-homogeneidad">
+<h2>NFR-13: Homogeneidad<a class="headerlink" href="#nfr-13-homogeneidad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-6, RF-7, RF-8</li>
+<li><strong>Descripción</strong>: Los diferentes lenguajes de programación para los que se desarrollen mecanismos de conexión con MarcoPolo deberán ser creados siguiendo una semántica homogénea (nombres de métodos y parámetros, orden, tipos de retorno, gestión de errores), sin que ello impida el uso de características propias de cada lenguaje que se consideren beneficiosas.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-14-calidad-del-software">
+<h2>NFR-14: Calidad del software<a class="headerlink" href="#nfr-14-calidad-del-software" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: Se deberán utilizar mecanismos de verificación del funcionamiento del software como la aplicación de test unitarios para situaciones en las que el sistema se comporta de forma correcta como para situaciones anómalas.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-15-comunicacion-no-fiable">
+<h2>NFR-15: Comunicación no fiable<a class="headerlink" href="#nfr-15-comunicacion-no-fiable" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Todos los mensajes se transmiten en datagramas UDP con el objetivo de minimizar el impacto en la red.</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Por naturaleza, los mensajes <em>multicast</em> se deben enviar en UDP obligatoriamente.</li>
+<li>En los casos en los que este tipo de comunicación no posibilite alguna acción, se utilizará un protocolo orientado a conexión, como TCP. Un ejemplo son las conexiones cifradas.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="nfr-16-gestion-de-usuarios">
+<h2>NFR-16: Gestión de usuarios<a class="headerlink" href="#nfr-16-gestion-de-usuarios" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-6</li>
+<li><strong>Descripción</strong>: Los usuarios se comunicarán con MarcoPolo a través de comunicaciones seguras (utilizando el protocolo TLS/SSL y tokens de usuario) con el objetivo de evitar suplantaciones de identidad.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-17-sencillez-de-la-api">
+<h2>NFR-17: Sencillez de la API<a class="headerlink" href="#nfr-17-sencillez-de-la-api" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: La API de MarcoPolo debe ser sencilla de comprender y utilizar, utilizando diferentes herramientas de evaluación para analizar estas propiedades.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-18-documentacion-del-codigo">
+<h2>NFR-18: Documentación del código<a class="headerlink" href="#nfr-18-documentacion-del-codigo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: El código deberá utilizar cadenas de documentación (<em>docstrings</em>) que describan cada uno de los métodos, funciones y módulos creados. Estas cadenas podrán ser aprovechadas por entornos de desarrollo o por herramientas de documentación para generar la referencia de todas las <em>APIs</em> creadas. Se utilizarán para esta última tarea las herramientas <a class="reference external" href="http://sphinx-doc.org/">Sphinx (sphinx-doc.org)</a> y <a class="reference external" href="http://doxygen.org">Doxygen (doxygen.org)</a>.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-19-segmentacion">
+<h2>NFR-19 Segmentación<a class="headerlink" href="#nfr-19-segmentacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2</li>
+<li><strong>Descripción</strong>: Varias instancias del protocolo pueden ejecutarse en una misma red de forma independiente, permitiendo la creación de varias &#8220;mallas&#8221; de equipos. Dicha segmentación no debe alterar en absoluto el esquema de la red preexistente.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-20-seguridad">
+<h2>NFR-20 Seguridad<a class="headerlink" href="#nfr-20-seguridad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo</li>
+<li><strong>Objetivos asociados</strong>: OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-2</li>
+<li><strong>Descripción</strong>: En aquellos casos en los que la información enviada a través de los textit{bindings} o compartida por los nodos sea confidencial, el protocolo debe implementar las medidas oportunas para la protección de la misma. En particular, se deberá utilizar el protocolo TLS para este tipo de comunicaciones, junto con un mecanismo de <em>tokens</em> de acceso, como se describe en el requisito no funcional NFR-16.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-21-independencia-del-espacio-de-direcciones-nombres-o-cualquier-otro-elemento-de-red">
+<h2>NFR-21 Independencia del espacio de direcciones, nombres o cualquier otro elemento de red<a class="headerlink" href="#nfr-21-independencia-del-espacio-de-direcciones-nombres-o-cualquier-otro-elemento-de-red" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2</li>
+<li><strong>Descripción</strong>: El protocolo debe funcionar en cualquier espacio de direcciones dado, sin considerar en cualquier caso la dependencia con protocolos como DHCP o DNS .</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>STANDARD FOR THE FORMAT OF ARPA INTERNET TEXT MESSAGES <a class="reference external" href="http://tools.ietf.org/html/rfc822.html">http://tools.ietf.org/html/rfc822.html</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="static.html" class="btn btn-neutral float-right" title="Vista estática de la aplicación">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="uc.html" class="btn btn-neutral" title="Diagramas de casos de uso"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

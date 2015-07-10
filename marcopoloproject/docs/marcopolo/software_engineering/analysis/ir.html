@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos de información &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Requisitos funcionales" href="fr.html"/>
+        <link rel="prev" title="Identificación de actores" href="actors.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Implementation Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco/index.html">Marco reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/polo/index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos de información</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/ir.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-de-informacion">
+<h1>Requisitos de información<a class="headerlink" href="#requisitos-de-informacion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="irq-1-servicios-publicitados">
+<h2>IRQ-1 Servicios publicitados<a class="headerlink" href="#irq-1-servicios-publicitados" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo del sistema</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2, RF-3, RF-5</li>
+<li><strong>Descripción</strong>: El sistema creará y gestionará toda la información relativa a los diferentes servicios a publicitar.</li>
+<li><strong>Datos específicos</strong>: Identificador del servicio, parámetros adicionales, grupos multicast en los que publicitarlo.</li>
+<li><strong>Tiempo de vida</strong>: El mismo que transcurre entre la publicación y la eliminación del mismo por un usuario o aplicación.</li>
+<li><strong>Ocurrencias simultáneas</strong>: Una ocurrencia por servicio. No existe un máximo.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong></li>
+</ul>
+</div>
+<div class="section" id="irq-2-informacion-de-usuarios">
+<h2>IRQ-2 Información de usuarios<a class="headerlink" href="#irq-2-informacion-de-usuarios" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo del sistema</li>
+<li><strong>Objetivos asociados</strong>: OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-5</li>
+<li><strong>Descripción</strong>:El sistema deberá consultar la fuente de datos de los usuarios presentes en el sistema con el objetivo de determinar los privilegios de cada uno de ellos.</li>
+<li><strong>Datos específicos</strong>: Nombre de usuario, UID (o identificador similar en una plataforma que no utilice este valor), grupos de los que es miembro el usuario.</li>
+<li><strong>Tiempo de vida</strong>: Estos datos son consultados durante todo el tiempo de vida del sistema.</li>
+<li><strong>Ocurrencias simultáneas</strong>: Tantas como usuarios operen concurrentemente con el sistema.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong>: Estos datos no son modificados por el sistema, únicamente son consultados.</li>
+</ul>
+</div>
+<div class="section" id="irq-3-registros">
+<h2>IRQ-3 Registros<a class="headerlink" href="#irq-3-registros" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Fases de desarrollo del sistema</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF6, RF7</li>
+<li><strong>Descripción</strong>: Diferentes ficheros de registro se crearán con el objetivo de facilitar la monitorización de las diferentes tareas del sistema, el análisis de comportamientos erráticos en la ejecución, etcétera.</li>
+<li><strong>Datos específicos</strong>: Se creará un fichero de <em>log</em> por cada una de las instancias, pudiendo existir ficheros complementarios (por ejemplo, para la gestión de los <em>daemons</em>).</li>
+<li><strong>Tiempo de vida</strong>: Se añade información a estos ficheros durante todo el tiempo de vida del sistema.</li>
+<li><strong>Ocurrencias simultáneas</strong>: Un único fichero por cada tipo, pudiendo existir varias entidades accediendo a ellos en casos concretos.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong>: Un caso en el que existen varias entidades de control accediendo a un mismo fichero es el rol Polo, donde se crea una instancia independiente por cada grupo <em>multicast</em>, que sin embargo vuelcan la información generada al mismo fichero.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fr.html" class="btn btn-neutral float-right" title="Requisitos funcionales">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="actors.html" class="btn btn-neutral" title="Identificación de actores"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

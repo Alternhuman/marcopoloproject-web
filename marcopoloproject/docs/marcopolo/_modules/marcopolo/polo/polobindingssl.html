@@ -1,0 +1,831 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>marcopolo.polo.polobindingssl &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference.html">Implementation Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/marco/index.html">Marco reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/polo/index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>marcopolo.polo.polobindingssl</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for marcopolo.polo.polobindingssl</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">with_statement</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">twisted.internet.protocol</span> <span class="kn">import</span> <span class="n">DatagramProtocol</span><span class="p">,</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">Factory</span>
+
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="nb">open</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">makedirs</span><span class="p">,</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span>
+
+<span class="kn">import</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">pwd</span><span class="o">,</span> <span class="nn">grp</span><span class="o">,</span> <span class="nn">stat</span>
+
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">marcopolo.marco_conf</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">marcopolo.polo</span> <span class="kn">import</span> <span class="n">conf</span><span class="p">,</span> <span class="n">tokenprovider</span>
+
+<span class="k">def</span> <span class="nf">sanitize_path</span><span class="p">(</span><span class="n">path_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prevents unwanted directory traversing and other bash vulnerabilities.</span>
+
+<span class="sd">    :param str path_str: The path to be sanitized.</span>
+
+<span class="sd">    :returns: The sanitized path.</span>
+
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="o">+</span><span class="n">path_str</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">PoloBindingSSLFactory</span><span class="p">(</span><span class="n">Factory</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">offered_services</span><span class="p">,</span> <span class="n">user_services</span><span class="p">,</span> <span class="n">multicast_addrs</span><span class="p">):</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="n">secret</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span> <span class="o">=</span> <span class="n">offered_services</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span> <span class="o">=</span> <span class="n">user_services</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multicast_addrs</span> <span class="o">=</span> <span class="n">multicast_addrs</span>
+
+    <span class="k">def</span> <span class="nf">buildProtocol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">multicast_addrs</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">factory</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="n">p</span>
+
+<div class="viewcode-block" id="PoloBindingSSL"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL">[docs]</a><span class="k">class</span> <span class="nc">PoloBindingSSL</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+
+<div class="viewcode-block" id="PoloBindingSSL.__init__"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="n">offered_services</span><span class="p">,</span> <span class="n">user_services</span><span class="p">,</span> <span class="n">multicast_groups</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span><span class="p">,</span> <span class="n">verify_regexp</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">VERIFY_REGEXP</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the ``PoloBinding`` instance with the data structures to work with.</span>
+<span class="sd">        If defined, the ``offered_services`` and ``user_services`` variables will be treated </span>
+<span class="sd">        as references to a dictionaries (i.e. the values will be modified, but the object reference </span>
+<span class="sd">        will never be altered).</span>
+<span class="sd">        </span>
+<span class="sd">        :param dict offered_services: A dictionary which comprises all the dictionaries \</span>
+<span class="sd">        passed to the ``offered_services`` param in the Polo instances. That way the services \</span>
+<span class="sd">        can be altered by both parties</span>
+<span class="sd">        </span>
+<span class="sd">        :param dict user_services: A dictionary of all the user services dictionaries (the key is multicast</span>
+<span class="sd">            group and the value is the list of user dictionaries passed to the param ``user_services``.</span>
+<span class="sd">        </span>
+<span class="sd">        :param str multicast_group: The IPv4 address of the multicast group to join to. **Important**: The multicast_addr is not validated until the reactor is started.</span>
+<span class="sd">        </span>
+<span class="sd">        :param str verify_regexp: Regular expression used to verify an user service.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">secret</span> <span class="o">=</span> <span class="n">secret</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span> <span class="o">=</span> <span class="n">offered_services</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span> <span class="o">=</span> <span class="n">user_services</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">verify_regexp</span><span class="p">)</span><span class="c">#re.compile(&#39;^([\d\w]+):([\d\w]+)$&#39;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multicast_groups</span> <span class="o">=</span> <span class="n">multicast_groups</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">router</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">router</span><span class="p">[</span><span class="s">&quot;Register&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish_service_wrapper</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">router</span><span class="p">[</span><span class="s">&quot;Publish&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">publish_service_wrapper</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">router</span><span class="p">[</span><span class="s">&quot;Unpublish&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpublish_service_wrapper</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">router</span><span class="p">[</span><span class="s">&quot;Request-token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_token_service_wrapper</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.startProtocol"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.startProtocol">[docs]</a>    <span class="k">def</span> <span class="nf">startProtocol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starts the binding and adds an entry in the log file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Starting binding&quot;</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">connectionMade</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;A connection was made!&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PoloBindingSSL.dataReceived"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.dataReceived">[docs]</a>    <span class="k">def</span> <span class="nf">dataReceived</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datagram</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Receives datagrams from bindings, and verifies the `Command` field.</span>
+<span class="sd">        It emits a response based on the value (if necessary)</span>
+
+<span class="sd">        :param bytes datagram: The byte stream with the message</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+             
+        <span class="n">datos</span> <span class="o">=</span> <span class="n">datagram</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Datagram received: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">datos</span><span class="p">)</span>
+    
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">datos_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Malformed JSON&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Malformed JSON&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="n">datos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Command&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Missing command&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Missing command&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="n">command</span> <span class="o">=</span> <span class="n">datos_dict</span><span class="p">[</span><span class="s">&quot;Command&quot;</span><span class="p">]</span>
+        
+        <span class="n">method</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">unknown_command_handler</span><span class="p">)</span>
+
+        <span class="n">method</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">datos_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Args&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+ </div>
+    <span class="k">def</span> <span class="nf">request_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+        <span class="n">pw_user</span> <span class="o">=</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwuid</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pw_user</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;User not found&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">polo_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pw_user</span><span class="o">.</span><span class="n">pw_dir</span><span class="p">,</span> <span class="s">&quot;.polo&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">polo_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">polo_dir</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="n">polo_dir</span><span class="p">,</span> <span class="n">pw_user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">pw_user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">polo_dir</span><span class="p">,</span> <span class="s">&quot;token&quot;</span><span class="p">)):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">polo_dir</span><span class="p">,</span> <span class="s">&quot;token&quot;</span><span class="p">),</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">fchmod</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IRUSR</span> <span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IWUSR</span> <span class="o">|</span> <span class="n">stat</span><span class="o">.</span><span class="n">S_IRUSR</span><span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">fchown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">pw_user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">pw_user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tokenprovider</span><span class="o">.</span><span class="n">create_token</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">))</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+                <span class="k">return</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_ok</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_ok</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PoloBindingSSL.write_ok"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.write_ok">[docs]</a>    <span class="k">def</span> <span class="nf">write_ok</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates and sends an OK message</span>
+
+<span class="sd">        :param int status: The status code</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">json_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&quot;OK&quot;</span><span class="p">:</span><span class="n">status</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json_str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.write_error"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.write_error">[docs]</a>    <span class="k">def</span> <span class="nf">write_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates and sends an Error message</span>
+
+<span class="sd">        :param str error: The error reason</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&quot;Error&quot;</span><span class="p">:</span> <span class="n">error</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.publish_service_wrapper"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.publish_service_wrapper">[docs]</a>    <span class="k">def</span> <span class="nf">publish_service_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A wrapper for the :method:publish_service method</span>
+
+<span class="sd">        :param str command: The command that triggered the function</span>
+
+<span class="sd">        :param dict args: The arguments to pass to :method:publish_service</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Publish service&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">publish_service</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> 
+                            <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span>
+                            <span class="n">multicast_groups</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;multicast_groups&quot;</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span><span class="p">),</span>
+                            <span class="n">permanent</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;permanent&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">),</span>
+                            <span class="n">root</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.unpublish_service_wrapper"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.unpublish_service_wrapper">[docs]</a>    <span class="k">def</span> <span class="nf">unpublish_service_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A wrapper for the :method:unpublish_service method</span>
+
+<span class="sd">        :param str command: The command that triggered the function</span>
+
+<span class="sd">        :param dict args: The arguments to pass to :method:unpublish_service</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Unpublish service&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unpublish_service</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span>
+                                <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;token&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span>
+                                <span class="n">multicast_groups</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;multicast_groups&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">()),</span>
+                                <span class="n">delete_file</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;delete_file&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                                <span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.request_token_service_wrapper"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.request_token_service_wrapper">[docs]</a>    <span class="k">def</span> <span class="nf">request_token_service_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A wrapper for the :method:request_token method</span>
+
+<span class="sd">        :param str command: The command that triggered the function</span>
+
+<span class="sd">        :param dict args: The arguments to pass to :method:request_token</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_token</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;uid&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.unknown_command_handler"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.unknown_command_handler">[docs]</a>    <span class="k">def</span> <span class="nf">unknown_command_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handles all unkown commands</span>
+
+<span class="sd">        :param str command: The command that triggered the function</span>
+
+<span class="sd">        :param dict args: The arguments that were passed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Malformed request. Commands missing&quot;</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.publish_service"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.publish_service">[docs]</a>    <span class="k">def</span> <span class="nf">publish_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">multicast_groups</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span><span class="p">,</span> <span class="n">permanent</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Registers a service during execution time.</span>
+
+<span class="sd">        :param tuple address: A tuple with the requesting address and port</span>
+<span class="sd">        </span>
+<span class="sd">        :param str service: Indicates the unique identifier of the service.</span>
+<span class="sd">        </span>
+<span class="sd">            If `root` is true, the published service will have the same identifier as the value of the parameter. Otherwise, the name of the user will be prepended (`&lt;user&gt;:&lt;service&gt;`).</span>
+<span class="sd">        </span>
+<span class="sd">        :param int uid: The unique user identifier</span>
+
+<span class="sd">        :param set multicast_groups: Indicates the groups where the service shall be published.</span>
+<span class="sd">        </span>
+<span class="sd">            Note that the groups must be defined in the polo.conf file, or otherwise the method will throw an exception.</span>
+<span class="sd">        </span>
+<span class="sd">        :param bool permanent: If set to true a file will be created and the service will be permanently offered until the file is deleted.</span>
+<span class="sd">        </span>
+<span class="sd">        :param bool root: Stores the file in the marcopolo configuration directory.</span>
+<span class="sd">        </span>
+<span class="sd">            This feature is only available to privileged users, by default root and users in the marcopolo group.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Need a token&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">uid</span> <span class="o">=</span> <span class="n">tokenprovider</span><span class="o">.</span><span class="n">decrypt_token</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">uid</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Bad token. Could not find user&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Bad token&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">False</span> <span class="c"># Python does not allow throwing an exception insided an exception, so we use a flag</span>
+        <span class="n">reason</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        
+        <span class="c">#Verification of services</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">reason</span> <span class="o">=</span> <span class="s">&quot;Service must be a string&quot;</span>
+
+        <span class="c">#The service must be something larger than 1 character</span>
+        <span class="k">if</span> <span class="n">service</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">service</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">reason</span> <span class="o">=</span> <span class="s">&quot;Must be larger than 1&quot;</span>
+
+        <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;The name of the service </span><span class="si">%s</span><span class="s"> is invalid: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">reason</span><span class="p">))</span>
+            <span class="k">return</span>
+        
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">faulty_ip</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="c">#The IP addresses must be represented in valid dot notation and belong to the range 224-239</span>
+        <span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">multicast_groups</span><span class="p">:</span>
+            <span class="c">#The IP must be a string</span>
+            <span class="n">error</span><span class="p">,</span> <span class="n">faulty_ip</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">verify_ip</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">multicast_groups</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">error</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid multicast group address &#39;</span><span class="si">%s</span><span class="s">&#39;: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">faulty_ip</span><span class="p">),</span> <span class="n">reason</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid multicast group address&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">permanent</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Permanent must be boolean&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;permanent must be boolean&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;root must be boolean&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="c">#UID verification</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_user</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;wrong user&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="c">#Final entry with all service parameters</span>
+        <span class="n">service_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">service_dict</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">service</span>
+        <span class="c">#TODOservice_dict[&quot;params&quot;] ={} Add parameters</span>
+        <span class="n">service_dict</span><span class="p">[</span><span class="s">&quot;groups&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">multicast_groups</span>
+        
+        <span class="c">#Root service</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">error_reason</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">multicast_groups</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">multicast_groups</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span>
+
+        <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Permission denied&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            
+            <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">multicast_groups</span><span class="p">:</span>
+                <span class="c">#Only root or members of the `marcopolo` group can publish root services</span>
+                
+                <span class="k">if</span> <span class="n">service</span> <span class="ow">in</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span><span class="p">[</span><span class="n">group</span><span class="p">]]:</span>
+                    <span class="n">error_reason</span> <span class="o">=</span> <span class="s">&quot;Service </span><span class="si">%s</span><span class="s"> already exists&quot;</span> <span class="o">%</span> <span class="n">service</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="k">continue</span>
+                
+                <span class="k">if</span> <span class="n">permanent</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+
+                    <span class="n">services_dir</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">CONF_DIR</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">SERVICES_DIR</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">services_dir</span><span class="p">):</span>
+                        <span class="n">makedirs</span><span class="p">(</span><span class="n">services_dir</span><span class="p">)</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="n">services_dir</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">grp</span><span class="o">.</span><span class="n">getgrnam</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">)</span><span class="o">.</span><span class="n">gr_gid</span><span class="p">)</span>
+
+                    <span class="n">service_file</span> <span class="o">=</span> <span class="n">sanitize_path</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">services_dir</span><span class="p">,</span> <span class="n">service_file</span><span class="p">)):</span>
+                        <span class="n">error_reason</span> <span class="o">=</span> <span class="s">&quot;Permanent service </span><span class="si">%s</span><span class="s"> already exists&quot;</span> <span class="o">%</span> <span class="n">service</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">continue</span>
+
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">services_dir</span><span class="p">,</span> <span class="n">service_file</span><span class="p">),</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">service_dict</span><span class="p">))</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">fchown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                        <span class="n">service_dict</span><span class="p">[</span><span class="s">&quot;file&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">service_file</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="n">error_reason</span> <span class="o">=</span> <span class="s">&quot;Could not write file&quot;</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">continue</span>
+
+                
+                <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="n">service</span><span class="p">,</span> <span class="s">&quot;permanent&quot;</span><span class="p">:</span><span class="n">permanent</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">service_dict</span><span class="p">[</span><span class="s">&quot;permanent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">permanent</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_ok</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="n">error_reason</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">multicast_groups</span><span class="p">:</span>
+                
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">,</span> <span class="bp">None</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">service</span> <span class="ow">in</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span>  <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">]]:</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">continue</span>
+
+                <span class="n">folder</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_dir</span>
+                <span class="n">deploy_folder</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">POLO_USER_DIR</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">permanent</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">):</span>
+                        <span class="n">makedirs</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">)</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">chown</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+                    
+                    <span class="n">service_file</span> <span class="o">=</span> <span class="n">sanitize_path</span><span class="p">(</span><span class="n">service</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">,</span> <span class="n">service_file</span><span class="p">)):</span>
+                        <span class="c">#TODO: if unpublished and not deleted, this will be true</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">continue</span>
+                    
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">,</span> <span class="n">service_file</span><span class="p">),</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">service_dict</span><span class="p">))</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">fchown</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_uid</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_gid</span><span class="p">)</span>
+                        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Could not write service file </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+                        <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">return</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="n">service</span><span class="p">,</span> <span class="s">&quot;permanent&quot;</span><span class="p">:</span><span class="n">permanent</span><span class="p">})</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Publishing user service </span><span class="si">%s</span><span class="s"> in group </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">group</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_ok</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">pw_name</span><span class="o">+</span><span class="s">&quot;:&quot;</span><span class="o">+</span><span class="n">service</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Service already exists&quot;</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="PoloBindingSSL.unpublish_service"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.unpublish_service">[docs]</a>    <span class="k">def</span> <span class="nf">unpublish_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">multicast_groups</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span><span class="p">,</span> <span class="n">delete_file</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes a service from the offered services structures and all associated files, upon request.</span>
+
+<span class="sd">        :param tuple address: A tuple with the requesting address and port.</span>
+
+<span class="sd">        :param str service: The id of the service to delete.</span>
+
+<span class="sd">        :param int uid: The uid of the requesting user.</span>
+
+<span class="sd">        :param list multicast_groups: The list of multicast_groups to delete the service from.\</span>
+<span class="sd">         If not defined, the service is removed from all groups.</span>
+
+<span class="sd">        :param bool delete_file: If set to ``True`` and the service is of type permanent,\</span>
+<span class="sd">         the service file is deleted. If the service is not permanent the parameter is ignored. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;Unpublishing service&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Bad token&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">uid</span> <span class="o">=</span> <span class="n">tokenprovider</span><span class="o">.</span><span class="n">decrypt_token</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">secret</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">uid</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Bad token&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Bad token&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">multicast_groups</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">multicast_groups</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span>
+        <span class="c">#Determine whether it is a root or a user service</span>
+        <span class="c">#The IP addresses must be represented in valid dot notation and belong to the range 224-239</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">reason</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        
+        <span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">multicast_groups</span><span class="p">:</span>
+            <span class="c">#The IP must be a string</span>
+            <span class="n">error</span><span class="p">,</span> <span class="n">faulty_ip</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">verify_ip</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">multicast_groups</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">ip</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">error</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid multicast group address &#39;</span><span class="si">%s</span><span class="s">&#39;: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">faulty_ip</span><span class="p">),</span> <span class="n">reason</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid multicast group address&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid multicast group address &#39;</span><span class="si">%s</span><span class="s">&#39;: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">faulty_ip</span><span class="p">),</span> <span class="n">reason</span><span class="p">))</span>
+            <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">multicast_groups</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDRS</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">multicast_groups</span><span class="p">)))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;The group </span><span class="si">%s</span><span class="s"> is not available&quot;</span> <span class="o">%</span> <span class="n">multicast_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">return</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_user</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;wrong user&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">service</span><span class="p">):</span>
+            <span class="c">#user service</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">user</span><span class="p">,</span> <span class="n">service_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verify</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">service</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+                <span class="n">user_pwd</span> <span class="o">=</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwnam</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid formatting&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="n">user_pwd</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Invalid user&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">multicast_groups</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">match</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="n">user</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">service_name</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                        <span class="n">is_permanent</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;permanent&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                        
+                        <span class="k">if</span> <span class="n">delete_file</span> <span class="ow">and</span> <span class="n">is_permanent</span><span class="p">:</span>
+                            <span class="n">folder</span> <span class="o">=</span> <span class="n">user_pwd</span><span class="o">.</span><span class="n">pw_dir</span>
+                            <span class="n">deploy_folder</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">POLO_USER_DIR</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">)</span> <span class="ow">and</span> <span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">,</span> <span class="n">service_name</span><span class="p">)):</span>
+                                
+                                <span class="k">try</span><span class="p">:</span>
+                                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">deploy_folder</span><span class="p">,</span> <span class="n">service_name</span><span class="p">))</span>
+                                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                    <span class="k">pass</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Could not find service file&quot;</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">user_services</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="n">user</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                            <span class="k">pass</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Could not find service&quot;</span><span class="p">)</span>
+                        <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Could not find service&quot;</span><span class="p">)</span>
+                    <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">write_ok</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c">#root service</span>
+            <span class="n">error_str</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">multicast_groups</span><span class="p">:</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">service</span><span class="p">),</span> <span class="bp">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                    <span class="n">is_permanent</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;permanent&quot;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+                    
+                    <span class="k">if</span> <span class="n">delete_file</span> <span class="ow">and</span> <span class="n">is_permanent</span><span class="p">:</span>
+                        <span class="n">folder</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">CONF_DIR</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">SERVICES_DIR</span><span class="p">)</span>
+                    
+                        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span> <span class="ow">and</span> <span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">)):</span>
+                            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">),</span> <span class="s">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                                <span class="n">file_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;groups&quot;</span><span class="p">,</span> <span class="p">[]))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                                        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">))</span>
+                                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Internal error during processing of file&quot;</span><span class="p">)</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">groups</span> <span class="o">=</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;groups&quot;</span><span class="p">,</span> <span class="p">[])</span>
+                                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                                        <span class="k">try</span><span class="p">:</span>
+                                            <span class="n">groups</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+                                        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                                            <span class="k">pass</span>
+                                    
+                                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                                        <span class="k">try</span><span class="p">:</span>
+                                            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                                            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">))</span>
+                                        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Internal error during processing of file&quot;</span><span class="p">)</span>
+                                    <span class="k">else</span><span class="p">:</span>
+                                        <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                                        <span class="n">f</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+                                        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">file_dict</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Could not find service file&quot;</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">delete_file</span><span class="p">:</span>
+                        <span class="n">folder</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">CONF_DIR</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">SERVICES_DIR</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span> <span class="ow">and</span> <span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">)):</span>
+                            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">),</span> <span class="s">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                                <span class="n">file_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;groups&quot;</span><span class="p">,</span> <span class="p">[]))</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                                        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">service</span><span class="p">))</span>
+                                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Internal error during processing of file&quot;</span><span class="p">)</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">groups</span> <span class="o">=</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;groups&quot;</span><span class="p">,</span> <span class="p">[])</span>
+                                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                                        <span class="k">try</span><span class="p">:</span>
+                                            <span class="n">groups</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+                                        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                                            <span class="k">pass</span>
+                                    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                                    <span class="n">f</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+                                    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">file_dict</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+                    
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">write_error</span><span class="p">(</span><span class="s">&quot;Could not find service&quot;</span><span class="p">)</span>
+                            <span class="k">return</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">offered_services</span><span class="p">[</span><span class="n">group</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">write_ok</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+    </div>
+<div class="viewcode-block" id="PoloBindingSSL.validate_user"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.validate_user">[docs]</a>    <span class="k">def</span> <span class="nf">validate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a `pwd` structure if the uid is present in the passwd database.</span>
+<span class="sd">        Otherwise `None` is returned</span>
+<span class="sd">        </span>
+<span class="sd">        :param string uid: The user identifier of the service</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+        <span class="k">if</span> <span class="n">uid</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwuid</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="n">user</span>
+</div>
+<div class="viewcode-block" id="PoloBindingSSL.is_superuser"><a class="viewcode-back" href="../../../reference/polo/PoloBinding.html#marcopolo.polo.polobindingssl.PoloBindingSSL.is_superuser">[docs]</a>    <span class="k">def</span> <span class="nf">is_superuser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns `True` if the user is a &#39;superuser&#39; (it is root or it a member of the `marcopolo` group)</span>
+<span class="sd">        </span>
+<span class="sd">        :param string user: `pwd` structure with all the information from the user</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">gr_name</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grp</span><span class="o">.</span><span class="n">getgrall</span><span class="p">()</span> <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_name</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">gr_mem</span><span class="p">]</span>
+        <span class="n">gid</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_gid</span>
+        <span class="n">groups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grp</span><span class="o">.</span><span class="n">getgrgid</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span><span class="o">.</span><span class="n">gr_name</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="s">&#39;marcopolo&#39;</span> <span class="ow">in</span> <span class="n">groups</span> <span class="ow">or</span> <span class="n">user</span><span class="o">.</span><span class="n">pw_uid</span> <span class="o">==</span> <span class="mi">0</span></div></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

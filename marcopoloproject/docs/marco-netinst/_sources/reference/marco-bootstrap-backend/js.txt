@@ -1,0 +1,14 @@
+JavaScript files
+================
+
+index.js
+--------
+
+.. autojs:: ../../marco-bootstrap-backend/usr/lib/marcobootstrap/backend/static/js/index.js
+    :members:
+
+scheduled.js
+------------
+
+.. autojs:: ../../marco-bootstrap-backend/usr/lib/marcobootstrap/backend/static/js/scheduled.js
+    :members:

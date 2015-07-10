@@ -1,0 +1,57 @@
+Requisitos no funcionales
+=========================
+
+NFR1 Integración transparente con **systemd** e **initd**
+---------------------------------------------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Objetivos asociados**: OBJ3
+- **Requisitos asociados**: 
+- **Descripción**: La instalación del paquete debe configurar el servicio para trabajar con el gestor presente en el sistema operativo, detectando previamente cuál de los dos existe en este.
+- **Importancia**: Media
+- **Urgencia**: Baja
+- **Estado**: Completo
+- **Estabilidad**: Estable
+  
+NFR2 Tornado
+------------
+
+- **Versión**: 
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Objetivos asociados**: OBJ2
+- **Requisitos asociados**: IRQ-1
+- **Descripción**: Se aprovechará el bucle de eventos de Tornado :class:`IOLoop<tornado.ioloop.IOLoop>` para la programación de los diferentes eventos, con el objetivo de optimizar el rendimiento del sistema.
+- **Importancia**: Baja
+- **Urgencia**: Baja
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+NFR3 Compatibilidad con systemd e initd
+---------------------------------------
+
+- **Versión**: 
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Objetivos asociados**:
+- **Requisitos asociados**: 
+- **Descripción**: Debido a que el gestor deberá integrarse en diferentes sistemas operativos, se deberá implementar el *daemon* de forma que sea gestionable con systemd e initd.
+- **Importancia**: Baja
+- **Urgencia**: Baja
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+.. 
+    - **Versión**: 
+    - **Autores**:
+    - **Fuentes**: 
+    - **Objetivos asociados**: 
+    - **Requisitos asociados**: 
+    - **Descripción**: 
+    - **Importancia**: 
+    - **Urgencia**: 
+    - **Estado**: 
+    - **Estabilidad**: 
+    - **Comentarios**: 

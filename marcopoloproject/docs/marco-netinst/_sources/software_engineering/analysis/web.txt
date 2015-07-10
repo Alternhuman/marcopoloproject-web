@@ -1,0 +1,12 @@
+Ingeniería web
+==============
+
+.. figure:: ../img/web.*
+    :align: center
+
+Mapa navegacional
+-----------------
+.. Visión Global de una aplicación web según un perfil de usuario
+
+.. image:: ../img/design_navegational_context.*
+    :align: center

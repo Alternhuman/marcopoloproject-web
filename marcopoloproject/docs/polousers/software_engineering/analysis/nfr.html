@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos no funcionales &mdash; polousers 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="polousers 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Vista estática" href="static.html"/>
+        <link rel="prev" title="Vista de paquetes de casos de uso" href="uc.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> polousers</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../description.html">Descripción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#module-features">Module features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#directory-creation">Directory creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#bibliografia">Bibliografía</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/pi_pam_mkhomedirs/intro.html">pi_pam_mkhomedirs reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/polousers/intro.html">Polusers reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">polousers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos no funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/nfr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-no-funcionales">
+<h1>Requisitos no funcionales<a class="headerlink" href="#requisitos-no-funcionales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nfr-1-tiempo-de-ejecucion">
+<h2>NFR-1: Tiempo de ejecución<a class="headerlink" href="#nfr-1-tiempo-de-ejecucion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2</li>
+<li><strong>Descripción</strong>: El tiempo de ejecución de todas las operaciones a realizar no deberá afectar negativamente a la experiencia del usuario. Se acepta un tiempo de ejecución razonable aquel menor que 5 segundos.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-2-tomcat">
+<h2>NFR-2: Tomcat<a class="headerlink" href="#nfr-2-tomcat" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-2, RF-3</li>
+<li><strong>Descripción</strong>: El sistema deberá configurar automáticamente una instancia del contenedor de servicios <strong>Tomcat</strong> para cada usuario.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-3-confidencialidad">
+<h2>NFR-3: Confidencialidad<a class="headerlink" href="#nfr-3-confidencialidad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2</li>
+<li><strong>Descripción</strong>: El sistema deberá garantizar que todos los datos de los diferentes usuarios serán transferidos utilizando canales seguros y su manipulación en un nodo no deberá comprometer la privacidad de los mismos.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-4-seguridad">
+<h2>NFR-4: Seguridad<a class="headerlink" href="#nfr-4-seguridad" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2</li>
+<li><strong>Descripción</strong>: Todas las comunicaciones entre los diferentes nodos que impliquen la transferencia de datos privados o la solicitud de ejecución de una acción con privilegios de superusuario utilizará conexiones TLS/SSL con validación de un certificado en ambos lados del canal (cliente y servidor).</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr-5-lenguaje-de-programacion-para-el-modulo-pam">
+<h2>NFR-5: Lenguaje de programación para el módulo PAM<a class="headerlink" href="#nfr-5-lenguaje-de-programacion-para-el-modulo-pam" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-1</li>
+<li><strong>Descripción</strong>: Los módulos de PAM son vinculados a este servicio como bibliotecas compartidas, generalmente programadas en C. Se deberá por tanto implementar toda la funcionalidad en este lenguaje.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong>: Si bien existen mecanismos de interconexión con otros lenguajes (como <a class="reference external" href="http://pam-python.sourceforge.net/">pam-python (http://pam-python.sourceforge.net/)</a>), se consideran alternativas más complejas que no aportan ningún tipo de ventaja.</li>
+</ul>
+</div>
+<div class="section" id="nfr-6-lenguaje-de-programacion-para-el-receptor">
+<h2>NFR-6: Lenguaje de programación para el receptor<a class="headerlink" href="#nfr-6-lenguaje-de-programacion-para-el-receptor" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: RF-2</li>
+<li><strong>Descripción</strong>: La implementación del receptor, encargado de la creación de los diferentes directorios y posterior configuración se realizará en el lenguaje Python utilizando el <em>framework</em> Twisted como herramienta de soporte.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="static.html" class="btn btn-neutral float-right" title="Vista estática">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="uc.html" class="btn btn-neutral" title="Vista de paquetes de casos de uso"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

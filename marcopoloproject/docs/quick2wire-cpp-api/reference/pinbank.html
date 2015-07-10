@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>class PinBank &mdash; quick2wire-cpp-api 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="quick2wire-cpp-api 1 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="../reference.html"/>
+        <link rel="next" title="class GPIO" href="gpio.html"/>
+        <link rel="prev" title="class Pin" href="pin.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> quick2wire-cpp-api</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../principles.html">Working principles</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pin.html">The Pin class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">The PinBank class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html">The GPIO class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio-admin.html">gpio-admin.c</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">quick2wire-cpp-api</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+      
+    <li><strong>class</strong> PinBank</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/pinbank.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="class-pinbank">
+<h1><strong>class</strong> PinBank<a class="headerlink" href="#class-pinbank" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv27PinBank">
+<span id="PinBank"></span><span class="target" id="quick2wireclassPinBank"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">PinBank</code><a class="headerlink" href="#_CPPv27PinBank" title="Permalink to this definition">¶</a></dt>
+<dd><div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N7PinBank7PinBankEv">
+<span id="PinBank::PinBank"></span><span class="target" id="quick2wireclassPinBank_1adc24e1c6c5fd1ee5e69ce01933689cc3"></span><code class="descname">PinBank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank7PinBankEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the mapping array used by index_to_soc and the relevant data stuctures. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N7PinBank2atEi">
+<span id="PinBank::at__i"></span><span class="target" id="quick2wireclassPinBank_1aefa15b7fa10006b72ea5e985bcb45e36"></span><a class="reference internal" href="pin.html#_CPPv23Pin" title="Pin">Pin</a> <code class="descname">at</code><span class="sig-paren">(</span>int <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank2atEi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="pin.html#quick2wireclassPin"><span>Pin</span></a> object which can be used to manipulate the <em>index</em> <a class="reference internal" href="gpio.html#quick2wireclassGPIO"><span>GPIO</span></a> pin <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The <a class="reference internal" href="pin.html#quick2wireclassPin"><span>Pin</span></a> object </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">index</span></code> - <p>- The index of the pin. See </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N7PinBank3pinEi">
+<span id="PinBank::pin__i"></span><span class="target" id="quick2wireclassPinBank_1a9697715833f1ffb8cfd3b86b35b37713"></span><a class="reference internal" href="pin.html#_CPPv23Pin" title="Pin">Pin</a> <code class="descname">pin</code><span class="sig-paren">(</span>int <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank3pinEi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <a class="reference internal" href="pin.html#quick2wireclassPin"><span>Pin</span></a> object which can be used to manipulate the <em>index</em> <a class="reference internal" href="gpio.html#quick2wireclassGPIO"><span>GPIO</span></a> pin <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The <a class="reference internal" href="pin.html#quick2wireclassPin"><span>Pin</span></a> object </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">index</span></code> - <p>- The index of the pin. See </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N7PinBank7has_lenEv">
+<span id="PinBank::has_len"></span><span class="target" id="quick2wireclassPinBank_1a1fccc363bad0687b79d95a7ac38b88bf"></span>bool <code class="descname">has_len</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank7has_lenEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if the length of the pins array is greater than 0 <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Bool </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N7PinBank6lengthEv">
+<span id="PinBank::length"></span><span class="target" id="quick2wireclassPinBank_1a4299ef2cbcf4b7de863f8f5efd2c2deb"></span>int <code class="descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank6lengthEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of available pins (both free and in use). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Functions</p>
+<dl class="function">
+<dt id="_CPPv2N7PinBank12index_to_socEi">
+<span id="PinBank::index_to_soc__i"></span><span class="target" id="quick2wireclassPinBank_1aa5345b4d1ffc20be19da0ecf96c04728"></span>int <code class="descname">index_to_soc</code><span class="sig-paren">(</span>int <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank12index_to_socEi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translates the index numbering to the SoC value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N7PinBank11by_revisionEii">
+<span id="PinBank::by_revision__i.i"></span><span class="target" id="quick2wireclassPinBank_1af7cc6fef569bba28f2ed9f6d9aa96dc2"></span>int <code class="descname">by_revision</code><span class="sig-paren">(</span>int <em>v1</em>, int <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N7PinBank11by_revisionEii" title="Permalink to this definition">¶</a></dt>
+<dd><p>The various models of Raspberry Pi use different <a class="reference internal" href="gpio.html#quick2wireclassGPIO"><span>GPIO</span></a> numbering conventions. The function returns the SoC value for the selected pin according to the Raspberry Pi version. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>v1 or v2, according to the value of pi_revision </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">v1</span></code> - <p>The value of the pin for Rasbperry Pi 1 A and B </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">v2</span></code> - <p>The value of the pin for Rasbperry Pi 1 B+ and 2 B </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gpio.html" class="btn btn-neutral float-right" title="class GPIO">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pin.html" class="btn btn-neutral" title="class Pin"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

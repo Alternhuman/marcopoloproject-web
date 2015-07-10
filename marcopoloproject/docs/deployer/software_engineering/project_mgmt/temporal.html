@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Planificación temporal del proyecto &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Gestión del proyecto" href="intro.html"/>
+        <link rel="prev" title="Gestión del proyecto" href="intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Gestión del proyecto</a> &raquo;</li>
+      
+    <li>Planificación temporal del proyecto</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/project_mgmt/temporal.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="planificacion-temporal-del-proyecto">
+<h1>Planificación temporal del proyecto<a class="headerlink" href="#planificacion-temporal-del-proyecto" title="Permalink to this headline">¶</a></h1>
+<p>El desarrollo de la herramienta de despliegue comienza en la cuarta iteración realizada, desarrollando un prototipo funcional entre el 3 y el 10 de abril. Posteriormente se añaden nuevas características y se mejora la estabilidad de las ya presentes siguiendo el modelo en espiral propuesto para el desarrollo.</p>
+<p>Las siguientes tareas han sido registradas en la instancia de Redmine accesible en <a class="reference external" href="http://redmine.martinarroyo.net">redmine.martinarroyo.net</a></p>
+<div class="section" id="feature-42-herramientas-de-despliegue">
+<h2>Feature #42: Herramientas de despliegue<a class="headerlink" href="#feature-42-herramientas-de-despliegue" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 03/04/2015</li>
+<li><strong>Fecha de finalización</strong>: 10/04/2015</li>
+<li><strong>Tiempo empleado</strong>: 3.00 horas</li>
+</ul>
+</div>
+<div class="section" id="feature-57-herramienta-de-despliegue">
+<h2>Feature #57: Herramienta de despliegue<a class="headerlink" href="#feature-57-herramienta-de-despliegue" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>:  10/04/2015</li>
+<li><strong>Fecha de finalización</strong>: 14/04/2015</li>
+<li><strong>Tiempo empleado</strong>:  22.00 horas</li>
+</ul>
+</div>
+<div class="section" id="feature-61-herramienta-de-despliegue">
+<h2>Feature #61: Herramienta de despliegue<a class="headerlink" href="#feature-61-herramienta-de-despliegue" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 16/04/2015</li>
+<li><strong>Fecha de finalización</strong>: 19/04/2015</li>
+<li><strong>Tiempo empleado</strong>:  8.50 horas</li>
+</ul>
+</div>
+<div class="section" id="support-71-evaluacion-de-usuarios-de-deployer-y-statusmonitor">
+<h2>Support #71: Evaluación de usuarios de deployer y statusmonitor<a class="headerlink" href="#support-71-evaluacion-de-usuarios-de-deployer-y-statusmonitor" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 28/04/2015</li>
+<li><strong>Fecha de finalización</strong>: 30/04/2015</li>
+<li><strong>Tiempo empleado</strong>: 1.90 horas</li>
+</ul>
+</div>
+<div class="section" id="feature-94-marcologger">
+<h2>Feature #94: MarcoLogger<a class="headerlink" href="#feature-94-marcologger" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 18/05/2015</li>
+<li><strong>Fecha de finalización</strong>: 20/05/2015</li>
+<li><strong>Tiempo empleado</strong>: 11.00 horas</li>
+</ul>
+</div>
+<div class="section" id="bug-106-solucionar-error-del-logger">
+<h2>Bug #106: Solucionar error del Logger<a class="headerlink" href="#bug-106-solucionar-error-del-logger" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 29/05/2015</li>
+<li><strong>Fecha de finalización</strong>: 29/05/2015</li>
+<li><strong>Tiempo empleado</strong>   0.20 hour</li>
+</ul>
+</div>
+<div class="section" id="feature-126-shell-en-deployer">
+<h2>Feature #126: Shell en Deployer<a class="headerlink" href="#feature-126-shell-en-deployer" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 04/06/2015</li>
+<li><strong>Fecha de finalización</strong>: 05/06/2015</li>
+<li><strong>Tiempo empleado</strong>: 5.00 horas</li>
+</ul>
+</div>
+<div class="section" id="feature-102-ejecucion-de-comandos-en-deployer-sin-subida-de-fichero">
+<h2>Feature #102: Ejecución de comandos en Deployer sin subida de fichero<a class="headerlink" href="#feature-102-ejecucion-de-comandos-en-deployer-sin-subida-de-fichero" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 03/06/2015</li>
+<li><strong>Fecha de finalización</strong>: 04/06/2015</li>
+<li><strong>Tiempo empleado</strong>: 5.50 horas</li>
+</ul>
+</div>
+<div class="section" id="feature-123-unificacion-de-deployer">
+<h2>Feature #123: Unificación de Deployer<a class="headerlink" href="#feature-123-unificacion-de-deployer" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 03/06/2015</li>
+<li><strong>Fecha de finalización</strong>: 04/06/2015</li>
+<li><strong>Tiempo empleado</strong>:  4.50 horas</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Feature #126: Shell en Deployer<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 04/06/2015</li>
+<li><strong>Fecha de finalización</strong>: 05/06/2015</li>
+<li><strong>Tiempo empleado</strong>:  5.00 horas</li>
+</ul>
+</div>
+<div class="section" id="feature-138-empaquetar-deployer">
+<h2>Feature #138: Empaquetar deployer<a class="headerlink" href="#feature-138-empaquetar-deployer" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Fecha de inicio</strong>: 15/06/2015</li>
+<li><strong>Fecha de finalización</strong>: 15/06/2015</li>
+<li><strong>Tiempo empleado</strong>: 1.5 horas</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Gestión del proyecto"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

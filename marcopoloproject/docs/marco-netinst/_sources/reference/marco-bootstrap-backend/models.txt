@@ -1,0 +1,14 @@
+The models class
+================
+
+The Operation model
+-------------------
+
+.. autoclass:: marcobootstrap.backend.models.Operation
+	:members:
+	
+.. 
+	.. autoclass:: marcobootstrap.backend.models.Operation
+    :members:
+    :private-members:
+    :special-members:

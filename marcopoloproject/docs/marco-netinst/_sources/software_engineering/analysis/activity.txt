@@ -1,0 +1,14 @@
+Vista de actividad
+==================
+
+Programación y cancelación de un evento
+---------------------------------------
+
+.. image:: ../img/analysis_activity_schedule_operation.*
+    :align: center
+
+Proceso de instalación del sistema operativo   
+--------------------------------------------
+
+.. image:: ../img/analysis_activity_installation.*
+	:align: center

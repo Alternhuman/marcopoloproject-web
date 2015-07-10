@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>managers &mdash; marcomanager a1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcomanager a1 documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> marcomanager</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#pip">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#setuptools">setuptools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../managers.html">Examples of managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#daemon">daemon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../marcomanager.html">The MarcoManager class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../runner.html">The Runner class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">marcomanager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>managers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for managers</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">tornado.concurrent</span> <span class="kn">import</span> <span class="n">Future</span><span class="p">,</span> <span class="n">run_on_executor</span>
+
+<span class="kn">from</span> <span class="nn">marcopolo.bindings</span> <span class="kn">import</span> <span class="n">marco</span><span class="p">,</span> <span class="n">polo</span>
+
+<span class="kn">from</span> <span class="nn">marcomanager.marcomanager</span> <span class="kn">import</span> <span class="n">MarcoManager</span>
+
+<div class="viewcode-block" id="CompilerDiscover"><a class="viewcode-back" href="../managers.html#managers.CompilerDiscover">[docs]</a><span class="k">class</span> <span class="nc">CompilerDiscover</span><span class="p">(</span><span class="n">MarcoManager</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Uses `MarcoPolo &lt;file:///home/martin/TFG/workspaces/discovery/doc/build/html/index.html&gt;`_ </span>
+<span class="sd">    through the  :class:`Marco python binding&lt;marcopolo.bindings.marco.Marco&gt;` to</span>
+<span class="sd">    discover the available `distcc &lt;https://code.google.com/p/distcc/&gt;`_ compilers on the network.</span>
+<span class="sd">    If successful, it modifies the `/etc/distcc/hosts` with the results.</span>
+
+<span class="sd">    This manager is executed with a delay of 10 seconds after startup and reloads every hour.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@run_on_executor</span>
+<div class="viewcode-block" id="CompilerDiscover.onSetup"><a class="viewcode-back" href="../managers.html#managers.CompilerDiscover.onSetup">[docs]</a>    <span class="k">def</span> <span class="nf">onSetup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sends a :py:meth:`Request_for&lt;marcopolo.bindings.marco.Marco.request_for&gt;` message asking for nodes</span>
+<span class="sd">        with the *compiler* service. If successful, it dumps the results to the &#39;/etc/distcc/hosts file&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">marco</span><span class="o">.</span><span class="n">Marco</span><span class="p">()</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">nodes</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="s">&quot;compiler&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="n">marco</span><span class="o">.</span><span class="n">MarcoTimeOutException</span><span class="p">:</span>
+
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Retrying&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/etc/distcc/hosts&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;Adding compiler </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Something happened while executing CompilerDiscover: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+        <span class="c">#TODO: Use DISTCC_HOME</span>
+    </div>
+<div class="viewcode-block" id="CompilerDiscover.onStop"><a class="viewcode-back" href="../managers.html#managers.CompilerDiscover.onStop">[docs]</a>    <span class="k">def</span> <span class="nf">onStop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Nothing is done</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+</div>
+<div class="viewcode-block" id="CompilerDiscover.delay"><a class="viewcode-back" href="../managers.html#managers.CompilerDiscover.delay">[docs]</a>    <span class="k">def</span> <span class="nf">delay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns 10, the number of seconds to wait</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">10</span>
+</div>
+<div class="viewcode-block" id="CompilerDiscover.onReload"><a class="viewcode-back" href="../managers.html#managers.CompilerDiscover.onReload">[docs]</a>    <span class="k">def</span> <span class="nf">onReload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        On reload, requests again for the *compiler* service, and dumps</span>
+<span class="sd">        the results to the hosts file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">marco</span><span class="o">.</span><span class="n">Marco</span><span class="p">()</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">nodes</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="s">&quot;compiler&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="n">marco</span><span class="o">.</span><span class="n">MarcoTimeOutException</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Retrying&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/etc/distcc/hosts&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">FileNotFoundException</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;Unexpected error </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+    </div>
+<div class="viewcode-block" id="CompilerDiscover.doReload"><a class="viewcode-back" href="../managers.html#managers.CompilerDiscover.doReload">[docs]</a>    <span class="k">def</span> <span class="nf">doReload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Schedules a reload every 3600 seconds (an hour)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">3600</span>
+</div></div>
+<div class="viewcode-block" id="HostnameManager"><a class="viewcode-back" href="../managers.html#managers.HostnameManager">[docs]</a><span class="k">class</span> <span class="nc">HostnameManager</span><span class="p">(</span><span class="n">MarcoManager</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Includes hostname information in marcopolo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="sd">&quot;&quot;&quot;By default, disabled&quot;&quot;&quot;</span>
+    <span class="n">__disable__</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="nd">@run_on_executor</span>
+    <span class="k">def</span> <span class="nf">onSetup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">socket</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">onStop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">onReload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">socket</span>
+        <span class="n">hostname</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">doReload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">3600</span>
+</div>
+<span class="k">class</span> <span class="nc">EnableTomcatManager</span><span class="p">(</span><span class="n">MarcoManager</span><span class="p">):</span>
+    <span class="n">__disable__</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="nd">@run_on_executor</span>
+    <span class="k">def</span> <span class="nf">onSetup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">onStop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">EnableHadoopMaster</span><span class="p">(</span><span class="n">MarcoManager</span><span class="p">):</span>
+    <span class="n">__disable__</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="nd">@run_on_executor</span>
+    <span class="k">def</span> <span class="nf">onSetup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">onStop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'a1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

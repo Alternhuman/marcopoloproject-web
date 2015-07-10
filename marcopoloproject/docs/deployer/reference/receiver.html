@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The receiver module &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="intro.html"/>
+        <link rel="next" title="The statusmonitor module" href="statusmonitor.html"/>
+        <link rel="prev" title="The deployer module" href="deployer.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="intro.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deployer.html">The deployer module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="intro.html">Reference</a> &raquo;</li>
+      
+    <li>The receiver module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/receiver.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="the-receiver-module">
+<h1>The receiver module<a class="headerlink" href="#the-receiver-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="deployhandler">
+<h2>DeployHandler<a class="headerlink" href="#deployhandler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcodeployer.receiver.DeployHandler">
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">DeployHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#DeployHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.DeployHandler" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="marcodeployer.receiver.DeployHandler.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#DeployHandler.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.DeployHandler.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>POST handler received from <code class="docutils literal"><span class="pre">deployer.py</span></code>. 
+It handles the deployment of the file and the execution of the desired command.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="loggerhandler">
+<h2>LoggerHandler<a class="headerlink" href="#loggerhandler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcodeployer.receiver.LoggerHandler">
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">LoggerHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.LoggerHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes the logging messages</p>
+<dl class="method">
+<dt id="marcodeployer.receiver.LoggerHandler.check_origin">
+<code class="descname">check_origin</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.check_origin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.LoggerHandler.check_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overrides the parent method to return True for any request, since we are
+working without names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.LoggerHandler.on_close">
+<code class="descname">on_close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.on_close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.LoggerHandler.on_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the connection from the opensockets dictionary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.LoggerHandler.on_line">
+<code class="descname">on_line</code><span class="sig-paren">(</span><em>user</em>, <em>command</em>, <em>message</em>, <em>ip</em>, <em>identifier</em>, <em>stop=False</em>, <em>stream_name='stdout'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.on_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.LoggerHandler.on_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>The io_loop calls the function when a new message appears.
+:param str user: The name of the user
+:param str command: The command in execution
+:param str message: The message to deliver
+:param str ip: The ip of the server, so the client knows where the message comes from
+:param boolean stop: Determines if the connection must be closed or not <em>deprecated</em>
+:param str stream_name: The name of the stream</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.LoggerHandler.on_message">
+<code class="descname">on_message</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.on_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.LoggerHandler.on_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>A message is sent by the client after creating the connection. The method verifies the user
+secret cookie and appends the connection to the opensockets dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The received message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.LoggerHandler.open">
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.LoggerHandler.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notifies the opening of a new Logger connection</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="probewshandler">
+<h2>ProbeWSHandler<a class="headerlink" href="#probewshandler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcodeployer.receiver.ProbeWSHandler">
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">ProbeWSHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeWSHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ProbeWSHandler" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="marcodeployer.receiver.ProbeWSHandler.check_origin">
+<code class="descname">check_origin</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeWSHandler.check_origin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ProbeWSHandler.check_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overrides the parent method to return True for any request, since we are
+working without names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.ProbeWSHandler.open">
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeWSHandler.open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ProbeWSHandler.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a confirmation message</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="probehandler">
+<h2>ProbeHandler<a class="headerlink" href="#probehandler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcodeployer.receiver.ProbeHandler">
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">ProbeHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ProbeHandler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="sockethandler">
+<h2>SocketHandler<a class="headerlink" href="#sockethandler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcodeployer.receiver.SocketHandler">
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">SocketHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.SocketHandler" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="marcodeployer.receiver.SocketHandler.check_origin">
+<code class="descname">check_origin</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler.check_origin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.SocketHandler.check_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overrides the parent method to return True for any request, since we are
+working without names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-marcodeployer.receiver">
+<span id="module-methods"></span><h2>Module methods<a class="headerlink" href="#module-marcodeployer.receiver" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">DeployHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#DeployHandler"><span class="viewcode-link">[source]</span></a></dt>
+<dd><dl class="method">
+<dt id="marcodeployer.receiver.DeployHandler.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#DeployHandler.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.DeployHandler.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">post</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#DeployHandler.post"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>POST handler received from <code class="docutils literal"><span class="pre">deployer.py</span></code>. 
+It handles the deployment of the file and the execution of the desired command.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">LoggerHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Processes the logging messages</p>
+<dl class="method">
+<dt>
+<code class="descname">check_origin</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.check_origin"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Overrides the parent method to return True for any request, since we are
+working without names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">on_close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.on_close"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Removes the connection from the opensockets dictionary</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">on_line</code><span class="sig-paren">(</span><em>user</em>, <em>command</em>, <em>message</em>, <em>ip</em>, <em>identifier</em>, <em>stop=False</em>, <em>stream_name='stdout'</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.on_line"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>The io_loop calls the function when a new message appears.
+:param str user: The name of the user
+:param str command: The command in execution
+:param str message: The message to deliver
+:param str ip: The ip of the server, so the client knows where the message comes from
+:param boolean stop: Determines if the connection must be closed or not <em>deprecated</em>
+:param str stream_name: The name of the stream</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">on_message</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.on_message"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>A message is sent by the client after creating the connection. The method verifies the user
+secret cookie and appends the connection to the opensockets dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; The received message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#LoggerHandler.open"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Notifies the opening of a new Logger connection</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">ProbeHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeHandler"><span class="viewcode-link">[source]</span></a></dt>
+<dd><dl class="method">
+<dt id="marcodeployer.receiver.ProbeHandler.get">
+<code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeHandler.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ProbeHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">ProbeWSHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeWSHandler"><span class="viewcode-link">[source]</span></a></dt>
+<dd><dl class="method">
+<dt>
+<code class="descname">check_origin</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeWSHandler.check_origin"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Overrides the parent method to return True for any request, since we are
+working without names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ProbeWSHandler.open"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Returns a confirmation message</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="marcodeployer.receiver.ShellHandler">
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">ShellHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ShellHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ShellHandler" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="marcodeployer.receiver.ShellHandler.on_message">
+<code class="descname">on_message</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#ShellHandler.on_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.ShellHandler.on_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">marcodeployer.receiver.</code><code class="descname">SocketHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler"><span class="viewcode-link">[source]</span></a></dt>
+<dd><dl class="method">
+<dt>
+<code class="descname">check_origin</code><span class="sig-paren">(</span><em>origin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler.check_origin"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Overrides the parent method to return True for any request, since we are
+working without names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">bool True</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.SocketHandler.on_close">
+<code class="descname">on_close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler.on_close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.SocketHandler.on_close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.SocketHandler.open">
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler.open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.SocketHandler.open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.SocketHandler.send_data">
+<code class="descname">send_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler.send_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.SocketHandler.send_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="marcodeployer.receiver.SocketHandler.send_update">
+<code class="descname">send_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#SocketHandler.send_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.SocketHandler.send_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="marcodeployer.receiver.main">
+<code class="descclassname">marcodeployer.receiver.</code><code class="descname">main</code><span class="sig-paren">(</span><em>args=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the servers, initializes the logging facility, publishes the <code class="docutils literal"><span class="pre">MarcoPolo</span></code> services and starts the <code class="docutils literal"><span class="pre">io_loop</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcodeployer.receiver.process_data">
+<code class="descclassname">marcodeployer.receiver.</code><code class="descname">process_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#process_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.process_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes the statusmonitor data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcodeployer.receiver.shutdown">
+<code class="descclassname">marcodeployer.receiver.</code><code class="descname">shutdown</code><span class="sig-paren">(</span><em>signal</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#shutdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops the application gracefully, closing all socket connections
+and unpublishing the MarcoPolo services.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcodeployer.receiver.sigint_handler">
+<code class="descclassname">marcodeployer.receiver.</code><code class="descname">sigint_handler</code><span class="sig-paren">(</span><em>signal</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#sigint_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.sigint_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="marcodeployer.receiver.start_callback">
+<code class="descclassname">marcodeployer.receiver.</code><code class="descname">start_callback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#start_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.start_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the collection callback</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcodeployer.receiver.stop_callback">
+<code class="descclassname">marcodeployer.receiver.</code><code class="descname">stop_callback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/marcodeployer/receiver.html#stop_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcodeployer.receiver.stop_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the number of open connections is zero, stops the collection callback of data.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="statusmonitor.html" class="btn btn-neutral float-right" title="The statusmonitor module">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="deployer.html" class="btn btn-neutral" title="The deployer module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+The conf module
+===============
+
+The module parses the configuration files and exposes its value through a set of public variables.

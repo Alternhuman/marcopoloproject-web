@@ -1,0 +1,5 @@
+Vista de máquina de estados
+===========================
+
+.. image:: ../img/analysis_state_installation.*
+	:align: center

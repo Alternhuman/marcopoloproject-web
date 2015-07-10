@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gpio-admin.c &mdash; quick2wire-cpp-api 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="quick2wire-cpp-api 1 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="../reference.html"/>
+        <link rel="next" title="Usage" href="../usage.html"/>
+        <link rel="prev" title="class GPIO" href="gpio.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> quick2wire-cpp-api</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../principles.html">Working principles</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pin.html">The Pin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinbank.html">The PinBank class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html">The GPIO class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">gpio-admin.c</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">quick2wire-cpp-api</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+      
+    <li>gpio-admin.c</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/gpio-admin.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="gpio-admin-c">
+<h1>gpio-admin.c<a class="headerlink" href="#gpio-admin-c" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c.GPIO_CLASS_PATH">
+<span class="target" id="quick2wiregpio-admin_8c_1a406b1b696f575e398a079320bc4daee6"></span><code class="descname">GPIO_CLASS_PATH</code><a class="headerlink" href="#c.GPIO_CLASS_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.GPIO_EXPORT_PATH">
+<span class="target" id="quick2wiregpio-admin_8c_1a06730639b5a231cacc35b5f562ea4d83"></span><code class="descname">GPIO_EXPORT_PATH</code><a class="headerlink" href="#c.GPIO_EXPORT_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.GPIO_UNEXPORT_PATH">
+<span class="target" id="quick2wiregpio-admin_8c_1a4eb45312d98e2daa23a63620096fad80"></span><code class="descname">GPIO_UNEXPORT_PATH</code><a class="headerlink" href="#c.GPIO_UNEXPORT_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.DOWN">
+<span class="target" id="quick2wiregpio-admin_8c_1a4193cd1c8c2e6ebd0e056fa2364a663f"></span><code class="descname">DOWN</code><a class="headerlink" href="#c.DOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.UP">
+<span class="target" id="quick2wiregpio-admin_8c_1a1965eaca47dbf3f87acdafc2208f04eb"></span><code class="descname">UP</code><a class="headerlink" href="#c.UP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.BLOCK_SIZE">
+<span class="target" id="quick2wiregpio-admin_8c_1ad51ded0bbd705f02f73fc60c0b721ced"></span><code class="descname">BLOCK_SIZE</code><a class="headerlink" href="#c.BLOCK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.GPIO_BASE">
+<span class="target" id="quick2wiregpio-admin_8c_1acce3b8a909ed8b957b4e411dfb7cbd91"></span><code class="descname">GPIO_BASE</code><a class="headerlink" href="#c.GPIO_BASE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.GPPUD">
+<span class="target" id="quick2wiregpio-admin_8c_1ac6578485ff4c894df669c72582e855d3"></span><code class="descname">GPPUD</code><a class="headerlink" href="#c.GPPUD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.GPPUDCLK0">
+<span class="target" id="quick2wiregpio-admin_8c_1a913f6e2a86a5b609f972d4d8cead44ef"></span><code class="descname">GPPUDCLK0</code><a class="headerlink" href="#c.GPPUDCLK0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.BIT">
+<span class="target" id="quick2wiregpio-admin_8c_1ad27cc17b25bb93134368d5eb21126eae"></span><code class="descname">BIT</code><span class="sig-paren">(</span>x<span class="sig-paren">)</span><a class="headerlink" href="#c.BIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.BANK">
+<span class="target" id="quick2wiregpio-admin_8c_1ab102d254952ddc0c58dced00f35646fe"></span><code class="descname">BANK</code><span class="sig-paren">(</span>x<span class="sig-paren">)</span><a class="headerlink" href="#c.BANK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv211usage_errorPPc">
+<span id="usage_error__cPP"></span><span class="target" id="quick2wiregpio-admin_8c_1a18b87ad6d5f740f402c22fda70b7446a"></span><em class="property">static</em> void <code class="descname">usage_error</code><span class="sig-paren">(</span>char **<em>argv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211usage_errorPPc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a help message in case of wrongful invocation <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">argv</span></code> - <p>The array of arguments (only argv[0] is used) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220allow_access_by_userjPKc">
+<span id="allow_access_by_user__unsigned-i.cCP"></span><span class="target" id="quick2wiregpio-admin_8c_1a730c58065b0ac039c4bbc6fc7ab3449f"></span><em class="property">static</em> void <code class="descname">allow_access_by_user</code><span class="sig-paren">(</span>unsigned int <em>pin</em>, <em class="property">const</em> char *<em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220allow_access_by_userjPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the ownership of a pin <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pin</span></code> - <p>The number of the pin </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The filename </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214parse_gpio_pinPKc">
+<span id="parse_gpio_pin__cCP"></span><span class="target" id="quick2wiregpio-admin_8c_1a2631b754cd2325641f1a36fbb45ebfb6"></span><em class="property">static</em> unsigned int <code class="descname">parse_gpio_pin</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>pin_str</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214parse_gpio_pinPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the input and returns the value of the pin <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>An integer with the value of the pin </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pin_str</span></code> - <p>the number of the pin in a string </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217write_pin_to_pathPKcj">
+<span id="write_pin_to_path__cCP.unsigned-i"></span><span class="target" id="quick2wiregpio-admin_8c_1a0a04f317a039380a62252b1a60c9faa8"></span><em class="property">static</em> void <code class="descname">write_pin_to_path</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>path</em>, unsigned int <em>pin</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217write_pin_to_pathPKcj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the pin value in the desired path <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">path</span></code> - <p>The path of the file to write </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">pin</span></code> - <p>The number of the pin </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214set_pullupdownii">
+<span id="set_pullupdown__i.i"></span><span class="target" id="quick2wiregpio-admin_8c_1ad498c0339db32d2ae77b71ce0c9357a0"></span><em class="property">static</em> void <code class="descname">set_pullupdown</code><span class="sig-paren">(</span>int <em>pin</em>, int <em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214set_pullupdownii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the direction of the pin <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pin</span></code> - <p>The value of the pin </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">direction</span></code> - <p>The direction (0 for out, 1 for in) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv24mainiPPc">
+<span id="main__i.cPP"></span><span class="target" id="quick2wiregpio-admin_8c_1a3c04138a5bfe5d72780bb7e82a18e627"></span>int <code class="descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char **<em>argv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv24mainiPPc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the console parameters and executes the desired action. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">argc</span></code> - <p>The number of console parameters </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argv</span></code> - <p>The value of the console parameters </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../usage.html" class="btn btn-neutral float-right" title="Usage">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gpio.html" class="btn btn-neutral" title="class GPIO"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

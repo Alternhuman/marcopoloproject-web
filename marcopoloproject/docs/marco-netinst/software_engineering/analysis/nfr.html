@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos no funcionales &mdash; marco-netinst 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marco-netinst 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Vista estática del sistema" href="static.html"/>
+        <link rel="prev" title="Vista de paquetes de casos de uso" href="uc.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marco-netinst</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals/intro.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-netinst.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-minimal.html">marco-minimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-bootstrap-backend.html">marco-bootstrap-backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-netinst/intro.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-minimal/intro.html">marco-minimal reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-backend/intro.html">marco-bootstrap-backend reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-slave/intro.html">marco-bootstrap-slave reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marco-netinst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos no funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/nfr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-no-funcionales">
+<h1>Requisitos no funcionales<a class="headerlink" href="#requisitos-no-funcionales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nfr1-tornado">
+<h2><strong>NFR1</strong> Tornado<a class="headerlink" href="#nfr1-tornado" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: El <em>backend</em> web deberá implementarse sobre el <em>framework</em> Tornado con el objetivo de optimizar el rendimiento del sistema. Todas las aplicaciones que gestionen programación de operaciones utilizarán el bucle de eventos de Tornado por razones de sencillez y eficacia.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr2-abstraccion-de-la-base-de-datos">
+<h2><strong>NFR2</strong> Abstracción de la base de datos<a class="headerlink" href="#nfr2-abstraccion-de-la-base-de-datos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-1, OBJ-2</li>
+<li><strong>Descripción</strong>: Con el objetivo de garantizar la compatibilidad con diferentes modelos de bases de datos se utilizará el <em>Object-relational Mapping</em> (ORM) del <em>framework</em> <a class="reference external" href="http://djangoproject.com/">Django</a> para conseguir este nivel de abstracción.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr3-https-con-doble-validacion">
+<h2><strong>NFR3</strong> HTTPS con doble validación<a class="headerlink" href="#nfr3-https-con-doble-validacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-3</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2, RF-6, RF-7, RF-8</li>
+<li><strong>Descripción</strong>: En toda comunicación segura ambos lados validarán la identidad del otro a través de los certificados HTTPS ofrecidos al establecer la conexión. De esta forma es posible recibir órdenes de control de forma segura.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr4-compatibilidad-con-systemd-e-initd">
+<h2><strong>NFR4</strong> Compatibilidad con systemd e initd<a class="headerlink" href="#nfr4-compatibilidad-con-systemd-e-initd" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Descripción</strong>: Los diferentes <em>daemons</em> que este producto <em>software</em> incluye ofrece deben ser compatibles con los gestores de servicios systemd e init.d</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Baja</li>
+<li><strong>Estado</strong>: Por realizar</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr5-instalacion-a-traves-de-setuptools">
+<h2><strong>NFR5</strong> Instalación a través de <code class="docutils literal"><span class="pre">setuptools</span></code><a class="headerlink" href="#nfr5-instalacion-a-traves-de-setuptools" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Requisitos asociados</strong>: NFR-4</li>
+<li><strong>Descripción</strong>: La instalación del <em>software</em> estará asistida por el estándar <em>de facto</em> para aplicaciones escritas en Python, <a class="reference external" href="https://pypi.python.org/pypi/setuptools">setuptools</a>.</li>
+<li><strong>Importancia</strong>: Baja</li>
+<li><strong>Urgencia</strong>: Baja</li>
+<li><strong>Estado</strong>: Por realizar</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nfr6-registro">
+<h2><strong>NFR6</strong> Registro<a class="headerlink" href="#nfr6-registro" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</li>
+<li><strong>Requisitos asociados</strong>: IRQ-2</li>
+<li><strong>Descripción</strong>: Se deberá almacenar una serie de registros de las diferentes operaciones realizadas y programadas, así como una serie de ficheros que reflejen el comportamiento del sistema al realizar una operación.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="nrf7-validacion-de-los-datos-de-usuario">
+<h2><strong>NRF7</strong> Validación de los datos de usuario<a class="headerlink" href="#nrf7-validacion-de-los-datos-de-usuario" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar</li>
+<li><strong>Objetivos asociados</strong>: OBJ-1</li>
+<li><strong>Requisitos asociados</strong>: RF-1, RF-2, RF-3, RF-4</li>
+<li><strong>Descripción</strong>: Todo dato introducido por el usuario deberá ser sometido a procesos de &#8220;desinfección&#8221; (<em>sanitization</em>) con el objetivo de evitar ataques tales como <em>Cross-Side Scripting</em> (<strong>XSS</strong>) o inyección <strong>SQL</strong>.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong>: Al emplear el ORM de Django la mayoría de este tipo de ataques son filtrados de forma automática.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="static.html" class="btn btn-neutral float-right" title="Vista estática del sistema">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="uc.html" class="btn btn-neutral" title="Vista de paquetes de casos de uso"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

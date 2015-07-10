@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Interfaces gráficas &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de diseño" href="intro.html"/>
+        <link rel="next" title="Vista estática del sistema" href="static.html"/>
+        <link rel="prev" title="Diseño arquitectónico" href="architecture.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de diseño</a> &raquo;</li>
+      
+    <li>Interfaces gráficas</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/design/gui.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="interfaces-graficas">
+<h1>Interfaces gráficas<a class="headerlink" href="#interfaces-graficas" title="Permalink to this headline">¶</a></h1>
+<p>El sistema plantea una única interfaz gráfica con una serie de secciones dispuestas en un modelo de pestañas. La aplicación se compone de una interfaz web creada siguiendo un modelo <em>Single Page Application</em>, que ofrece una experiencia de usuario más dinámica, al evitar recargar el navegador por completo.</p>
+<p>El cliente web sigue la siguiente secuencia de pasos:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Una vez que todos los archivos han sido recibidos, solicita la lista de nodos sobre los que puede realizar despliegues.</li>
+<li>Establece una conexión mediante un <strong>WebSocket</strong> para determinar si será posible crear las conexiones posteriores. Este paso es necesario debido a la arquitectura X.509 utilizada.</li>
+<li>Al ordenar un despliegue, el sistema crea conexiones <strong>WebSocket</strong> a cada uno de los nodos sobre los que se desee ejecutar el comando <a class="footnote-reference" href="#id2" id="id1">[1]</a></li>
+<li>Al producirse una salida por pantalla, el nodo envía al cliente un mensaje con la información sobre el ejecutable que ha generado la cadena de texto, y el contenido de la misma.</li>
+<li>Al recibir el mensaje, el cliente determina en qué elemento de la interfaz debe mostrarse la información según los datos del mismo.</li>
+<li>Una vez que los <em>buffers</em> han sido cerrados en el nodo, el cliente recibe un mensaje para conocer dicho cambio de estado, y actúa en consecuencia, indicándolo por pantalla.</li>
+</ul>
+</div></blockquote>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/ui_statusmonitor.png" src="../../_images/ui_statusmonitor.png" />
+<p class="caption"><span class="caption-text">El sistema comienza su ejecución con la vista del monitor de estado.</span></p>
+</div>
+<div class="figure align-center" id="id4">
+<img alt="../../_images/ui_deployer.png" src="../../_images/ui_deployer.png" />
+<p class="caption"><span class="caption-text">Vista de despliegue.</span></p>
+</div>
+<div class="figure align-center" id="id5">
+<img alt="../../_images/ui_logger.png" src="../../_images/ui_logger.png" />
+<p class="caption"><span class="caption-text">Salida de los diferentes comandos solicitados durante la fase de despliegue.</span></p>
+</div>
+<div class="figure align-center" id="id6">
+<img alt="../../_images/ui_shell.png" src="../../_images/ui_shell.png" />
+<p class="caption"><span class="caption-text">Salida de la consola web.</span></p>
+</div>
+<div class="figure align-center" id="id7">
+<img alt="../../_images/ui_login.png" src="../../_images/ui_login.png" />
+<p class="caption"><span class="caption-text">Vista de inicio de sesión.</span></p>
+</div>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>No es posible determinar en qué momento comenzará a existir una salida por pantalla, por lo que la conexión sobre la que se redirige la misma se crea antes de que la ejecución comience.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="static.html" class="btn btn-neutral float-right" title="Vista estática del sistema">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="Diseño arquitectónico"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

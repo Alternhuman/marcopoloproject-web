@@ -1,0 +1,123 @@
+marco-netinst
+=============
+
+marco-netinst follows the same working principle as its parent, the raspbian-ua-netinst utility. It simply packages a minimal set of tools into a deployable minimal OS image that it installed in the first partition of the SD card. On start, the raspbian-based minimal system will use the ``/etc/init.d/rcS`` script to discover a suitable OS server in the network (using a fallback if unsuccessful), download the image and format the SD card to appropriately install all the files. `Busybox <http://busybox.net/>`_ is used to reduce the number of required packages and dependencies.
+
+The Raspberry lacks a BIOS, so it relies on several well-known files to load the operating system during the booting process [1]_. This files must be set on the first partition of the SD card to be read.
+
+The working principle of the tool is to have a set of minimal tools in a container that the configuration files specify to use as the source for the operating system. That combined with an image of a generic Linux kernel (although it could be easily replaced by a custom one, compiled for the sole purposed of space saving) boots a minimal operating system capable of performing all the required operations. These are the relevant configuration files with their parameters:
+
+- ``config.txt`` Defines the location of the kernel and the `initramfs <https://www.kernel.org/doc/Documentation/filesystems/ramfs-rootfs-initramfs.txt>`_ image to be the .cpio file with all the required files.
+- ``cmdline.txt`` Specifies the command-line parameters usually defined in the bootloader. In this case, the parameters are very generic:
+    
+    ::
+        
+        consoleblank=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1
+
+
+scripts
+-------
+
+The following bash scripts comprise the whole functionality of the tool. The technical reference is located in the :ref:`reference <marcobootstrapbackendreference>`.
+
+build.sh
+~~~~~~~~
+
+Creates a .cpio file with all the downloaded packages and packages it inside a zip file with the rest of the boot files (an image of the kernel, several configuration files, etc).
+
+    1. Creates a temporary directory.
+    2. Copies boot files to the directory.
+    3. Creates a cpio file that packages all the required binaries and libraries.
+    4. Copies the .cpio files to the system (one per ARM architecture).
+    5. Creates a boot configuration file.
+    6. Copies the marcopolo executable.
+    7. Copies certificate files
+    8. Copies the rest of relevant files.
+
+buildroot.sh
+~~~~~~~~~~~~
+
+Instead of a zip file it creates an image of the OS which can be flashed to the SD card.
+
+buildupdate.sh
+~~~~~~~~~~~~~~
+
+Builds an update image instead of an installation image.
+
+clean.sh
+~~~~~~~~
+
+Removes all temporary files.
+
+deploy.sh
+~~~~~~~~~
+
+Deploys a zip package in the specified device, formatting it appropriately.
+
+    1. Checks that the device exists.
+    2. Unmounts the device and partitions it (creates one partition).
+    3. Creates the filesystems.
+    4. Mounts the new partition.
+    5. Unzips the file inside the device.
+    6. Unmounts the involved partitions.
+
+update.sh
+~~~~~~~~~
+
+Downloads all the specified packages and stores them in a temporary location.
+
+    1. Cleans all previously downloaded packages.
+    2. Downloads the raspbian public keys for integrity and validation purposes.
+    3. Downloads the release file and its signature.
+    4. Search for the required packages and adds them to a list.
+    5. Downloads the packages and verifies them.
+    6. Adds an older Busybox, since the jessie one is known to cause trouble.
+
+``scripts/etc/`` files
+~~~~~~~~~~~~~~~~~~~~~~
+
+- **init.d/rcS**: The installation script. It accomplishes the following tasks:
+
+    1. Creates a set of temporary directories to store the temporary filesystem.
+    2. Starts a Busybox-based environment.
+    3. Mounts pseudo filesystems.
+    4. Creates devices using ``mdev`` (see <http://git.busybox.net/busybox/tree/docs/mdev.txt?h=1_18_stable>_)
+    5. Creates a pipe with a copy of the output to a file, so it can be used later for debugging purposes.
+    6. Detects the hardware of the Raspberry (as it is compatible with all models).
+    7. Mounts the boot partition.
+    8. Configures the network using DHCP or a previously defined static configuration.
+    9. Configures the system time with a NTP server (the Raspberry Pi has no real time clock).
+    10. If there is an online configuration file to download, it is done in this step.
+    11. Detects a server node in the network. If unsuccessful, it will use the fallback node if it is defined.
+    12. Loads the installation profile (minimal, full...).
+    13. Loads the USB modules to allow the installation in a USB device.
+    14. Defines the partition scheme. Three partitions are created, located in ``/boot``, ``/`` and ``/home`` respectively.
+    15. Formats the SD card, erasing all the content (the OS files are conveniently located in the RAM, so the system is functional).
+    16. Creates the filesystems.
+    17. Downloads the OS image using the mirror.
+    18. Extracts the file in the root partition (the second partition).
+    19. Moves the boot files to ``/boot``.
+    20. Executes the post install script, if any.
+    21. Logs the final time variables (total time) and copies the log file to a secure location.
+    22. Removes auxiliary files.
+    23. Unmounts the file systems.
+    24. Reboots. The system is now functional.
+
+All the process is timed and this information is logged in the file.
+
+- **udhcpc/default.script** A DHCP configuration script
+
+
+Order
+-----
+
+The scripts are parts of a pipeline in the following order:
+
+::
+
+    update.sh -> build.sh/buildupdate.sh -> deploy.sh (-> clean.sh)
+
+So if deploy.sh is executed without previously executing the preceding phases, it will do so before carrying out any own operation.
+
+
+.. [1] https://www.raspberrypi.org/documentation/configuration/config-txt.md

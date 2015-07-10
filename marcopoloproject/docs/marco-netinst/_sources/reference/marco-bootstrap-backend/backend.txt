@@ -1,0 +1,66 @@
+The backend module
+==================
+
+The NotCheckingHostnameHTTPAdapter class
+----------------------------------------
+
+.. autoclass:: marcobootstrap.backend.backend.NotCheckingHostnameHTTPAdapter
+	:members:
+
+
+The BaseHandler class
+---------------------
+.. autoclass:: marcobootstrap.backend.backend.BaseHandler
+	:members:
+
+The WebHandler class
+--------------------
+.. autoclass:: marcobootstrap.backend.backend.WebHandler
+	:members:
+
+The LoginHandler class
+----------------------
+.. autoclass:: marcobootstrap.backend.backend.LoginHandler
+	:members:
+	
+The LogoutHandler class
+-----------------------
+.. autoclass:: marcobootstrap.backend.backend.LogoutHandler
+	:members:
+
+The ScheduledHandler class
+--------------------------
+.. autoclass:: marcobootstrap.backend.backend.ScheduledHandler
+	:members:
+
+The add_callback function
+-------------------------
+.. autofunction:: marcobootstrap.backend.backend.add_callback
+
+The Schedule class
+------------------
+.. autoclass:: marcobootstrap.backend.backend.Schedule
+	:members:
+
+The CancelHandler class
+-----------------------
+.. autoclass:: marcobootstrap.backend.backend.CancelHandler
+	:members:
+
+The run_async function
+----------------------
+.. autofunction:: marcobootstrap.backend.backend.run_async
+
+The longwait function
+---------------------
+.. autofunction:: marcobootstrap.backend.backend.longwait
+
+The MarcoDetect class
+---------------------
+.. autoclass:: marcobootstrap.backend.backend.MarcoDetect
+	:members:
+
+The RemoveHandler class
+-----------------------
+.. autoclass:: marcobootstrap.backend.backend.RemoveHandler
+	:members:

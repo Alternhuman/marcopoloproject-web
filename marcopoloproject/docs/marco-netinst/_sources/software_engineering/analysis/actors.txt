@@ -1,0 +1,35 @@
+Actores
+=======
+
+**ACT1** Administrador
+----------------------
+
+- **Versión**
+- **Autores**
+- **Fuentes**
+- **Descripción**: Encargado del mantenimiendo de la infraestructura, utiliza el *software* para programar diferentes operaciones, realizar consultas, etcétera.
+- **Comentarios**
+
+**ACT2** Servidor
+-----------------
+ 
+- **Versión**
+- **Autores**
+- **Fuentes**
+- **Descripción**: Mantiene las diferentes imágenes de sistemas operativos y ofrece las mismas a los nodos que las solicitan. Proporciona una interfaz de administración que es consumida por el administrador (**ACT1**).
+- **Comentarios**
+
+**ACT3** Nodo
+-------------
+
+Cada uno de los componentes principales del sistema distribuido. Reciben peticiones del servidor de administración y llevan a cabo las operaciones indicadas en dichas peticiones. Es capaz de realizar operaciones de instalación y actualización del sistema operativo.
+
+.. image:: ../img/analysis_actors.*
+    :align: center
+
+.. 
+    - **Versión**
+    - **Autores**
+    - **Fuentes**
+    - **Descripción**
+    - **Comentarios**

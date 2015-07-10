@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>marcopolo.marco.marco &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference.html">Implementation Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/marco/index.html">Marco reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../reference/polo/index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>marcopolo.marco.marco</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for marcopolo.marco.marco</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">copy</span>
+
+<span class="kn">from</span> <span class="nn">marcopolo.marco_conf</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">marcopolo.marco</span> <span class="kn">import</span> <span class="n">conf</span>
+
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="k">class</span> <span class="nc">MarcoException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="Marco"><a class="viewcode-back" href="../../../reference/marco/index.html#marcopolo.marco.marco.Marco">[docs]</a><span class="k">class</span> <span class="nc">Marco</span><span class="p">:</span>
+<div class="viewcode-block" id="Marco.__init__"><a class="viewcode-back" href="../../../reference/marco/index.html#marcopolo.marco.marco.Marco.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes all the data structures and sockets, setting timeouts and other socket options</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_bcast</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">,</span> <span class="n">proto</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_UDP</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_bcast</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_BROADCAST</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_bcast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TIMEOUT</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span> <span class="c">#https://docs.python.org/2/library/socket.html#socket.socket.settimeout</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_UDP</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_IP</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">IP_MULTICAST_TTL</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c">#If not otherwise specified, multicast datagrams are sent with a default value of 1, to prevent them to be forwarded beyond the local network. To change the TTL to the value you desire (from 0 to 255)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TIMEOUT</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span> <span class="c">#https://docs.python.org/2/library/socket.html#socket.socket.settimeout</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">,</span> <span class="n">proto</span><span class="o">=</span><span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_UDP</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">TIMEOUT</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span> <span class="c">#https://docs.python.org/2/library/socket.html#socket.socket.settimeout</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+
+        <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Error in initialization: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Error in initialization: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Destroys all socket connections prior deleting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_bcast</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Marco.marco"><a class="viewcode-back" href="../../../reference/marco/index.html#marcopolo.marco.marco.Marco.marco">[docs]</a>    <span class="k">def</span> <span class="nf">marco</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_nodes</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[],</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{},</span> <span class="n">retries</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDR</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sends a `marco` message to all nodes, which reply with a Polo message. \</span>
+<span class="sd">        Upon receiving all responses (those arriving before the timeout), \</span>
+<span class="sd">        a collection of the response information is returned.</span>
+<span class="sd">        </span>
+<span class="sd">        :param list exclude: List of nodes to be excluded from the returned ValueError.</span>
+
+<span class="sd">        :param int timeout: If set, overrides the default timeout value.</span>
+
+<span class="sd">        :param int retries: If set to a value greater than 0, retries the *retries* times if the first attempt is unsuccessful</span>
+
+<span class="sd">        :param int max_nodes: Maximum number of nodes to be returned. If set to `None`, no limit is applied.</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: A list of all responding nodes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">group</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">group</span> <span class="o">=</span> <span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDR</span>
+
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="c">#Python 2 and 3 compatibility in byte encoding</span>
+        <span class="c">#if sys.version_info[0] &lt; 3:</span>
+        <span class="n">discover_msg</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&#39;Command&#39;</span><span class="p">:</span> <span class="s">&#39;Marco&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="c">#else:</span>
+        <span class="c">#    discover_msg = bytes(json.dumps({&#39;Command&#39;: &#39;Marco&#39;}), &#39;utf-8&#39;)</span>
+
+        <span class="c">#Send to group IP</span>
+        <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">discover_msg</span><span class="p">,</span> <span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">POLOPORT</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Error on multicast sending&quot;</span><span class="p">)</span>
+        
+        <span class="c">#Timeout check</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid timeout value&quot;</span><span class="p">)</span>
+
+        <span class="c">#max_nodes check</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">error</span><span class="o">=</span><span class="bp">None</span>
+        <span class="k">if</span> <span class="n">max_nodes</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">max_nodes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_nodes</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+            
+            <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid max_nodes value&quot;</span><span class="p">)</span>
+
+        
+        <span class="c">#exclude check</span>
+        <span class="k">if</span> <span class="n">exclude</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">exclude</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))):</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalud exclude value. Must be instance of array or set()&quot;</span><span class="p">)</span>
+        
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">retries</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">retries</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">retries</span><span class="p">)</span>
+                <span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid retries value&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">stop</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">retries</span> <span class="o">+</span> <span class="mi">1</span>  <span class="ow">and</span> <span class="ow">not</span> <span class="n">stop</span><span class="p">:</span>
+
+            <span class="c">#Looping until timeout is raised or max_nodes is reached</span>
+            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">msg</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">FRAME_SIZE</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+                    <span class="n">attempts</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">break</span>
+                
+                <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+                
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                
+                <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Malformed message&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">json_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Command&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;Polo&quot;</span> <span class="ow">and</span> <span class="n">address</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exclude</span><span class="p">:</span>
+
+                    <span class="n">n</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Node</span><span class="p">()</span>
+                    <span class="n">n</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># IP address.</span>
+                    <span class="n">n</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">json_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Params&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">({}):</span>
+                        <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;params must be a dictionary&quot;</span><span class="p">)</span>
+
+                    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                            <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+                    <span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+                
+                <span class="k">if</span> <span class="n">max_nodes</span><span class="p">:</span>
+                    <span class="n">counter</span> <span class="o">+=</span><span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">max_nodes</span><span class="p">:</span>
+                        <span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="k">break</span>
+
+        <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">debstr</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                <span class="n">debstr</span> <span class="o">=</span> <span class="s">&quot;There is a node at </span><span class="si">%s</span><span class="s"> joining the multicast group </span><span class="si">%s</span><span class="s"> with the services: &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">multicast_group</span><span class="p">)</span>
+                
+                <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">services</span><span class="p">:</span>
+                    <span class="n">debstr</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">. Version: </span><span class="si">%s</span><span class="s"> &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">service</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">],</span> <span class="n">service</span><span class="p">[</span><span class="s">&quot;version&quot;</span><span class="p">])</span>
+
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">debstr</span><span class="p">)</span>
+        
+        
+        <span class="k">return</span> <span class="n">copy</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Marco.services"><a class="viewcode-back" href="../../../reference/marco/index.html#marcopolo.marco.marco.Marco.services">[docs]</a>    <span class="k">def</span> <span class="nf">services</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">retries</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Searches for the services available in a certain node identified by its address</span>
+<span class="sd">        </span>
+<span class="sd">        :param string addr: Address of the node</span>
+<span class="sd">        </span>
+<span class="sd">        :param int port: UDP port of the Polo instance. If not given, the default is the port in the conffile</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: An array with all detected nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c">#Validation of addr</span>
+        <span class="k">if</span> <span class="n">addr</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">addr</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;Address cannot be empty: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&#39;Address cannot be empty: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span> <span class="c"># Gethostbyname throws a gaierror if neither a valid IP address or DNS name is passed. Easiest way to perform both checks</span>
+        <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;Invalid address or DNS name: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+        
+        <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&#39;Invalid address or DNS name: </span><span class="si">%s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="k">if</span> <span class="n">timeout</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid timeout value&quot;</span><span class="p">)</span>
+
+        <span class="n">discover_msg</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&#39;Command&#39;</span><span class="p">:</span> <span class="s">&#39;Services&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">discover_msg</span><span class="p">,</span> <span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">POLOPORT</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Error on multicast sending&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">msg</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">FRAME_SIZE</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+            <span class="k">return</span> 
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Error in response&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;There&#39;s a node at {0} joining the multicast group&quot;</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Node</span><span class="p">()</span>
+        <span class="n">n</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="n">json_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Params&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        
+        <span class="k">return</span> <span class="n">n</span>
+
+</div>
+<div class="viewcode-block" id="Marco.request_for"><a class="viewcode-back" href="../../../reference/marco/index.html#marcopolo.marco.marco.Marco.request_for">[docs]</a>    <span class="k">def</span> <span class="nf">request_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">node</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">max_nodes</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[],</span> <span class="n">params</span><span class="o">=</span><span class="p">{},</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">conf</span><span class="o">.</span><span class="n">MULTICAST_ADDR</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Request all nodes offering a certain service or the details for one single node</span>
+<span class="sd">        </span>
+<span class="sd">        :param string service: Name of the requested service</span>
+<span class="sd">        </span>
+<span class="sd">        :param string node: Address or name of the desired node</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: an array with all the available nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="c">#if sys.version_info[0] &lt; 3:</span>
+        <span class="n">command_msg</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">&#39;Command&#39;</span><span class="p">:</span><span class="s">&#39;Request-For&#39;</span><span class="p">,</span> <span class="s">&#39;Params&#39;</span><span class="p">:</span><span class="n">service</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="c">#else:</span>
+        <span class="c">#    command_msg = bytes(json.dumps({&#39;Command&#39;:&#39;Request-For&#39;, &#39;Params&#39;:service}), &#39;utf-8&#39;)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Bad formatted request&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&#39;Bad formatted request&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">timeout</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid timeout value&quot;</span><span class="p">)</span>
+            
+            <span class="k">try</span><span class="p">:</span> <span class="c">#Validation</span>
+                <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="c"># Gethostbyname throws a gaierror if neither a valid IP address or DNS name is passed. Easiest way to perform both checks</span>
+            <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Bad address&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&#39;Bad address&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">command_msg</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Error on multicast sending&quot;</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_ucast</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">FRAME_SIZE</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+                <span class="k">return</span>
+
+            <span class="n">n</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Node</span><span class="p">()</span>
+            <span class="n">n</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">node</span>
+            <span class="n">n</span><span class="o">.</span><span class="n">services</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">n</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Error on response&quot;</span><span class="p">)</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">nodes</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c">#Multicast request</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="n">timeout</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid timeout value&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">max_nodes</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">max_nodes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_nodes</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">error</span> <span class="o">=</span> <span class="bp">True</span>
+            
+                <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalid max_nodes value&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">exclude</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">exclude</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))):</span>
+                <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;Invalud exclude value. Must be instance of array or set()&quot;</span><span class="p">)</span>
+
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">command_msg</span><span class="p">,</span> <span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">POLOPORT</span><span class="p">))</span>
+            <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">response</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket_mcast</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">FRAME_SIZE</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Command&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;OK&#39;</span> <span class="ow">and</span> <span class="n">address</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exclude</span><span class="p">:</span>
+                    <span class="n">n</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">Node</span><span class="p">()</span>
+                    <span class="n">n</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">n</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;Params&quot;</span><span class="p">,</span> <span class="p">{})</span>
+                    
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">({}):</span>
+                        <span class="k">raise</span> <span class="n">MarcoException</span><span class="p">(</span><span class="s">&quot;params must be a dictionary&quot;</span><span class="p">)</span>
+
+                    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                            <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">max_nodes</span><span class="p">:</span>
+                    <span class="n">counter</span> <span class="o">+=</span><span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">max_nodes</span><span class="p">:</span>
+                        <span class="k">break</span>
+            <span class="k">return</span> <span class="n">nodes</span>
+</div>
+    <span class="k">def</span> <span class="nf">request_one</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">service</span><span class="p">,</span> <span class="n">max_nodes</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">[],</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">max_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+</pre></div></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

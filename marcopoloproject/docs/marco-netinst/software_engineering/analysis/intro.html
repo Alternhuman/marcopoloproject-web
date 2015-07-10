@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fase de análisis &mdash; marco-netinst 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marco-netinst 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Ingeniería del software" href="../intro.html"/>
+        <link rel="next" title="Dominio del problema" href="domain.html"/>
+        <link rel="prev" title="Ingeniería del software" href="../intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marco-netinst</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals/intro.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-netinst.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-minimal.html">marco-minimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-bootstrap-backend.html">marco-bootstrap-backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-netinst/intro.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-minimal/intro.html">marco-minimal reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-backend/intro.html">marco-bootstrap-backend reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-slave/intro.html">marco-bootstrap-slave reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marco-netinst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+    <li>Fase de análisis</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/intro.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="fase-de-analisis">
+<h1>Fase de análisis<a class="headerlink" href="#fase-de-analisis" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">Dominio del problema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">Objetivos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj1-programacion-de-operaciones">OBJ1 Programación de operaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj2-instalacion-desatendida">OBJ2 Instalación desatendida</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj3-actualizacion">OBJ3 Actualización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj4-zeroconf">OBJ4 <em>Zeroconf</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actors.html">Actores</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#act1-administrador"><strong>ACT1</strong> Administrador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#act2-servidor"><strong>ACT2</strong> Servidor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#act3-nodo"><strong>ACT3</strong> Nodo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ir.html">Requisitos de información</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ir.html#irq1-gestion-de-usuarios"><strong>IRQ1</strong>: Gestión de usuarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ir.html#irq2-registro-de-operaciones"><strong>IRQ2</strong>: Registro de operaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ir.html#irq3-registro-de-operaciones-local"><strong>IRQ3</strong>: Registro de operaciones local</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fr.html">Requisitos funcionales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf1-programar-operacion"><strong>RF1</strong>: Programar operación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf2-ordenar-cancelacion"><strong>RF2</strong> Ordenar cancelación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf3-consulta-al-registro-de-operaciones"><strong>RF3</strong> Consulta al registro de operaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf4-consulta-de-operaciones-programadas"><strong>RF4</strong> Consulta de operaciones programadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf5-consulta-de-historico"><strong>RF5</strong> Consulta de histórico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf6-descarga-del-sistema-operativo"><strong>RF6</strong> Descarga del sistema operativo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf7-instalacion"><strong>RF7</strong> Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf8-actualizacion"><strong>RF8</strong> Actualización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf9-gestionar-error-en-la-instalacion"><strong>RF9</strong> Gestionar error en la instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf10-gestionar-error-en-backend"><strong>RF10</strong> Gestionar error en backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf11-autenticacion"><strong>RF11</strong> Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf12-creacion-de-imagen-del-sistema-operativo"><strong>RF12</strong> Creación de imagen del sistema operativo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf13-creacion-de-imagen-de-instalacion-o-actualizacion"><strong>RF13</strong> Creación de imagen de instalación o actualización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf14-realizar-operacion"><strong>RF14</strong> Realizar operación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf15-cancelar-operacion"><strong>RF15</strong> Cancelar operación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#vista-de-casos-de-uso">Vista de casos de uso</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uc.html">Vista de paquetes de casos de uso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nfr.html">Requisitos no funcionales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr1-tornado"><strong>NFR1</strong> Tornado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr2-abstraccion-de-la-base-de-datos"><strong>NFR2</strong> Abstracción de la base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr3-https-con-doble-validacion"><strong>NFR3</strong> HTTPS con doble validación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr4-compatibilidad-con-systemd-e-initd"><strong>NFR4</strong> Compatibilidad con systemd e initd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr5-instalacion-a-traves-de-setuptools"><strong>NFR5</strong> Instalación a través de <code class="docutils literal"><span class="pre">setuptools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr6-registro"><strong>NFR6</strong> Registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nrf7-validacion-de-los-datos-de-usuario"><strong>NRF7</strong> Validación de los datos de usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="static.html">Vista estática del sistema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="activity.html">Vista de actividad</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#programacion-y-cancelacion-de-un-evento">Programación y cancelación de un evento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#proceso-de-instalacion-del-sistema-operativo">Proceso de instalación del sistema operativo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="statemachine.html">Vista de máquina de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">Vista de interacción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#consulta-a-la-base-de-datos">Consulta a la base de datos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Ingeniería web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web.html#mapa-navegacional">Mapa navegacional</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="domain.html" class="btn btn-neutral float-right" title="Dominio del problema">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../intro.html" class="btn btn-neutral" title="Ingeniería del software"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+Gestión del proyecto
+====================
+
+El desarrollo de esta aplicación comienza en la iteración número 6 (*issue* #77 en Redmine), extendiéndose durante varias etapas posteriores. Todos los aspectos del desarrollo pueden consultarse en http://redmine.martinarroyo.net/

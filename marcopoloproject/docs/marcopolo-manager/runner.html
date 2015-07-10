@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Runner &mdash; marcomanager a1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcomanager a1 documentation" href="index.html"/>
+        <link rel="next" title="Ingeniería del Software" href="software_engineering/intro.html"/>
+        <link rel="prev" title="MarcoManager" href="marcomanager.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> marcomanager</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#pip">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#setuptools">setuptools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="managers.html">Examples of managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#daemon">daemon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marcomanager.html">The MarcoManager class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">The Runner class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">marcomanager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Runner</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/runner.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="runner">
+<h1>Runner<a class="headerlink" href="#runner" title="Permalink to this headline">¶</a></h1>
+<p>The runner class implements an IOLoop <a class="reference external" href="http://www.tornadoweb.org/en/stable/ioloop.html#tornado.ioloop.IOLoop" title="(in Tornado v4.2)"><code class="xref py py-class docutils literal"><span class="pre">IOLoop</span></code></a> instance which runs all the <a class="reference internal" href="marcomanager.html#marcopolomanager.marcopolomanager.MarcoPoloManager.onSetup" title="marcopolomanager.marcopolomanager.MarcoPoloManager.onSetup"><code class="xref py py-meth docutils literal"><span class="pre">onSetup</span></code></a> jobs on loading and schedules the <a class="reference internal" href="marcomanager.html#marcopolomanager.marcopolomanager.MarcoPoloManager.onReload" title="marcopolomanager.marcopolomanager.MarcoPoloManager.onReload"><code class="xref py py-meth docutils literal"><span class="pre">onReload</span></code></a> functionality accordingly.</p>
+<p>By default, the runner loads all the <a class="reference internal" href="marcomanager.html#marcopolomanager.marcopolomanager.MarcoPoloManager" title="marcopolomanager.marcopolomanager.MarcoPoloManager"><code class="xref py py-class docutils literal"><span class="pre">MarcoPoloManager</span></code></a>-inherited classes defined in the file <cite>managers.py</cite>. To include other file, just import it in the runner.py file.</p>
+<p>The runner uses standard UNIX signals to reload the system and gracefully stopping all the managers using <em>SIGUSR1</em> to schedule functionality.</p>
+<span class="target" id="module-marcopolomanager.runner"></span><dl class="function">
+<dt id="marcopolomanager.runner.log">
+<code class="descclassname">marcopolomanager.runner.</code><code class="descname">log</code><span class="sig-paren">(</span><em>future</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marcopolomanager/runner.html#log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolomanager.runner.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the result of a future and logs it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcopolomanager.runner.main">
+<code class="descclassname">marcopolomanager.runner.</code><code class="descname">main</code><span class="sig-paren">(</span><em>argv=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marcopolomanager/runner.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolomanager.runner.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the daemon and service units.
+Initializes the runfile and logs and then starts the IOLoop</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcopolomanager.runner.sigterm_handler">
+<code class="descclassname">marcopolomanager.runner.</code><code class="descname">sigterm_handler</code><span class="sig-paren">(</span><em>signum</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marcopolomanager/runner.html#sigterm_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolomanager.runner.sigterm_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triggers the onStop event and then stops the IOLoop</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="marcopolomanager.runner.sigusr1_handler">
+<code class="descclassname">marcopolomanager.runner.</code><code class="descname">sigusr1_handler</code><span class="sig-paren">(</span><em>signum</em>, <em>frame</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/marcopolomanager/runner.html#sigusr1_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolomanager.runner.sigusr1_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the USR1 signal, used for reloading the services</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="software_engineering/intro.html" class="btn btn-neutral float-right" title="Ingeniería del Software">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="marcomanager.html" class="btn btn-neutral" title="MarcoManager"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'a1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

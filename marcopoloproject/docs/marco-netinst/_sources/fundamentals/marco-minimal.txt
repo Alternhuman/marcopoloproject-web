@@ -1,0 +1,10 @@
+marco-minimal
+=============
+
+Owing to the fact that the MarcoPolo reference implementation is written in Python, it seemed a burden to include the Python interpreter and its dependencies inside the minimal OS image. marco-minimal is a C/C++ implementation of a subset of the Marco functionality that has no dependencies (other than the standard C and C++ libraries) and thus it can run on an environment with no Python interpreter or very few typical libraries.
+
+The most notable difference is the absence of a bindable local Marco instance. In order to reduce the overload, the executable multicasts the Marco commands itself, without requesting a centralized daemon to do the work. This is ideal for the kind of environment the library is built for.
+
+The API is kept intact, except for some optional parameters that have not been included. The :ref:`reference <marcominimalreference>` covers the technical details of the implementation.
+
+The API can be included in the compiled files or linked as a static or dynamic library.

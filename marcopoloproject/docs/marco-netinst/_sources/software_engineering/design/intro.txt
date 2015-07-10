@@ -1,0 +1,15 @@
+Fase de diseño
+==============
+
+.. toctree::
+    :maxdepth: 2
+
+    static
+    scope
+    data
+    interaction
+    gui
+    architecture
+    procedimental
+    tests
+    patterns

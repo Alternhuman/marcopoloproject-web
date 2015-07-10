@@ -1,0 +1,8 @@
+Dominio del problema
+====================
+
+Los nodos que conforman el sistema distribuido (excluyendo aquellos nodos secundarios) carecen de la capacidad para implementar el protocolo **PXE** (*Preboot eXecution Environment*) que posibilita la carga de un sistema operativo de forma desatendida, posibilitando de igual forma la ejecución de operaciones de actualización o modificación completa del sistema operativo. Es necesario por tanto realizar un análisis de las diferentes alternativas a disposición del Administrador con el objetivo de satisfacer esta demanda que simplifica de forma sustancial el mantenimiento del sistema.
+
+Sin embargo, existen pocas alternativas a **PXE**. Este sistema es el estándar *de facto* para equipos de escritorio y la necesidad de una herramienta similar en Raspberry Pi no es común. No obstante, existe una herramienta que permite la instalación desatendida del sistema operativo Raspbian y que requiere únicamente la instalación de un conjunto mínimo de herramientas dentro de una imagen ``initramfs``, `raspbian-ua-netinst (github.com/debian-pi/raspbian-ua-netinst) <https://github.com/debian-pi/raspbian-ua-netinst>`_
+
+Inicialmente, se crea una prueba de concepto utilizando la biblioteca ``libcurl``. Sin embargo, este concepto es complejo de utilizar y las posibilidades que ofrece son muy limitadas. Se acepta adaptar el proyecto ``raspbian-ua-netinst`` para que sea compatible con el sistema operativo Arch Linux y que trabaje con **MarcoPolo**.

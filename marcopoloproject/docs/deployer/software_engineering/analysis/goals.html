@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Objetivos &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Actores" href="actors.html"/>
+        <link rel="prev" title="Dominio del problema" href="domain.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Objetivos</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/goals.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="objetivos">
+<h1>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h1>
+<p>La aplicación debe cumplir los siguientes objetivos a alto nivel:</p>
+<div class="section" id="obj-1-despliegue-de-ejecutables">
+<h2>OBJ-1: Despliegue de ejecutables<a class="headerlink" href="#obj-1-despliegue-de-ejecutables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 2</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Diseño preliminar de la aplicación</li>
+<li><strong>Descripción</strong>: El <em>software</em> deberá realizar operaciones de despliegue sobre un conjunto de nodos especificado por el usuario, con una serie de parámetros que modificarán los efectos de dicha acción. No deberá existir un conjunto limitado de software compatible, sino que la herramienta deberá ser de carácter general, admitiendo en casos particulares ser extendida para dar mejor soporte a un propósito particular, atendiendo a las demandas del público objetivo.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Elevada</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong>: El sistema debe soportar el despliegue de ejecutables y ficheros de configuración de forma indistinta.</li>
+</ul>
+</div>
+<div class="section" id="obj-2-monitorizacion-del-sistema">
+<h2>OBJ-2: Monitorización del sistema<a class="headerlink" href="#obj-2-monitorizacion-del-sistema" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1.5</li>
+<li><strong>Autores</strong>: Diego Martín y Rodrigo Santamaría</li>
+<li><strong>Fuentes</strong>: Diseño preliminar de la aplicación y reuniones de equipo</li>
+<li><strong>Descripción</strong>: A través de la herramienta, los usuarios podrán consultar diferentes valores sobre el estado de los diferentes nodos que conforman el sistema distribuido en directo. Los valores se mostrarán a través de herramientas de visualización.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Elevada</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+<li><strong>Comentarios</strong>: La monitorización deberá realizarse de forma asíncrona y evitando &#8220;cuellos de botella&#8221;, debido a la gran cantidad de información transmitida en periódicamente con intervalos entre cada operación envío muy pequeños.</li>
+</ul>
+</div>
+<div class="section" id="obj-3-operaciones-de-depuracion-y-control">
+<h2>OBJ-3: Operaciones de depuración y control<a class="headerlink" href="#obj-3-operaciones-de-depuracion-y-control" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Entrevistas</li>
+<li><strong>Descripción</strong>: A través de diferentes interfaces los usuarios del sistema pueden evaluar el comportamiento de un programa desplegado.</li>
+<li><strong>Importancia</strong>: Alta</li>
+<li><strong>Urgencia</strong>: Alta</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="obj-4-ordenes">
+<h2>OBJ-4: Órdenes<a class="headerlink" href="#obj-4-ordenes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Diseño preliminar de la aplicación</li>
+<li><strong>Descripción</strong>: Junto a una operación de despliegue o de forma independiente, los usuarios pueden realizar diferentes acciones a través de llamadas al sistema mediante la misma interfaz.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="actors.html" class="btn btn-neutral float-right" title="Actores">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="domain.html" class="btn btn-neutral" title="Dominio del problema"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

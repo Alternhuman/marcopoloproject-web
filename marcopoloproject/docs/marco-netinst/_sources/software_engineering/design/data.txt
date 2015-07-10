@@ -1,0 +1,25 @@
+Diseño de datos
+===============
+
+Objetos de datos
+----------------
+
+El sistema utiliza las siguientes estructuras de datos:
+
+    Objetos Node para la identificación de los diferentes nodos en la red, y las estructuras correspondientes en **marco-minimal**.
+    Objetos JSON para la comunicación entre la interfaz web y los diferentes esclavos.
+    Objetos del ORM de Django para las interacción con la base de datos..
+
+Estructuras de archivo
+----------------------
+
+Se consultan varias fuentes de datos en la aplicación:
+
+- Ficheros de configuración.
+
+- Ficheros con el código de arranque (*bootcode*) y los diferentes sistemas operativos.
+
+- Ficheros adjuntos al código de arranque.
+
+- Ficheros de *log*, que permiten analizar a posteriori el comportamiento del programa, en particular ante algún tipo de situación irregular.
+

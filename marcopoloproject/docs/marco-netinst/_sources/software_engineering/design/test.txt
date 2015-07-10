@@ -1,0 +1,6 @@
+Pruebas
+=======
+
+El sistema se evalúa utilizando una batería de pruebas en diferentes entornos (red local, entornos controlados, entorno real). Las propiedades del sistema dificultan la automatización de varias partes de la funcionalidad.
+
+Se han realizado evaluaciones con el administrador de la infraestructura, que valora positivamente la funcionalidad incluida.

@@ -1,0 +1,6 @@
+Patrones de diseño destacados
+=============================
+
+- La estructura de la aplicación se basa en el patrón MVC, siendo el controlador el sistema de enrutado y las diferentes clases ``Handler``, el modelo cada uno de los datos a los que se accede (monitor de estado, archivos auxiliares...) y la vista la interfaz web.
+- El ORM (*Object Relational Manager*) de Django utiliza el patrón DAO para la manipulación de las diferentes estructuras de datos. 
+- El uso de decoradores como ``@authenticated`` facilitan la modificación del comportamiento de diferentes clases.

@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Descripción &mdash; polousers 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="polousers 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Reference" href="reference/intro.html"/>
+        <link rel="prev" title="Welcome to polousers’s documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> polousers</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Descripción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-features">Module features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-creation">Directory creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bibliografia">Bibliografía</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/pi_pam_mkhomedirs/intro.html">pi_pam_mkhomedirs reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/polousers/intro.html">Polusers reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">polousers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Descripción</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/description.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="descripcion">
+<h1>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>The distributed system is made of a series of independent nodes to which the users can access. It is required that they can use the existing resources in any node without explicit access to them (with a shell remote session, for instance). Another requirement is that no prior configuration has to be done.</p>
+<p>This requirement is partially covered with the <strong>PAM</strong> modules <code class="docutils literal"><span class="pre">pam_unix.so</span></code> (local users management) <a class="footnote-reference" href="#id9" id="id1">[3]</a>, <code class="docutils literal"><span class="pre">pam_ldap.so</span></code> (<strong>LDAP</strong> user management) <a class="footnote-reference" href="#id10" id="id2">[4]</a> and particularly, <code class="docutils literal"><span class="pre">pam_mkhomedir.so</span></code> <a class="footnote-reference" href="#id11" id="id3">[5]</a>, which allows the creation of a user directory if the user has logged in for the first time.</p>
+<p>However, one of the features of the system is the uniformity of its nodes regarding user management. Therefore, it is required that the users have a basic set of data in all nodes on the first logging. The <code class="docutils literal"><span class="pre">pam_mkhomedir</span></code> module does not cover this task, since it only creates the directory (copying the <code class="docutils literal"><span class="pre">/etc/skel</span></code>) in the machine where the access was done.</p>
+<p>It is necessary to create a mechanism to perform this task. Taking advantage of <strong>PAM</strong>, a new module complementary to <code class="docutils literal"><span class="pre">pam_mkhomedir</span></code> has been created. The module is named <code class="docutils literal"><span class="pre">pam_mkpolohomedir</span></code> and uses MarcoPolo for the task.</p>
+</div>
+<div class="section" id="module-features">
+<h2>Module features<a class="headerlink" href="#module-features" title="Permalink to this headline">¶</a></h2>
+<p>The functionality of a <strong>PAM</strong> module is packaged in a shared object linked in execution time with the rest of the <strong>PAM</strong> components, as indicated in the configuration files of the module (usually under <code class="docutils literal"><span class="pre">/etc/pam.d</span></code>). <a class="footnote-reference" href="#id7" id="id4">[1]</a>. The module must be stored in the <code class="docutils literal"><span class="pre">/lib/security</span></code> folder.</p>
+<p>In this particular task, the module will use MarcoPolo to detect all the available nodes and then will ask for the creation of the directory, as well as some aditional tasks.</p>
+<p>All the functionality is implemented in the <code class="docutils literal"><span class="pre">pam_mkpolohomedir.c</span></code> file. The module gets the relevant information (name, UID and GID of the user) through the parameters that <strong>PAM</strong> called the module with <a class="footnote-reference" href="#id8" id="id5">[2]</a>. The structure of the code is partially based on the <code class="docutils literal"><span class="pre">pam_mkhomedir</span></code> module <a class="footnote-reference" href="#id12" id="id6">[6]</a>, taking some functions from this module.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">pam_sm_open_session</span><span class="p">(</span><span class="kt">pam_handle_t</span> <span class="o">*</span> <span class="n">pamh</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span>
+			<span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="kt">int</span> <span class="n">retval</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">;</span>
+   <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">user</span><span class="p">;</span>
+   <span class="k">const</span> <span class="k">struct</span> <span class="n">passwd</span> <span class="o">*</span><span class="n">pwd</span><span class="p">;</span>
+   <span class="k">struct</span> <span class="n">stat</span> <span class="n">St</span><span class="p">;</span>
+      
+   <span class="cm">/* Parse the flag values */</span>
+   <span class="n">ctrl</span> <span class="o">=</span> <span class="n">_pam_parse</span><span class="p">(</span><span class="n">flags</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+   <span class="cm">/* Determine the user name so we can get the home directory */</span>
+   <span class="n">retval</span> <span class="o">=</span> <span class="n">pam_get_item</span><span class="p">(</span><span class="n">pamh</span><span class="p">,</span> <span class="n">PAM_USER</span><span class="p">,</span> <span class="p">(</span><span class="k">const</span> <span class="kt">void</span> <span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">user</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="n">PAM_SUCCESS</span> <span class="o">||</span> <span class="n">user</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="o">*</span><span class="n">user</span> <span class="o">==</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">_log_err</span><span class="p">(</span><span class="n">LOG_NOTICE</span><span class="p">,</span> <span class="s">&quot;user unknown&quot;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">PAM_USER_UNKNOWN</span><span class="p">;</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+<p>After the information is gathered, the <code class="docutils literal"><span class="pre">create_polo_homedir</span></code> and <code class="docutils literal"><span class="pre">createdirs</span></code> search for the nodes (using the <strong>Marco</strong> binding) and then request to them the creation of the directory.</p>
+</div>
+<div class="section" id="directory-creation">
+<h2>Directory creation<a class="headerlink" href="#directory-creation" title="Permalink to this headline">¶</a></h2>
+<p>Each node has an instance of the <strong>polousers</strong> slave, the service in charge of receiving and processing all the requests. The service is implemented using the <strong>Twisted</strong> <em>framework</em>, verifiying the identity of each requestor using TLS-based (Transport Layer Security) sockets.</p>
+<p>Once the directory is created, the service acknowledges the requestor, which logs the operation. In fact the acknowledgement is done a bit earlier, in order to speed up the process.</p>
+<p>A <strong>PAM</strong> module must implement a series of function which consitute the entry points to it.</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">PAM_EXTERN</span> <span class="pre">int</span> <span class="pre">pam_sm_open_session(pam_handle_t</span> <span class="pre">*</span> <span class="pre">pamh,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">int</span> <span class="pre">argc</span> <span class="pre">,const</span> <span class="pre">char</span> <span class="pre">**argv)</span></code></p>
+<blockquote>
+<div><p>It is the function that <strong>PAM</strong> invokes when the module is linked. It passes as parameters a <code class="docutils literal"><span class="pre">pam_handle_t</span></code> structure with all the relevant information about the user who just logged in. The parameters indicated in the <strong>PAM</strong> configuration files are also included (in this case, the directory permissions and the location of the skeleton directory).</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">PAM_EXTERN</span> <span class="pre">int</span> <span class="pre">pam_sm_close_session(pam_handle_t</span> <span class="pre">*</span> <span class="pre">pamh,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">int</span> <span class="pre">argc,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">**argv)</span></code></p>
+<blockquote>
+<div><p>It is the function that <strong>PAM</strong> uses to indicate that the session has finished. In this module, it includes no functionality, however it must be included.
+..  Es la función que <strong>PAM</strong> utiliza para indicar al módulo que la sesión ha terminado. En el caso del módulo a crear no se debe realizar ninguna acción en este evento, sin embargo es necesario implementarla debido a que PAM la requiere.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">struct</span> <span class="pre">pam_module</span> <span class="pre">_pam_mkhomedir_modstruct</span></code></p>
+<blockquote>
+<div><p>Defines the module features and entry points. It is only necessary when the linking is statically done.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="bibliografia">
+<h2>Bibliografía<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[1]</a></td><td><ol class="first last upperalpha simple">
+<li><ol class="first upperalpha" start="7">
+<li>Morgan and T. Kukuk, The Linux-PAM Module Writers&#8217; Guide. linux-pam.org, 1.1.2 ed., Aug. 2010.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td><ol class="first last upperalpha simple">
+<li><ol class="first upperalpha" start="7">
+<li>Morgan and T. Kukuk, The Linux-PAM Module Writers&#8217; Guide, ch. 2. What can be expected by the module. linux-pam.org, 1.1.2 ed., Aug. 2010.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[3]</a></td><td>pam_unix(8) - Linux man pages.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[4]</a></td><td>pam_ldap(5) - Linux man pages.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[5]</a></td><td><ol class="first last upperalpha simple" start="10">
+<li>Gunthorpe, pam_mkhomedir(8) - Linux man pages.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td><ol class="first last upperalpha simple" start="10">
+<li>Gunthorpe, &#8220;PAM Make Home Dir module,&#8221; tech. rep., Feb. 1993.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reference/intro.html" class="btn btn-neutral float-right" title="Reference">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to polousers’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

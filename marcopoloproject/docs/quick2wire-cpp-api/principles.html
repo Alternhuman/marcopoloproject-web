@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working principles &mdash; quick2wire-cpp-api 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="quick2wire-cpp-api 1 documentation" href="index.html"/>
+        <link rel="next" title="API Reference" href="reference.html"/>
+        <link rel="prev" title="quick2wire-cpp-api" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> quick2wire-cpp-api</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Working principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/pin.html">The Pin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/pinbank.html">The PinBank class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gpio.html">The GPIO class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/gpio-admin.html">gpio-admin.c</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">quick2wire-cpp-api</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Working principles</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/principles.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="working-principles">
+<h1>Working principles<a class="headerlink" href="#working-principles" title="Permalink to this headline">¶</a></h1>
+<p>The GPIO on the Raspberry Pi is considered a device by the Linux system, and as such, it can be manipulated by software. However, the device is simply a set of memory addresses mapped to the <code class="docutils literal"><span class="pre">/dev/mem</span></code> file (which represents the physical memory of the device as well). This property difficults the access to the GPIO ports, and though some libraries take care of it very effectively (through mapping), the majority of solutions only work for privileged users (i.e. root). Quick2wire provides a library that provides access to unprivileged users. It is only tested for the <a class="reference external" href="http://raspbian.org">Raspbian</a> operating system and there is only a Python implementation. This port, tested on Arch Linux ARM and a Raspberry Pi 2 B allows developers to create applications with the library using C++.</p>
+<p>The library bases its functionality on system calls to the gpio-admin binary (which should be installed on the system, otherwise the library will not work). This binary has the UID bit set, and so several privileged operations can be carried out by non-privileged users (those on the gpio group).</p>
+<p>In order to give access to the GPIO, gpio-admin maps the segment in <code class="docutils literal"><span class="pre">/dev/mem</span></code> to a folder inside the <code class="docutils literal"><span class="pre">/sys/devices/soc</span></code>. When opening a pin, a directory is created with a set of files writable by non-privileged users. These files change the behaviour of the pin upon modification, and their names refer to the property that they alter. The most relevant are <em>value</em>, <em>direction</em> and <em>edge</em>.</p>
+<p>The API abstracts the above processes in a <a class="reference internal" href="reference.html"><em>Pin</em></a> object, which resembles as a file descriptor.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/GPIOs.png"><img alt="A diagram of the GPIO pins and their values." src="_images/GPIOs.png" style="width: 300.0px; height: 147.5px;" /></a>
+<p class="caption"><span class="caption-text">A diagram of the GPIO pins and their values.</span></p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reference.html" class="btn btn-neutral float-right" title="API Reference">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="quick2wire-cpp-api"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

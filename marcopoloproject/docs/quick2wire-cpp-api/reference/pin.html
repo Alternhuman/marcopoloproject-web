@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>class Pin &mdash; quick2wire-cpp-api 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="quick2wire-cpp-api 1 documentation" href="../index.html"/>
+        <link rel="up" title="API Reference" href="../reference.html"/>
+        <link rel="next" title="class PinBank" href="pinbank.html"/>
+        <link rel="prev" title="API Reference" href="../reference.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> quick2wire-cpp-api</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../principles.html">Working principles</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">The Pin class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinbank.html">The PinBank class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html">The GPIO class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio-admin.html">gpio-admin.c</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">quick2wire-cpp-api</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../reference.html">API Reference</a> &raquo;</li>
+      
+    <li><strong>class</strong> Pin</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/reference/pin.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="class-pin">
+<h1><strong>class</strong> Pin<a class="headerlink" href="#class-pin" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv23Pin">
+<span id="Pin"></span><span class="target" id="quick2wireclassPin"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">Pin</code><a class="headerlink" href="#_CPPv23Pin" title="Permalink to this definition">¶</a></dt>
+<dd><div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3Pin3PinEP7PinBankiiPcii">
+<span id="Pin::Pin__PinBankP.i.i.cP.i.i"></span><span class="target" id="quick2wireclassPin_1a9dcec13204947803a1c3cab722387985"></span><code class="descname">Pin</code><span class="sig-paren">(</span><a class="reference internal" href="pinbank.html#_CPPv27PinBank" title="PinBank">PinBank</a> *<em>bank</em>, int <em>index</em>, int <em>soc_pin_number</em>, char *<em>direction</em>, int <em>interrupt</em>, int <em>pull</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin3PinEP7PinBankiiPcii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a <a class="reference internal" href="#quick2wireclassPin"><span>Pin</span></a> with index and soc_pin_number, storing a reference to the <a class="reference internal" href="pinbank.html#quick2wireclassPinBank"><span>PinBank</span></a>. The direction, interrupt and pull parameters can also be set during the creation <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The initialized <a class="reference internal" href="#quick2wireclassPin"><span>Pin</span></a>. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">index</span></code> - <p>the identity of the pin used to create the derived class. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">the</span></code> - <p>pin on the header to control, identified by the SoC pin number. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">direction</span></code> - <p>(optional) the direction of the pin, either IN or OUT. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">interrupt</span></code> - <p>(optional) </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">pull</span></code> - <p>(optional) </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin4openEv">
+<span id="Pin::open"></span><span class="target" id="quick2wireclassPin_1a655b5febbcad1f5195b6abe551750d6d"></span>int <code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin4openEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports the pin and opens the file descriptor for the pin value and sets its direction (IN/OUT). <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>0 if all the operations are successful. Otherwise, a perror message is thrown and the quick2wire_errno variable is set to PIN_ERR. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin5closeEv">
+<span id="Pin::close"></span><span class="target" id="quick2wireclassPin_1a1c64b8f5ae4109366a74ccc8f36a5439"></span>int <code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin5closeEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the file descriptor and unexports the pin. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>0 if succesful or if the pin was already closed. Otherwise it returns the status code returned by gpio_admin. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin6closedEv">
+<span id="Pin::closed"></span><span class="target" id="quick2wireclassPin_1a87f1aa75f64cb9975a01183db1ab9124"></span>bool <code class="descname">closed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin6closedEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the pin has been closed. A closed pin is that which has never been open or which has been open and already closed. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Returns true if the pin is closed, otherwise, false is returned. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin18get_soc_pin_numberEv">
+<span id="Pin::get_soc_pin_number"></span><span class="target" id="quick2wireclassPin_1a0f6bedbee4dea182862dd958830827e5"></span>int <code class="descname">get_soc_pin_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin18get_soc_pin_numberEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the SoC pin number <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The SoC pin number </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin8getValueEv">
+<span id="Pin::getValue"></span><span class="target" id="quick2wireclassPin_1abeaa980023f7712760522bd2e28950e3"></span>int <code class="descname">getValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin8getValueEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the <a class="reference internal" href="#quick2wireclassPin"><span>Pin</span></a> (0 if down, 1 if up) <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The value of the pin </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin8setValueEi">
+<span id="Pin::setValue__i"></span><span class="target" id="quick2wireclassPin_1a9c2cf053b82755c1bb19be695592fd3f"></span>void <code class="descname">setValue</code><span class="sig-paren">(</span>int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin8setValueEi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the value of the pin <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">value</span></code> - <p>The value to set </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin8getIndexEv">
+<span id="Pin::getIndex"></span><span class="target" id="quick2wireclassPin_1a3da774d1fd07429130f0587dbcb58d3e"></span>int <code class="descname">getIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin8getIndexEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index number of the pin </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin8setIndexEi">
+<span id="Pin::setIndex__i"></span><span class="target" id="quick2wireclassPin_1aa703a8fc7c268a3648926ffc7c407789"></span>void <code class="descname">setIndex</code><span class="sig-paren">(</span>int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin8setIndexEi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the number of the pin </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin7getBankEv">
+<span id="Pin::getBank"></span><span class="target" id="quick2wireclassPin_1afabf58f540bbaaf2eeab1eac3a5cc395"></span><a class="reference internal" href="pinbank.html#_CPPv27PinBank" title="PinBank">PinBank</a> *<code class="descname">getBank</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin7getBankEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the <a class="reference internal" href="pinbank.html#quick2wireclassPinBank"><span>PinBank</span></a> related to the pin <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd><a class="reference internal" href="pinbank.html#quick2wireclassPinBank"><span>PinBank</span></a> </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin7setBankEP7PinBank">
+<span id="Pin::setBank__PinBankP"></span><span class="target" id="quick2wireclassPin_1afedd3b41601bb5dd84015df6c313b17d"></span>void <code class="descname">setBank</code><span class="sig-paren">(</span><a class="reference internal" href="pinbank.html#_CPPv27PinBank" title="PinBank">PinBank</a> *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin7setBankEP7PinBank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets a new <a class="reference internal" href="pinbank.html#quick2wireclassPinBank"><span>PinBank</span></a> </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin12getDirectionEv">
+<span id="Pin::getDirection"></span><span class="target" id="quick2wireclassPin_1a893d450ef6f14da402013d088e7bebba"></span>char *<code class="descname">getDirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin12getDirectionEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the direction of the pin as an string <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The direction of the pin </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin12setDirectionEPc">
+<span id="Pin::setDirection__cP"></span><span class="target" id="quick2wireclassPin_1a69c6c679a0035b670739c6647c414ea4"></span>void <code class="descname">setDirection</code><span class="sig-paren">(</span>char *<em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin12setDirectionEPc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the direction of the pin (IN/OUT) </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Functions</p>
+<dl class="function">
+<dt id="_CPPv2N3Pin3getEv">
+<span id="Pin::get"></span><span class="target" id="quick2wireclassPin_1aedf1e6d2c7c7221bb498f1b12d34fcf5"></span>int <code class="descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin3getEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the value of the pin. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The value of the pin </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin3setEi">
+<span id="Pin::set__i"></span><span class="target" id="quick2wireclassPin_1ae46c3b6ebf38f76113109a67ccac79b0"></span>int <code class="descname">set</code><span class="sig-paren">(</span>int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin3setEi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the value of the pin. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">value</span></code> - <p>The new value </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin5writeEPcPc">
+<span id="Pin::write__cP.cP"></span><span class="target" id="quick2wireclassPin_1aac3fd1daf32bc544f6c502b81fc408bb"></span>int <code class="descname">write</code><span class="sig-paren">(</span>char *<em>filename</em>, char *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin5writeEPcPc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the string value in filename, relative to the path in the /sys/devices directory for the pin. the absolute path is generated by the pin_path function. Writing on the file alters the behaviour of the pin, and depending on the name of the file, the results differ:</p>
+<p><ul class="simple">
+<li>direction: the direction of the pin (in, out) </li>
+<li>edge </li>
+<li>the value of the pin value (0, 1) </li>
+</ul>
+</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The name of the file. Typical values are: direction, edge, value. </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">value</span></code> - <p>The value to write. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin8pin_pathEPc">
+<span id="Pin::pin_path__cP"></span><span class="target" id="quick2wireclassPin_1a2b588f940e9250376eb3d48862d1c834"></span>char *<code class="descname">pin_path</code><span class="sig-paren">(</span>char *<em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin8pin_pathEPc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the absolute path for the filename value inside the gpio directory for the value of the <a class="reference internal" href="#quick2wireclassPin"><span>Pin</span></a>. The function is used by write to determine where to write a property of the <a class="reference internal" href="gpio.html#quick2wireclassGPIO"><span>GPIO</span></a> port. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The absolute path (including filename). </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">filename</span></code> - <p>The name of the file. </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv2N3Pin9to_stringEv">
+<span id="Pin::to_string"></span><span class="target" id="quick2wireclassPin_1a6d15f1f4f6e5058b5184551013c98a5d"></span>char *<code class="descname">to_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv2N3Pin9to_stringEv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information about the pin. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv2N3Pin4fileE">
+<span id="Pin::file__FILEP"></span><span class="target" id="quick2wireclassPin_1abc97b452ad2d9077f49049e9fa10d248"></span>FILE *<code class="descname">file</code><a class="headerlink" href="#_CPPv2N3Pin4fileE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The file pointer to the value file inside the pin folder. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3Pin9directionE">
+<span id="Pin::direction__cA"></span><span class="target" id="quick2wireclassPin_1a3c68e592bce088ff19423a50309c84c4"></span>char <code class="descname">direction</code>[3]<a class="headerlink" href="#_CPPv2N3Pin9directionE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The direction of the pin. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3Pin14soc_pin_numberE">
+<span id="Pin::soc_pin_number__i"></span><span class="target" id="quick2wireclassPin_1a319e3698bd6cb648b7c0ddd78faeeb02"></span>int <code class="descname">soc_pin_number</code><a class="headerlink" href="#_CPPv2N3Pin14soc_pin_numberE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The pin number according to the SoC convention. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3Pin5indexE">
+<span id="Pin::index__i"></span><span class="target" id="quick2wireclassPin_1a61bcf99e232620f24c4b1ed33e456d9b"></span>int <code class="descname">index</code><a class="headerlink" href="#_CPPv2N3Pin5indexE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of the pin. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N3Pin4bankE">
+<span id="Pin::bank__PinBankP"></span><span class="target" id="quick2wireclassPin_1a0c289c23fe12a507a68af080c381014e"></span><a class="reference internal" href="pinbank.html#_CPPv27PinBank" title="PinBank">PinBank</a> *<code class="descname">bank</code><a class="headerlink" href="#_CPPv2N3Pin4bankE" title="Permalink to this definition">¶</a></dt>
+<dd><p>A pointer to the <a class="reference internal" href="pinbank.html#quick2wireclassPinBank"><span>PinBank</span></a>. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pinbank.html" class="btn btn-neutral float-right" title="class PinBank">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../reference.html" class="btn btn-neutral" title="API Reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

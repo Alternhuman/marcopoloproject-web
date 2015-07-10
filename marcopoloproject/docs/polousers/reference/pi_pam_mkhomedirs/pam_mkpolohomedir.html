@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pam_mkpolohomedir &mdash; polousers 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="polousers 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="pi_pam_mkhomedirs reference" href="intro.html"/>
+        <link rel="next" title="createdirs" href="createdirs.html"/>
+        <link rel="prev" title="pi_pam_mkhomedirs reference" href="intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> polousers</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../description.html">Descripción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#module-features">Module features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#directory-creation">Directory creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description.html#bibliografia">Bibliografía</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">pi_pam_mkhomedirs reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../polousers/intro.html">Polusers reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">polousers</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Reference</a> &raquo;</li>
+      
+          <li><a href="intro.html">pi_pam_mkhomedirs reference</a> &raquo;</li>
+      
+    <li>pam_mkpolohomedir</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/pi_pam_mkhomedirs/pam_mkpolohomedir.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="pam-mkpolohomedir">
+<h1>pam_mkpolohomedir<a class="headerlink" href="#pam-mkpolohomedir" title="Permalink to this headline">¶</a></h1>
+<p>PAM Make Home Dir module <div class="highlight-python"><div class="highlight"><pre>This module will create a users home directory if it does not exist
+when the session begins. This allows users to be present in central
+database (such as nis, kerb or ldap) without using a distributed
+file system or pre-creating a large number of directories.
+
+The module creates the home directory in all nodes of the system,
+thus ensuring that the system will be fully functional for the user.
+
+Here is a sample /etc/pam.d/login file for Debian GNU/Linux
+2.1:
+
+auth       requisite  pam_securetty.so
+auth       sufficient pam_ldap.so
+auth       required   pam_pwdb.so
+auth       optional   pam_group.so
+auth       optional   pam_mail.so
+account    requisite  pam_time.so
+account    sufficient pam_ldap.so
+account    required   pam_pwdb.so
+session    required   pam_mkhomedir.so skel=/etc/skel/ umask=0022
+session    required   pam_pwdb.so
+session    optional   pam_lastlog.so
+password   required   pam_pwdb.so   
+
+Released under the GNU LGPL version 2 or later
+Based on the pam_mkhomedir module originally written by 
+Jason Gunthorpe &lt;jgg@debian.org&gt; Feb 1999
+Structure taken from pam_lastlogin by Andrew Morgan 
+    &lt;morgan@parc.power.net&gt; 1996
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c._GNU_SOURCE">
+<span class="target" id="polouserspam__mkpolohomedir_8c_1a369266c24eacffb87046522897a570d5"></span><code class="descname">_GNU_SOURCE</code><a class="headerlink" href="#c._GNU_SOURCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.PAM_SM_SESSION">
+<span class="target" id="polouserspam__mkpolohomedir_8c_1aa7f312c1893e75ec4416ffbe6202fb60"></span><code class="descname">PAM_SM_SESSION</code><a class="headerlink" href="#c.PAM_SM_SESSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.MKPOLOHOMEDIR_DEBUG">
+<span class="target" id="polouserspam__mkpolohomedir_8c_1a92aa0fc260a899eeb898136fd7d71d67"></span><code class="descname">MKPOLOHOMEDIR_DEBUG</code><a class="headerlink" href="#c.MKPOLOHOMEDIR_DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.MKPOLOHOMEDIR_QUIET">
+<span class="target" id="polouserspam__mkpolohomedir_8c_1ae704eb2cff990f547ab7de615bb5cda0"></span><code class="descname">MKPOLOHOMEDIR_QUIET</code><a class="headerlink" href="#c.MKPOLOHOMEDIR_QUIET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv28_log_erriPKcz">
+<span id="_log_err__i.cCP.z"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a12e89fd172fc409370272d9b20da53cd"></span><em class="property">static</em> void <code class="descname">_log_err</code><span class="sig-paren">(</span>int <em>err</em>, <em class="property">const</em> char *<em>format</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv28_log_erriPKcz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a message to the syslog <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">err</span></code> - <p>Message priority </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">format</span></code> - <p>The formatting string for the message </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">...</span></code> - <p>values for the formatting string </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv210_pam_parseiiPPKc">
+<span id="_pam_parse__i.i.cCPP"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a8dfba8d4e9039801cd594ed94578f2b2"></span><em class="property">static</em> int <code class="descname">_pam_parse</code><span class="sig-paren">(</span>int <em>flags</em>, int <em>argc</em>, <em class="property">const</em> char **<em>argv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv210_pam_parseiiPPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the arguments <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A bitwise-modified integer with all the flags </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">flags</span></code> - <p>Behaviour modifiers </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argc</span></code> - <p>The number of arguments </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argv</span></code> - <p>The arguments </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv28converseP12pam_handle_tiiPP11pam_messagePP12pam_response">
+<span id="converse__pam_handle_tP.i.i.pam_messagePP.pam_responsePP"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a9868628596c2ada3e3eaa192bfcf6aea"></span><em class="property">static</em> int <code class="descname">converse</code><span class="sig-paren">(</span>pam_handle_t *<em>pamh</em>, int <em>ctrl</em>, int <em>nargs</em>, <em class="property">struct</em> pam_message **<em>message</em>, <em class="property">struct</em> pam_response **<em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv28converseP12pam_handle_tiiPP11pam_messagePP12pam_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>This common function is used to send a message to the applications conversion function. Our only use is to ask the application to print an informative message that we are creating a home directory <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pamh</span></code> - <p>Information about the user </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">ctrl</span></code> - <p>Controlling flags </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">nargs</span></code> - <p>The number of arguments in message </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">message</span></code> - <p>An array of messages </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">response</span></code> - <p>The responses to those messages </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv211make_remarkP12pam_handle_tiPKc">
+<span id="make_remark__pam_handle_tP.i.cCP"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a0ae6a2523d8c87fb2ffbc914b358882b"></span><em class="property">static</em> int <code class="descname">make_remark</code><span class="sig-paren">(</span>pam_handle_t *<em>pamh</em>, int <em>ctrl</em>, <em class="property">const</em> char *<em>remark</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211make_remarkP12pam_handle_tiPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ask the application to display a short text string for us. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>An status of the operation. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pamh</span></code> - <p>Information about the user </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">ctrl</span></code> - <p>Controlling flags </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">remark</span></code> - <p>The message </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214create_homedirP12pam_handle_tiPK6passwdPKcPKc">
+<span id="create_homedir__pam_handle_tP.i.passwdCP.cCP.cCP"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a1a124da08f30a305058d05e11dfbec35"></span><em class="property">static</em> int <code class="descname">create_homedir</code><span class="sig-paren">(</span>pam_handle_t *<em>pamh</em>, int <em>ctrl</em>, <em class="property">const</em> <em class="property">struct</em> passwd *<em>pwd</em>, <em class="property">const</em> char *<em>source</em>, <em class="property">const</em> char *<em>dest</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214create_homedirP12pam_handle_tiPK6passwdPKcPKc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the home directory, using MarcoPolo in the rest of the nodes <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pamh</span></code> - <p>The information about the PAM session </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">ctrl</span></code> - <p>Controlling flags </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">pwd</span></code> - <p>The information about the user </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">dest</span></code> - <p>The home directory to create </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="polouserspam__mkpolohomedir_8c_1aefea542ca66671ce68abe09d332e56ae"></span><code class="descname">PAM_EXTERN int pam_sm_open_session(pam_handle_t * pamh, int flags, int argc, const char ** argv)</code></dt>
+<dd><p>Opens a PAM session. This is the entry point to the module <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A status code </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pamh</span></code> - <p>The PAM session information given by PAM </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">flags</span></code> - <p>Several control flags </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argc</span></code> - <p>The number of arguments passed to the module in the configuration files </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argv</span></code> - <p>The arguments passed to the module </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="polouserspam__mkpolohomedir_8c_1ac702848c61a55ded7959bc087a9ab1f2"></span><code class="descname">PAM_EXTERN int pam_sm_close_session(pam_handle_t * pamh, int flags, int argc, const char ** argv)</code></dt>
+<dd><p>Closes the session. This is the exit point <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last">
+<li><code class="first docutils literal"><span class="pre">pamh</span></code> - <p>The PAM session information </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">flags</span></code> - <p>Some control flags </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argc</span></code> - <p>The number of arguments passed </p>
+</li>
+<li><code class="first docutils literal"><span class="pre">argv</span></code> - <p>The arguments </p>
+</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Variables</p>
+<dl class="member">
+<dt id="_CPPv25UMask">
+<span id="UMask__unsigned-i"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a7f88c22aca9de3233a0e5ef4fe9e9239"></span>unsigned int <code class="descname">UMask</code><a class="headerlink" href="#_CPPv25UMask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv27SkelDir">
+<span id="SkelDir__cA"></span><span class="target" id="polouserspam__mkpolohomedir_8c_1a233f0d5b19c1f5dadd5598960c2720e1"></span>char <code class="descname">SkelDir</code>[BUFSIZ]<a class="headerlink" href="#_CPPv27SkelDir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="createdirs.html" class="btn btn-neutral float-right" title="createdirs">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="pi_pam_mkhomedirs reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

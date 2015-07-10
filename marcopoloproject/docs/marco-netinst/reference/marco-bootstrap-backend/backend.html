@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The backend module &mdash; marco-netinst 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marco-netinst 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="marco-bootstrap-backend reference" href="intro.html"/>
+        <link rel="next" title="The conf module" href="conf.html"/>
+        <link rel="prev" title="marco-bootstrap-backend reference" href="intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marco-netinst</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals/intro.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-netinst.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-minimal.html">marco-minimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-bootstrap-backend.html">marco-bootstrap-backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../marco-netinst/intro.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marco-minimal/intro.html">marco-minimal reference</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">marco-bootstrap-backend reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marco-bootstrap-slave/intro.html">marco-bootstrap-slave reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/development.html">Etapa de desarrollo</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marco-netinst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Reference</a> &raquo;</li>
+      
+          <li><a href="intro.html">marco-bootstrap-backend reference</a> &raquo;</li>
+      
+    <li>The backend module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/marco-bootstrap-backend/backend.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="the-backend-module">
+<h1>The backend module<a class="headerlink" href="#the-backend-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-notcheckinghostnamehttpadapter-class">
+<h2>The NotCheckingHostnameHTTPAdapter class<a class="headerlink" href="#the-notcheckinghostnamehttpadapter-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.NotCheckingHostnameHTTPAdapter">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">NotCheckingHostnameHTTPAdapter</code><span class="sig-paren">(</span><em>pool_connections=10</em>, <em>pool_maxsize=10</em>, <em>max_retries=0</em>, <em>pool_block=False</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.NotCheckingHostnameHTTPAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Avoids checking the hostname field of a HTTPS connection</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.NotCheckingHostnameHTTPAdapter.cert_verify">
+<code class="descname">cert_verify</code><span class="sig-paren">(</span><em>conn</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.NotCheckingHostnameHTTPAdapter.cert_verify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asserts that the hostname is valid without regard to its value</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-basehandler-class">
+<h2>The BaseHandler class<a class="headerlink" href="#the-basehandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.BaseHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">BaseHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.BaseHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>An extension of <code class="xref py py-class docutils literal"><span class="pre">tornado.web.RequestHandler</span></code>
+that decrypts a secure username cookie</p>
+</dd></dl>
+
+</div>
+<div class="section" id="the-webhandler-class">
+<h2>The WebHandler class<a class="headerlink" href="#the-webhandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.WebHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">WebHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.WebHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles index connections</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.WebHandler.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.WebHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the user is logged, displays the main interface. Otherwise redirects the user
+to the login window</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-loginhandler-class">
+<h2>The LoginHandler class<a class="headerlink" href="#the-loginhandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.LoginHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">LoginHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.LoginHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the login process</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.LoginHandler.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.LoginHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays a login form</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.LoginHandler.post">
+<code class="descname">post</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.LoginHandler.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the credentials and, if successful, redirects the user to the
+main window. If unsuccessful a message error is displayed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-logouthandler-class">
+<h2>The LogoutHandler class<a class="headerlink" href="#the-logouthandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.LogoutHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">LogoutHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.LogoutHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the exiting process</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.LogoutHandler.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.LogoutHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the user cookie</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-scheduledhandler-class">
+<h2>The ScheduledHandler class<a class="headerlink" href="#the-scheduledhandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.ScheduledHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">ScheduledHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.ScheduledHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the database information about the scheduled events</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.ScheduledHandler.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.ScheduledHandler.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders a view with all future scheduled jobs</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-add-callback-function">
+<h2>The add_callback function<a class="headerlink" href="#the-add-callback-function" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="marcobootstrap.backend.backend.add_callback">
+<code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">add_callback</code><span class="sig-paren">(</span><em>future</em>, <em>callback</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.add_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds and event to the <code class="xref py py-class docutils literal"><span class="pre">IOLoop</span></code> instance and binds it to the callback funcion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>future</strong> (<em>Future</em>) &#8211; A future object where to extract information from</li>
+<li><strong>callback</strong> (<em>function</em>) &#8211; The callback function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="the-schedule-class">
+<h2>The Schedule class<a class="headerlink" href="#the-schedule-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.Schedule">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">Schedule</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.Schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Schedules operations to the nodes in the net</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.Schedule.add_to_db">
+<code class="descname">add_to_db</code><span class="sig-paren">(</span><em>operation_type</em>, <em>schedule_time</em>, <em>hosts</em>, <em>image=None</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.Schedule.add_to_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds to the database a new operation entry with all the concerning information</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>operation_type</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; An identifier for the kind of operation (reboot, update...)</li>
+<li><strong>schedule_time</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; A time represented in absolute milliseconds (starting on the epoch) that indicates the time of execution.</li>
+<li><strong>hosts</strong> (<a class="reference external" href="https://docs.python.org/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; A list of the hosts where the operation is to be executed on</li>
+<li><strong>image</strong> (<a class="reference external" href="https://docs.python.org/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; The OS image (only useful for update and similar operations)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.Schedule.deployed">
+<code class="descname">deployed</code><span class="sig-paren">(</span><em>response</em>, <em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.Schedule.deployed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used as a callback for the POST process</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.Schedule.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.Schedule.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes a POST request with the operation parameters</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-cancelhandler-class">
+<h2>The CancelHandler class<a class="headerlink" href="#the-cancelhandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.CancelHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">CancelHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.CancelHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows cancellation of an operation which is yet to be done.</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.CancelHandler.cancel">
+<code class="descname">cancel</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.CancelHandler.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple callback, used for logging and debugging purposes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.CancelHandler.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.CancelHandler.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes a cancellation request</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-run-async-function">
+<h2>The run_async function<a class="headerlink" href="#the-run-async-function" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="marcobootstrap.backend.backend.run_async">
+<code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">run_async</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.run_async" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple wrapper that allows a blocking function to work inside the tornado IOLoop
+:param function func: The blocking function
+:returns: An async_func callable</p>
+</dd></dl>
+
+</div>
+<div class="section" id="the-longwait-function">
+<h2>The longwait function<a class="headerlink" href="#the-longwait-function" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="marcobootstrap.backend.backend.longwait">
+<code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">longwait</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.longwait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a Marco request</p>
+</dd></dl>
+
+</div>
+<div class="section" id="the-marcodetect-class">
+<h2>The MarcoDetect class<a class="headerlink" href="#the-marcodetect-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.MarcoDetect">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">MarcoDetect</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.MarcoDetect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect all nodes in the network</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.MarcoDetect.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.MarcoDetect.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the Marco operation and returns the result as a JSON-formatted string
+:returns: A JSON formated string with the node information</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-removehandler-class">
+<h2>The RemoveHandler class<a class="headerlink" href="#the-removehandler-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="marcobootstrap.backend.backend.RemoveHandler">
+<em class="property">class </em><code class="descclassname">marcobootstrap.backend.backend.</code><code class="descname">RemoveHandler</code><span class="sig-paren">(</span><em>application</em>, <em>request</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.RemoveHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes an OS image</p>
+<dl class="method">
+<dt id="marcobootstrap.backend.backend.RemoveHandler.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#marcobootstrap.backend.backend.RemoveHandler.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes the request and removes the OS image</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conf.html" class="btn btn-neutral float-right" title="The conf module">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="marco-bootstrap-backend reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

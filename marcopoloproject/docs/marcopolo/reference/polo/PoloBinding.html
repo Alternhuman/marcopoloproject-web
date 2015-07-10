@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class PoloBinding &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Polo reference" href="index.html"/>
+        <link rel="next" title="Module polod" href="polod.html"/>
+        <link rel="prev" title="Class Polo" href="Polo.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../reference.html">Implementation Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../marco/index.html">Marco reference</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../reference.html">Reference</a> &raquo;</li>
+      
+          <li><a href="index.html">Polo reference</a> &raquo;</li>
+      
+    <li>Class PoloBinding</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/reference/polo/PoloBinding.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="class-polobinding">
+<h1>Class PoloBinding<a class="headerlink" href="#class-polobinding" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL">
+<em class="property">class </em><code class="descclassname">marcopolo.polo.polobindingssl.</code><code class="descname">PoloBindingSSL</code><span class="sig-paren">(</span><em>secret, offered_services, user_services, multicast_groups=['224.0.0.112', '224.0.0.113'], verify_regexp='^([\d\w]+):([\d\w]+)$'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>secret, offered_services, user_services, multicast_groups=['224.0.0.112', '224.0.0.113'], verify_regexp='^([\\d\\w]+):([\\d\\w]+)$'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the <code class="docutils literal"><span class="pre">PoloBinding</span></code> instance with the data structures to work with.
+If defined, the <code class="docutils literal"><span class="pre">offered_services</span></code> and <code class="docutils literal"><span class="pre">user_services</span></code> variables will be treated 
+as references to a dictionaries (i.e. the values will be modified, but the object reference 
+will never be altered).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offered_services</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; A dictionary which comprises all the dictionaries         passed to the <code class="docutils literal"><span class="pre">offered_services</span></code> param in the Polo instances. That way the services         can be altered by both parties</li>
+<li><strong>user_services</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; A dictionary of all the user services dictionaries (the key is multicast
+group and the value is the list of user dictionaries passed to the param <code class="docutils literal"><span class="pre">user_services</span></code>.</li>
+<li><strong>multicast_group</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The IPv4 address of the multicast group to join to. <strong>Important</strong>: The multicast_addr is not validated until the reactor is started.</li>
+<li><strong>verify_regexp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; Regular expression used to verify an user service.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.dataReceived">
+<code class="descname">dataReceived</code><span class="sig-paren">(</span><em>datagram</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.dataReceived"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.dataReceived" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives datagrams from bindings, and verifies the <cite>Command</cite> field.
+It emits a response based on the value (if necessary)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datagram</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bytes" title="(in Python v3.4)"><em>bytes</em></a>) &#8211; The byte stream with the message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.is_superuser">
+<code class="descname">is_superuser</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.is_superuser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.is_superuser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <cite>True</cite> if the user is a &#8216;superuser&#8217; (it is root or it a member of the <cite>marcopolo</cite> group)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; <cite>pwd</cite> structure with all the information from the user</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.publish_service">
+<code class="descname">publish_service</code><span class="sig-paren">(</span><em>service, token, multicast_groups=['224.0.0.112', '224.0.0.113'], permanent=False, root=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.publish_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.publish_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a service during execution time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.4)"><em>tuple</em></a>) &#8211; A tuple with the requesting address and port</li>
+<li><strong>service</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; <p>Indicates the unique identifier of the service.</p>
+<p>If <cite>root</cite> is true, the published service will have the same identifier as the value of the parameter. Otherwise, the name of the user will be prepended (<cite>&lt;user&gt;:&lt;service&gt;</cite>).</p>
+</li>
+<li><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; The unique user identifier</li>
+<li><strong>multicast_groups</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.4)"><em>set</em></a>) &#8211; <p>Indicates the groups where the service shall be published.</p>
+<p>Note that the groups must be defined in the polo.conf file, or otherwise the method will throw an exception.</p>
+</li>
+<li><strong>permanent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.4)"><em>bool</em></a>) &#8211; If set to true a file will be created and the service will be permanently offered until the file is deleted.</li>
+<li><strong>root</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.4)"><em>bool</em></a>) &#8211; <p>Stores the file in the marcopolo configuration directory.</p>
+<p>This feature is only available to privileged users, by default root and users in the marcopolo group.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.publish_service_wrapper">
+<code class="descname">publish_service_wrapper</code><span class="sig-paren">(</span><em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.publish_service_wrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.publish_service_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for the :method:publish_service method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The command that triggered the function</li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; The arguments to pass to :method:publish_service</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.request_token_service_wrapper">
+<code class="descname">request_token_service_wrapper</code><span class="sig-paren">(</span><em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.request_token_service_wrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.request_token_service_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for the :method:request_token method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The command that triggered the function</li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; The arguments to pass to :method:request_token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.startProtocol">
+<code class="descname">startProtocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.startProtocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.startProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts the binding and adds an entry in the log file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.unknown_command_handler">
+<code class="descname">unknown_command_handler</code><span class="sig-paren">(</span><em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.unknown_command_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.unknown_command_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles all unkown commands</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The command that triggered the function</li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; The arguments that were passed</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.unpublish_service">
+<code class="descname">unpublish_service</code><span class="sig-paren">(</span><em>service, token, multicast_groups=['224.0.0.112', '224.0.0.113'], delete_file=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.unpublish_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.unpublish_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a service from the offered services structures and all associated files, upon request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.4)"><em>tuple</em></a>) &#8211; A tuple with the requesting address and port.</li>
+<li><strong>service</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The id of the service to delete.</li>
+<li><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; The uid of the requesting user.</li>
+<li><strong>multicast_groups</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.4)"><em>list</em></a>) &#8211; The list of multicast_groups to delete the service from.         If not defined, the service is removed from all groups.</li>
+<li><strong>delete_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.4)"><em>bool</em></a>) &#8211; If set to <code class="docutils literal"><span class="pre">True</span></code> and the service is of type permanent,         the service file is deleted. If the service is not permanent the parameter is ignored.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.unpublish_service_wrapper">
+<code class="descname">unpublish_service_wrapper</code><span class="sig-paren">(</span><em>command</em>, <em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.unpublish_service_wrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.unpublish_service_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for the :method:unpublish_service method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The command that triggered the function</li>
+<li><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.4)"><em>dict</em></a>) &#8211; The arguments to pass to :method:unpublish_service</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.validate_user">
+<code class="descname">validate_user</code><span class="sig-paren">(</span><em>uid</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.validate_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.validate_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a <cite>pwd</cite> structure if the uid is present in the passwd database.
+Otherwise <cite>None</cite> is returned</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uid</strong> (<a class="reference external" href="https://docs.python.org/3/library/string.html#module-string" title="(in Python v3.4)"><em>string</em></a>) &#8211; The user identifier of the service</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.write_error">
+<code class="descname">write_error</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.write_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.write_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and sends an Error message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.4)"><em>str</em></a>) &#8211; The error reason</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="marcopolo.polo.polobindingssl.PoloBindingSSL.write_ok">
+<code class="descname">write_ok</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/marcopolo/polo/polobindingssl.html#PoloBindingSSL.write_ok"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#marcopolo.polo.polobindingssl.PoloBindingSSL.write_ok" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates and sends an OK message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.4)"><em>int</em></a>) &#8211; The status code</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="polod.html" class="btn btn-neutral float-right" title="Module polod">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Polo.html" class="btn btn-neutral" title="Class Polo"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

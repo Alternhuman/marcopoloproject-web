@@ -1,0 +1,901 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos funcionales &mdash; marco-netinst 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marco-netinst 0.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Vista de paquetes de casos de uso" href="uc.html"/>
+        <link rel="prev" title="Requisitos de información" href="ir.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marco-netinst</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals/intro.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-netinst.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-minimal.html">marco-minimal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco-bootstrap-backend.html">marco-bootstrap-backend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-netinst/intro.html">marco-netinst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-minimal/intro.html">marco-minimal reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-backend/intro.html">marco-bootstrap-backend reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco-bootstrap-slave/intro.html">marco-bootstrap-slave reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marco-netinst</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/fr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-funcionales">
+<h1>Requisitos funcionales<a class="headerlink" href="#requisitos-funcionales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rf1-programar-operacion">
+<h2><strong>RF1</strong>: Programar operación<a class="headerlink" href="#rf1-programar-operacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A través de la interfaz administrativa se podrán programar diferentes tipos de operaciones que serán realizadas por los diferentes nodos</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El administrador deberá estar autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador accede a la interfaz principal del sistema.</li>
+<li>Introduce la operación a realizar utilizando los controles de la interfaz.</li>
+<li>Selecciona los nodos en los que la operación debe ser realizada</li>
+<li>Indica si la operación ha de realizarse de forma inmediata o en un momento futuro.</li>
+<li>Añade la operación a la lista de operaciones por realizar.</li>
+<li>El sistema contacta con todos los nodos e indica la operación a realizar.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Los nodos han recibido la operación y la realizarán en el momento indicado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que se dé algún tipo de error en la comunicación entre los diferentes componentes el administrador será informado.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf2-ordenar-cancelacion">
+<h2><strong>RF2</strong> Ordenar cancelación<a class="headerlink" href="#rf2-ordenar-cancelacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que sea necesario una operación puede ser cancelada antes de que sea realizada.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>El administrador está autenticado en el sistema.</li>
+<li>Una o más operaciones han sido programadas.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador accede a la interfaz principal y desde ahí consulta las operaciones programadas.</li>
+<li>El sistema muestra todas las operaciones programadas para el futuro.</li>
+<li>El administrador solicita la cancelación de una de las operaciones a través de la interfaz.</li>
+<li>El sistema solicita a todos los nodos a los que se solicitó la realización de esta operación la cancelación de la misma.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: La operación es cancelada en todos los nodos en los que se programó.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que se dé un error en la conexión con los nodos se notificará al administrador.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf3-consulta-al-registro-de-operaciones">
+<h2><strong>RF3</strong> Consulta al registro de operaciones<a class="headerlink" href="#rf3-consulta-al-registro-de-operaciones" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2, NFR-2, NRF-6</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Caso base que representa el mecanismo de acceso a la base de datos.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El administrador está autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador accede al sistema y abre la vista deseada.</li>
+<li>El sistema consulta los datos asociados a dicha vista.</li>
+<li>La base de datos retorna la información.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El sistema muestra a través de la interfaz los datos solicitados.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que se dé un error en la conexión con los nodos se notificará al administrador.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf4-consulta-de-operaciones-programadas">
+<h2><strong>RF4</strong> Consulta de operaciones programadas<a class="headerlink" href="#rf4-consulta-de-operaciones-programadas" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2, NRF-6</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El sistema debe proveer una interfaz de acceso al registro de operaciones programadas para realizarse en el futuro.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El administrador está autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario accede a la interfaz de visualización de operaciones.</li>
+<li>El sistema consulta a la base de datos y muestra los resultados en la interfaz.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Los resultados son mostrados en pantalla.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que exista algún error de comunicación con la base de datos el administrador es notificado.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf5-consulta-de-historico">
+<h2><strong>RF5</strong> Consulta de histórico<a class="headerlink" href="#rf5-consulta-de-historico" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2, NFR-6</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A través de una interfaz, el sistema mostrará operaciones llevadas a cabo con el objetivo de mantener un registro para análisis futuros</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El administrador debe estar autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador accede a la interfaz de consulta.</li>
+<li>El sistema solicita a la base de datos la información.</li>
+<li>Se muestran los datos por pantalla</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Los datos son mostrados en la interfaz.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de un error en la comunicación con la base de datos el administrador es informado.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong></p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong></p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong></p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf6-descarga-del-sistema-operativo">
+<h2><strong>RF6</strong> Descarga del sistema operativo<a class="headerlink" href="#rf6-descarga-del-sistema-operativo" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-3, OBJ-4</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-3</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Los diferentes nodos podrán descargar imágenes del sistema operativo.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El nodo debe tener instalado el <em>software</em> de instalación y descarga.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El nodo detecta mediante un protocolo de descubrimiento los diferentes nodos presentes en la red que contienen imágenes de sistemas operativos.</li>
+<li>Elige un servidor de la lista de resultados y se conecta a este.</li>
+<li>Si los dos equipos satisfacen los requisitos de seguridad del otro, comienza la descarga.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: La imagen del sistema operativo es descargada en el nodo interesado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que no se encuentre ningún nodo, se abortará la operación.</li>
+<li>En caso de que la conexión sea interrumpida la operación será detenida el nodo intentará reestablecerla. En caso de que no sea posible un registro del fallo será almacenado.</li>
+<li>En caso de que la conexión no sea factible debido a que una de las partes rechace el certificado ofrecido por la otra, la operación terminará y se almacenará el fallo en el registro.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong></p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong></p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf7-instalacion">
+<h2><strong>RF7</strong> Instalación<a class="headerlink" href="#rf7-instalacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1, RF-2, NFR-6</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Una vez descargado el sistema operativo, el nodo procede a su instalación.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: La imagen del sistema operativo debe haber sido descargada previamente.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El nodo desempaqueta la imagen del sistema operativo.</li>
+<li>Los diferentes ficheros son almacenados en la carpeta adecuada, fijando los permisos adecuados y determinando el propietario de los mismos.</li>
+<li>Se almacena toda la información relativa al proceso de instalación en el fichero de registro.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El sistema operativo queda instalado en el nodo.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de cualquier fallo (escritura, integridad de la imagen...) comienza el caso de uso <strong>RF9</strong></p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>:</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>:</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf8-actualizacion">
+<h2><strong>RF8</strong> Actualización<a class="headerlink" href="#rf8-actualizacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2, RF-1, RF-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Caso de uso similar a <strong>RF7</strong>. La única variación es que el nodo no sobreescribe una serie de directorios en el proceso de instalación, en los que se almacenan los datos personales de los usuarios o cualquier otro fichero que deba ser almacenado de forma persistente.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El sistema debe contar con una imagen del sistema operativo descargada (<strong>RF6</strong>).</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Se realizan todos los pasos del caso de uso <strong>RF7</strong>, pero no se sobreescribe la información contenida en los diferentes directorios especificados.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El sistema es reemplazado por otra versión del mismo, sin que esto afecte a los datos de los usuarios.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: Se consideran las mismas excepciones que el caso de uso <strong>RF7</strong>.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong></p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong></p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong></p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf9-gestionar-error-en-la-instalacion">
+<h2><strong>RF9</strong> Gestionar error en la instalación<a class="headerlink" href="#rf9-gestionar-error-en-la-instalacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ3, RF-1, RF-8</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-2, IRQ-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que se produzca algún error se deben proveer mecanismos para la recuperación del mismo, en el caso de que sea posible, priorizando la autogestión sobre la interacción de un usuario.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Se debe dar un error no recuperable de forma autónoma.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Ante un error, el nodo determina el tipo de incidente y almacena la información sobre este en un fichero.</li>
+<li>El nodo vuelca todo el histórico de operaciones realizadas en el fichero.</li>
+<li>El nodo espera durante un tiempo a que un usuario humano corrija el error manualmente. En caso de que esta interacción no se dé en el periodo especificado, el sistema se reinicia. En caso de que un administrador decida solucionar manualmente el error, se muestra una interfaz administrativa mínima.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El incidente es registrado y en caso de que un administrador solucione el mismo, el sistema se recupera.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong></p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong>: Es necesario tener en cuenta que este caso de uso se realiza únicamente cuando el nodo no puede resolver el incidente de forma autónoma.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf10-gestionar-error-en-backend">
+<h2><strong>RF10</strong> Gestionar error en backend<a class="headerlink" href="#rf10-gestionar-error-en-backend" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1, RF-2, RF-3, RF-4, RF-5</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En el caso de que se dé un error durante la realización de una operación a través del <em>backend</em>, este caso de uso es iniciado.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Se debe detectar un error.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El software detecta un comportamiento anómalo en el transcurso de una operación.</li>
+<li>Mediante diferentes mecanismos intenta detectar el tipo de fallo que se ha dado.</li>
+<li>Una vez identificado el error, se emite un mensaje de error. En caso de que no sea posible identificar el tipo de fallo, se muestra un mensaje genérico.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El administrador es informado del fallo.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf11-autenticacion">
+<h2><strong>RF11</strong> Autenticación<a class="headerlink" href="#rf11-autenticacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, RF-1, RF-2, RF-3, RF-4</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El administrador debe validar su identidad mediante la introducción de unas credenciales de acceso al <em>backend</em>.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El administrador no ha validado su identidad previamente.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador accede al <em>backend</em>.</li>
+<li>El <em>backend</em> detecta que el usuario es desconocido, y muestra una interfaz de autenticación.</li>
+<li>El administrador introduce las claves y solicita el acceso son las mismas.</li>
+<li>Si las claves son válidas, se da acceso al sistema y se muestra la interfaz principal. En caso contrario se muestra un mensaje informativo y de nuevo se solicita la introducción de datos válidos.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El administrador está autenticado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de un fallo interno, se ejecuta el caso de uso <strong>RF10</strong>.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>:</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>:</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong></p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf12-creacion-de-imagen-del-sistema-operativo">
+<h2><strong>RF12</strong> Creación de imagen del sistema operativo<a class="headerlink" href="#rf12-creacion-de-imagen-del-sistema-operativo" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1, RF-7</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El conjunto de herramientas incluye una utilidad para la creación de imágenes del sistema operativo.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador ejecuta el programa de creación de la imagen, indicando la fuente de los datos (un dispositivo de almacenamiento, un directorio local...).</li>
+<li>El sistema explora el directorio donde están contenidos todos los ficheros y los empaqueta.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se cuenta con una imagen del sistema operativo.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que no se cuente con los permisos suficientes para la creación de la imagen la aplicación notifica al administrador adecuadamente.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf13-creacion-de-imagen-de-instalacion-o-actualizacion">
+<h2><strong>RF13</strong> Creación de imagen de instalación o actualización<a class="headerlink" href="#rf13-creacion-de-imagen-de-instalacion-o-actualizacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1, RF-7</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El administrador podrá empaquetar un conjunto reducido de herramientas que conforman un sistema operativo capaz de llevar a cabo los procesos de instalación o actualización.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>:</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El administrador ejecuta la aplicación para crear la imagen del sistema, especificando si es una operación de instalación o actualización.</li>
+<li>La aplicación obtiene los diferentes componentes de entre una serie de fuentes (descarga de repositorios de código, de una fuente local...) y los almacena.</li>
+<li>Se crea un contenedor con todos los diferentes componentes (<em>scripts</em> de instalación, paquetes descargados, archivos de configuración...)</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se ha creado una imagen con las herramientas mínimas para la instalación o actualización del sistema.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de fallos internos la aplicación notifica al administrador.</li>
+<li>Si el administrador cancela la operación el caso de uso termina y la imagen no es creada.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf14-realizar-operacion">
+<h2><strong>RF14</strong> Realizar operación<a class="headerlink" href="#rf14-realizar-operacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1, RF-2, IRQ-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A petición del <em>backend</em> administrativo, el nodo realiza una operación determinada con una serie de parámetros indicados por el <em>backend</em>.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El servicio de procesado de peticiones debe estar activo.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Al recibir una petición los nodos validan la identidad del servidor. En caso de que dicha validación sea satisfactoria el caso de uso continúa, siendo finalizado en caso contrario.</li>
+<li>Al recibir una operación, los nodos comprueban los parámetros y programan la acción a realizar. Se almacena una referencia a la misma en un registro.</li>
+<li>Los nodos esperan al momento en el que la operación debe ser realizada. En caso de que sea instantánea, no se realiza espera alguna.</li>
+<li>En caso de que sea un reinicio, el sistema programa el reinicio con un tiempo de espera para que los usuarios que están activos en el sistema puedan reaccionar a tiempo. En caso de que sea una actualización, el sistema realizará también un reinicio siguiendo esta política tras la configuración del sistema para su actualización.</li>
+<li>El sistema realiza todos los ajustes para la operación de actualización.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: La operación es realizada.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que el servidor no sea considerado de confianza el caso de uso termina.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf15-cancelar-operacion">
+<h2><strong>RF15</strong> Cancelar operación<a class="headerlink" href="#rf15-cancelar-operacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Análisis preliminar</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-1, RF-2, RF-3, IRQ-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A petición del administrador es posible cancelar operaciones programadas.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Caso de uso <strong>RF2</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El nodo recibe una petición del <em>backend</em>. En caso de que confíe en este, se continuá.</li>
+<li>El mensaje recibido contiene el identificador único de la operación a realizar. El nodo busca la operación utilizando dicho parámetro en el registro.</li>
+<li>En caso de encontrar la operación, se elimina la misma del bucle de eventos.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: La operación es cancelada.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: En caso de que no encuentre la operación en el registro, el caso de uso termina. Es muy improbable que esto suceda, dado que el mensaje es enviado únicamente a los nodos en los que la operación se programó.</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong></p>
+</li>
+</ul>
+</div>
+<div class="section" id="vista-de-casos-de-uso">
+<h2>Vista de casos de uso<a class="headerlink" href="#vista-de-casos-de-uso" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uc.html">Vista de paquetes de casos de uso</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uc.html" class="btn btn-neutral float-right" title="Vista de paquetes de casos de uso">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ir.html" class="btn btn-neutral" title="Requisitos de información"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

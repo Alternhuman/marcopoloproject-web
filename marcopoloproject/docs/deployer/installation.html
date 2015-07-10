@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="index.html"/>
+        <link rel="next" title="Configuration" href="configuration.html"/>
+        <link rel="prev" title="Welcome to marcodeployer’s documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_engineering/intro.html">Ingeniería del software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Installation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/installation.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The installation of the software is rather easy when using a package manager. Only pip (<a class="reference external" href="https://pypi.python.org/pypi/pip">pypi.python.org/pypi/pip</a>) is available at the moment, and it suffices with the following command to install it.</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install marcopolo-deployer
+</pre></div>
+</div>
+<p>It can also be installed through the <code class="docutils literal"><span class="pre">setup.py</span></code> script that is included on the tarball with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py install
+</pre></div>
+</div>
+<p>The <em>deployer</em> role is activated by default. The <em>receiver</em>, however, is not. To activate it the following commands have to be issued.</p>
+<p><strong>systemd</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>systemctl enable marcoreceiverd
+systemctl start marcoreceiverd
+</pre></div>
+</div>
+<p><strong>init.d</strong></p>
+<div class="highlight-python"><div class="highlight"><pre>update-rc.d marcoreceiverd defaults
+/etc/init.d/marcoreceiverd start
+</pre></div>
+</div>
+<p>The package requires the following dependencies to work. They will be downloaded during the installation:</p>
+<div class="highlight-python"><div class="highlight"><pre>certifi==2015.4.28
+netifaces==0.10.4
+pyjade==3.0.0
+python-pam==1.8.2
+requests==2.7.0
+requests-futures==0.9.5
+six==1.9.0
+tornado==4.1
+marcopolo&gt;=0.1
+marcopolo.bindings&gt;=0.0.1
+</pre></div>
+</div>
+<p>The package runs has been tested successfuly on both Python 2.7 and 3.4. Compatibility with older versions is not guaranteed.</p>
+<p>The package creates the following files:</p>
+<ul class="simple">
+<li>A service file in <code class="docutils literal"><span class="pre">/etc/init.d</span></code> or <code class="docutils literal"><span class="pre">/etc/systemd/system</span></code> for each of the daemons.</li>
+<li>The executables (entry points to the modules) on <code class="docutils literal"><span class="pre">/usr/bin</span></code>.</li>
+<li>The modules on the Python modules folder.</li>
+<li>During execution runfiles are stored in <code class="docutils literal"><span class="pre">/var/run</span></code> and logs are stored in <code class="docutils literal"><span class="pre">/var/log</span></code>.</li>
+<li>The configuration files are in  <code class="docutils literal"><span class="pre">/etc/marcodeployer/deployer.cfg</span></code>. <a class="reference internal" href="configuration.html"><em>Here</em></a> is an example of the configuration file.</li>
+<li>The JavaScript, fonts, images and CSS code are located in <code class="docutils literal"><span class="pre">/usr/lib/marcodeployer/static</span></code>.</li>
+<li>The Jade templates used by the utility are located in <code class="docutils literal"><span class="pre">/usr/lib/marcodeployer/templates</span></code>.</li>
+</ul>
+<div class="section" id="certificates">
+<h2>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h2>
+<p>The required certificates are located in <code class="docutils literal"><span class="pre">/usr/lib/marcodeployer/certs</span></code>. <strong>The included certificates are not suited for production use</strong>. Replace them with your own set of certificates for any purpose other than trying the application, or the security of your entire system might be compromised.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to marcodeployer’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

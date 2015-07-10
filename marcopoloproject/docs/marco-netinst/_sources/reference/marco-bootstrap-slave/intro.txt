@@ -1,0 +1,10 @@
+.. _marcobootstrapslavereference:
+
+marco-bootstrap-slave reference
+=================================
+
+.. toctree::
+    :maxdepth: 2
+
+    slave
+    conf

@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Objetivos &mdash; marcomanager a1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcomanager a1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Actores" href="actors.html"/>
+        <link rel="prev" title="Dominio del problema" href="domain.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marcomanager</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#pip">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#setuptools">setuptools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../managers.html">Examples of managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage.html#daemon">daemon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../marcomanager.html">The MarcoManager class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../runner.html">The Runner class</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del Software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marcomanager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del Software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Objetivos</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/goals.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="objetivos">
+<h1>Objetivos<a class="headerlink" href="#objetivos" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="obj-1-integracion-con-marcopolo">
+<h2>OBJ-1 Integración con MarcoPolo<a class="headerlink" href="#obj-1-integracion-con-marcopolo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar de la aplicación</li>
+<li><strong>Descripción</strong>: La utilidad debe posibilitar la integración de servicios propios o de terceros que, debido a su naturaleza (código no modificable, arquitectura...) no puedan utilizar los <em>bindings</em> de MarcoPolo para publicitarse.</li>
+<li><strong>Importancia</strong>: Muy alta</li>
+<li><strong>Urgencia</strong>: Elevada</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="obj-2-programacion-de-tareas">
+<h2>OBJ-2 Programación de tareas<a class="headerlink" href="#obj-2-programacion-de-tareas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar de la aplicación</li>
+<li><strong>Descripción</strong>: Al estilo de la herramienta <em>cron</em>, se incluirá un programador temporal para las diferentes tareas a gestionar. El objetivo no es reemplazar a cron, sino ofrecer en la misma utilidad esta funcionalidad, que complementa al objetivo principal del sistema.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Media</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+<div class="section" id="obj-3-integracion-con-el-gestor-de-servicios-del-sistema-operativo">
+<h2>OBJ-3 Integración con el gestor de servicios del sistema operativo<a class="headerlink" href="#obj-3-integracion-con-el-gestor-de-servicios-del-sistema-operativo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Versión</strong>: 1</li>
+<li><strong>Autores</strong>: Diego Martín</li>
+<li><strong>Fuentes</strong>: Análisis preliminar de la aplicación</li>
+<li><strong>Descripción</strong>: De forma transparente, la utilidad deberá detectar el gestor de servicios del sistema operativo e integrarse en ella.</li>
+<li><strong>Importancia</strong>: Media</li>
+<li><strong>Urgencia</strong>: Baja</li>
+<li><strong>Estado</strong>: Completo</li>
+<li><strong>Estabilidad</strong>: Estable</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="actors.html" class="btn btn-neutral float-right" title="Actores">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="domain.html" class="btn btn-neutral" title="Dominio del problema"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'a1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

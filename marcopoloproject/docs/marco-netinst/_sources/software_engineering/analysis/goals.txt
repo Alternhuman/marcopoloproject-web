@@ -1,0 +1,66 @@
+Objetivos
+=========
+
+OBJ1 Programación de operaciones
+--------------------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Descripción**: El software debe ser capaz de ordenar la realización de operaciones tales como reinicios, actualizaciones, apagado, etc. a todos los nodos del sistema de forma segura (sin suplantación de la identidad del administrador). Estas operaciones podrán ser realizadas de forma instantánea o programadas en un momento futuro.
+- **Subobjetivos**
+- **Importancia**: Alta
+- **Urgencia**: Alta
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+OBJ2 Instalación desatendida
+----------------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Descripción**: La interacción de un administrador en el proceso de instalación del sistema operativo deberá minimizarse o en caso de que sea factible, eliminarse por completo. 
+- **Subobjetivos**
+- **Importancia**: Alta
+- **Urgencia**: Alta
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+OBJ3 Actualización
+------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Descripción**: Los diferentes nodos del sistema podrán aprovechar la funcionalidad del *software* para realizar operaciones de actualización en lugar de instalación.
+- **Subobjetivos**
+- **Importancia**: Media
+- **Urgencia**: Media
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+OBJ4 *Zeroconf*
+---------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Descripción**: La gestión de los diferentes nodos de la red debe realizarse de forma automática mediante un sistema basado en la especificación Zeroconf.
+- **Subobjetivos**
+- **Importancia**: Alta
+- **Urgencia**: Alta
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+.. 
+    - **Versión**
+    - **Autores**
+    - **Fuentes**
+    - **Descripción**
+    - **Subobjetivos**
+    - **Importancia**
+    - **Urgencia**
+    - **Estado**
+    - **Estabilidad**
+    - **Comentarios**

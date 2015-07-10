@@ -1,0 +1,8 @@
+Despliegue
+==========
+
+Se plantea la siguiente arquitectura:
+
+.. image:: ../img/deployment.*
+	:align: center
+	

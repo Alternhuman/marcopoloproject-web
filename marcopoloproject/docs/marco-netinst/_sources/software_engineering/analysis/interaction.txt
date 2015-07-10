@@ -1,0 +1,9 @@
+Vista de interacción
+====================
+
+Consulta a la base de datos
+---------------------------
+
+.. image:: ../img/analysis_activity_query_database.*
+    :align: center
+    

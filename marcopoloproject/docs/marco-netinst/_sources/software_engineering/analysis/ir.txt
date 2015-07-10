@@ -1,0 +1,70 @@
+Requisitos de información
+=========================
+
+**IRQ1**: Gestión de usuarios
+-----------------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Objetivos asociados**: OBJ-1
+- **Requisitos asociados**: RF-1, RF-2, RF-3, RF-4, RF-5
+- **Descripción**: El sistema debe mantener un registro de credenciales que otorguen acceso a la interfaz administrativa.
+- **Datos específicos**
+- **Tiempo de vida**: Permanente durante todo el tiempo de uso del sistema.
+- **Ocurrencias simultáneas**: Una única ocurrencia simultáneas, si bien el acceso al registro puede ser concurrente.
+- **Importancia**: Alta
+- **Urgencia**: Alta
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+**IRQ2**: Registro de operaciones
+---------------------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Objetivos asociados**: OBJ-1
+- **Requisitos asociados**: RF-1, RF-2, RF-3, RF-4, RF-5, RF-9, RF-10, RF-11 
+- **Descripción**: El sistema debe mantener un registro de las operaciones realizadas en el sistema y aquellas programadas para ser realizadas en el futuro, asignando un identificador único en todo el sistema a cada una de estas.
+- **Datos específicos**: Identificador único, tiempo de operación, tipo de operación, argumentos complementarios
+- **Tiempo de vida**: Permanente
+- **Ocurrencias simultáneas**: Tantas como operaciones se realicen.
+- **Importancia**: Media
+- **Urgencia**: Media
+- **Estado**: Completo
+- **Estabilidad**: Estable
+  
+**IRQ3**: Registro de operaciones local
+---------------------------------------
+
+- **Versión**: 1
+- **Autores**: Diego Martín
+- **Fuentes**: Análisis preliminar
+- **Objetivos asociados**: OBJ-1
+- **Requisitos asociados**: RF-9, RF-10, RF-11, RF-14, RF-15
+- **Descripción**: Al igual que el *backend* debe mantener un registro de todas las operaciones, cada uno de los nodos esclavo almacenará estas operaciones utilizando el mismos identificador que el backend asignará a una operación. De esta forma es posible realizar realizar operaciones de gestión y cancelación posteriores.
+- **Datos específicos**: Identificador único, tiempo de operación, tipo de operación, argumentos complementarios
+- **Tiempo de vida**: Permanente.
+- **Ocurrencias simultáneas**: Tantas como operaciones se realicen.
+- **Importancia**: Media
+- **Urgencia**: Media
+- **Estado**: Completo
+- **Estabilidad**: Estable
+
+
+.. 
+    - **Versión**
+    - **Autores**
+    - **Fuentes**
+    - **Objetivos asociados**
+    - **Requisitos asociados**
+    - **Descripción**
+    - **Datos específicos**
+    - **Tiempo de vida**
+    - **Ocurrencias simultáneas**
+    - **Importancia**
+    - **Urgencia**
+    - **Estado**
+    - **Estabilidad**
+    - **Comentarios**

@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples of managers &mdash; marcomanager a1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcomanager a1 documentation" href="index.html"/>
+        <link rel="next" title="Usage" href="usage.html"/>
+        <link rel="prev" title="Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> marcomanager</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#pip">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#setuptools">setuptools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Examples of managers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#daemon">daemon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="marcomanager.html">The MarcoManager class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runner.html">The Runner class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_engineering/intro.html">Ingeniería del Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/analysis/intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_engineering/project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">marcomanager</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Examples of managers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/managers.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="examples-of-managers">
+<h1>Examples of managers<a class="headerlink" href="#examples-of-managers" title="Permalink to this headline">¶</a></h1>
+<p>The managers are defined as a Python class which inherits from <a class="reference internal" href="marcomanager.html#marcomanager.marcomanager.MarcoManager" title="marcomanager.marcomanager.MarcoManager"><code class="xref py py-class docutils literal"><span class="pre">MarcoManager</span></code></a>.</p>
+<div class="literal-block-wrapper container" id="managers-py">
+<div class="code-block-caption"><span class="caption-text">An example of a Manager</span><a class="headerlink" href="#managers-py" title="Permalink to this code">¶</a></div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DemoManager</span><span class="p">(</span><span class="n">MarcoManager</span><span class="p">):</span>
+
+        <span class="n">__disable__</span> <span class="o">=</span> <span class="bp">True</span> <span class="c"># Set to true if the service is not to be included</span>
+
+        <span class="nd">@run_on_executor</span>
+        <span class="k">def</span> <span class="nf">onSetup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Actions to include on setup</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">nodes</span> <span class="o">=</span> <span class="n">marco</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                        <span class="n">do_something_with_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">delay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Returns delay in seconds after startup.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="mi">5</span>
+
+        <span class="k">def</span> <span class="nf">onStop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Actions to be executed befor stopping</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Killing&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">onReload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Actions when the reload event is fired</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">nodes</span> <span class="o">=</span> <span class="n">marco</span><span class="o">.</span><span class="n">request_for</span><span class="p">(</span><span class="s">&quot;service&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+                        <span class="n">do_something_with_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">doReload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Periodical reload interval</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<p>Here are several examples:</p>
+<span class="target" id="module-managers"></span><dl class="class">
+<dt id="managers.CompilerDiscover">
+<em class="property">class </em><code class="descclassname">managers.</code><code class="descname">CompilerDiscover</code><a class="reference internal" href="_modules/managers.html#CompilerDiscover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.CompilerDiscover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="marcomanager.html#marcomanager.marcomanager.MarcoManager" title="marcomanager.marcomanager.MarcoManager"><code class="xref py py-class docutils literal"><span class="pre">marcomanager.marcomanager.MarcoManager</span></code></a></p>
+<p>Uses <a class="reference external" href="file:///home/martin/TFG/workspaces/discovery/doc/build/html/index.html">MarcoPolo</a> 
+through the  <a class="reference external" href="file:///home/martin/TFG/workspaces/discovery/marcopolo-doc/build/html/bindings/marco.html#marcopolo.bindings.marco.Marco" title="(in marcopolo v1)"><code class="xref py py-class docutils literal"><span class="pre">Marco</span> <span class="pre">python</span> <span class="pre">binding</span></code></a> to
+discover the available <a class="reference external" href="https://code.google.com/p/distcc/">distcc</a> compilers on the network.
+If successful, it modifies the <cite>/etc/distcc/hosts</cite> with the results.</p>
+<p>This manager is executed with a delay of 10 seconds after startup and reloads every hour.</p>
+<dl class="method">
+<dt id="managers.CompilerDiscover.delay">
+<code class="descname">delay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/managers.html#CompilerDiscover.delay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.CompilerDiscover.delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 10, the number of seconds to wait</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="managers.CompilerDiscover.doReload">
+<code class="descname">doReload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/managers.html#CompilerDiscover.doReload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.CompilerDiscover.doReload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Schedules a reload every 3600 seconds (an hour)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="managers.CompilerDiscover.onReload">
+<code class="descname">onReload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/managers.html#CompilerDiscover.onReload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.CompilerDiscover.onReload" title="Permalink to this definition">¶</a></dt>
+<dd><p>On reload, requests again for the <em>compiler</em> service, and dumps
+the results to the hosts file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="managers.CompilerDiscover.onSetup">
+<code class="descname">onSetup</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/managers.html#CompilerDiscover.onSetup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.CompilerDiscover.onSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends a <a class="reference external" href="file:///home/martin/TFG/workspaces/discovery/marcopolo-doc/build/html/bindings/marco.html#marcopolo.bindings.marco.Marco.request_for" title="(in marcopolo v1)"><code class="xref py py-meth docutils literal"><span class="pre">Request_for</span></code></a> message asking for nodes
+with the <em>compiler</em> service. If successful, it dumps the results to the &#8216;/etc/distcc/hosts file&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="managers.CompilerDiscover.onStop">
+<code class="descname">onStop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/managers.html#CompilerDiscover.onStop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.CompilerDiscover.onStop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nothing is done</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="managers.HostnameManager">
+<em class="property">class </em><code class="descclassname">managers.</code><code class="descname">HostnameManager</code><a class="reference internal" href="_modules/managers.html#HostnameManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#managers.HostnameManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="marcomanager.html#marcomanager.marcomanager.MarcoManager" title="marcomanager.marcomanager.MarcoManager"><code class="xref py py-class docutils literal"><span class="pre">marcomanager.marcomanager.MarcoManager</span></code></a></p>
+<p>Includes hostname information in marcopolo</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'a1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

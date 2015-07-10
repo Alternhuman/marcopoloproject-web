@@ -1,0 +1,946 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Requisitos funcionales &mdash; marcopolo 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="marcopolo 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Fase de análisis" href="intro.html"/>
+        <link rel="next" title="Diagramas de casos de uso" href="uc.html"/>
+        <link rel="prev" title="Requisitos de información" href="ir.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> marcopolo</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../fundamentals.html">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/marco.html">Marco</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/polo.html">Polo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fundamentals/configuration_files.html">Configuration files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#instalation-from-source">Instalation from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#daemons">Daemons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/basics.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/marco.html">Marco configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/polo.html">Polo configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/examples/index.html">Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../services/intro.html">Definition of Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#static-services">Static services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/intro.html#dynamic-services">Dynamic services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/intro.html">Definition of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../daemons/intro.html">Daemons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemv.html">System V</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daemons/systemd.html">Systemd-style daemons</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../bindings/intro.html">Bindings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/marco.html">Marco methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bindings/polo.html">Polo methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/intro.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcodiscover.html">Marcodiscover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoinstallkey.html">Marcoinstallkey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcosshcommand.html">Marcosshcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/marcoscp.html">Marcoscp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference.html">Implementation Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/marco/index.html">Marco reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/polo/index.html">Polo reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="intro.html">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">marcopolo</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+          <li><a href="intro.html">Fase de análisis</a> &raquo;</li>
+      
+    <li>Requisitos funcionales</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/fr.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="requisitos-funcionales">
+<h1>Requisitos funcionales<a class="headerlink" href="#requisitos-funcionales" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rf-1-descubrimiento-de-nodos">
+<h2>RF-1: Descubrimiento de nodos<a class="headerlink" href="#rf-1-descubrimiento-de-nodos" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1.5</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de análisis</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-1, NFR-9, NFR-15</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: A petición de un usuario o aplicación, una instancia del <em>software</em> realizará una operación de descubrimiento de los diferentes nodos presentes en la red.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: La instancia de Marco debe haber sido iniciado previamente.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A través de los diferentes mecanismos de interconexión, una aplicación o usuario solicita el descubrimiento de nodos presentes en la red.</li>
+<li>El mecanismo de interconexión recibe los diferentes parámetros y los procesa. En caso de que la evaluación no sea satisfactoria, se inicia el caso de uso <strong>RF-4</strong> y posteriormente la ejecución finaliza. En caso contrario, se continúa la secuencia.</li>
+<li>El mecanismo de interconexión envía los parámetros a la instancia local de Marco, que realiza la acción solicitada.</li>
+<li>Transcurre un pequeño tiempo de espera para las respuestas de los nodos presentes en la red. Este es definido por el usuario, o en caso de que no sea indicado se utiliza un tiempo por defecto. Durante la espera son procesadas las respuestas que se reciben.</li>
+<li>La instancia procesa los datos y los envía a la instancia del conector con la aplicación.</li>
+<li>El conector determina si los datos son válidos y los retorna a la aplicación. En caso contrario, comienza el caso de uso <strong>RF-4</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se han descubierto los diferentes nodos presentes en el sistema.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Marco</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Muy urgente</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-2-descubrimiento-de-servicios">
+<h2>RF-2: Descubrimiento de servicios<a class="headerlink" href="#rf-2-descubrimiento-de-servicios" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-8, NFR-15</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Los diferentes usuarios del sistema podrán realizar operaciones de descubrimiento de servicios ofrecidos por los diferentes nodos que conforman el sistema.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: La instancia de Marco debe haber sido iniciado previamente.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A través de los diferentes mecanismos de interconexión, una aplicación o usuario solicita el descubrimiento de todos los servicios que un nodo presente en la red ofrece.</li>
+<li>El mecanismo de interconexión recibe los diferentes parámetros y los procesa. En caso de que la evaluación no sea satisfactoria, se inicia el caso de uso <strong>RF-4</strong> y posteriormente la ejecución finaliza. En caso contrario, se continúa la secuencia.</li>
+<li>El mecanismo de interconexión envía los parámetros a la instancia local de Marco, que realiza la acción solicitada.</li>
+<li>Transcurre un pequeño tiempo de espera para las respuestas de los nodos presentes en la red.</li>
+<li>La instancia procesa los datos y los envía a la instancia del conector con la aplicación.</li>
+<li>El conector determina si los datos son válidos y los retorna a la aplicación. En caso contrario, comienza el caso de uso <strong>RF-4</strong>.</li>
+<li>Se retornan los datos recogidos o una lista vacía en caso de la búsqueda haya sido infructuosa.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se han descubierto todos los nodos presentes en el sistema que ofrecen el servicio solicitado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Marco</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Elevada</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-3-consulta-a-un-nodo">
+<h2>RF-3: Consulta a un nodo<a class="headerlink" href="#rf-3-consulta-a-un-nodo" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-15</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: El software podrá realizar operaciones de consulta a un nodo específico en la red.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: La instancia de Marco debe haber sido iniciado previamente.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A través de los diferentes mecanismos de interconexión, una aplicación o usuario solicita el descubrimiento todos los nodos presentes en la red ofertantes de un servicio identificado por una cadena de texto.</li>
+<li>El mecanismo de interconexión recibe los diferentes parámetros y los procesa. En caso de que la evaluación no sea satisfactoria, se inicia el caso de uso <strong>RF-4</strong> y posteriormente la ejecución finaliza. En caso contrario, se continúa la secuencia.</li>
+<li>El mecanismo de interconexión envía los parámetros a la instancia local de Marco, que realiza la acción solicitada, enviando una petición al nodo solicitante.</li>
+<li>Transcurre un pequeño tiempo de espera para la respuesta del nodo.</li>
+<li>En caso de que el nodo consultado responda, se procesa la lista de servicios incluida en el mensaje.</li>
+<li>La instancia procesa los datos y los envía a la instancia del conector con la aplicación.</li>
+<li>El conector determina si los datos son válidos y los retorna a la aplicación. En caso contrario, comienza el caso de uso <strong>RF-4</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Se han descubierto los servicios ofrecidos por un nodo.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Marco</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>El nodo no se encuentra presente en la red</strong>: El usuario es notificado de esta situación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-4-error">
+<h2>RF-4: Error<a class="headerlink" href="#rf-4-error" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fase de análisis</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NRF-14</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que se produzca un error en una tarea, se analiza la situación que ha desencadenado dicho estado y se ofrecen al usuario, en caso de que sea posible, opciones de recuperación.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Se debe haber producido un error.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Un error ha sido emitido por alguno de los componentes involucrados en una operación.</li>
+<li>El componente que detecta dicho error determina las causas del mismo, identificando diferentes características como el estado del sistema, códigos retornados por funciones, mensajes intercambiados entre componentes, etcétera.</li>
+<li>El componente informa al usuario o aplicación, o en su defecto, delega esta tarea a otra entidad en la cadena de comunicación.</li>
+<li>El componente determina cuál es el mecanismo de notificación adecuado para la situación dada, y realiza la acción asociada (lanzar una excepción, emitir un código de error, escribir una entrada en un registro...).</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario o aplicación es notificado del error.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>: No se contemplan excepciones</p>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-5-publicar-un-servicio">
+<h2>RF-5 Publicar un servicio<a class="headerlink" href="#rf-5-publicar-un-servicio" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Un usuario con los privilegios adecuados podrá publicar un servicio para todo el sistema que será incluido en la lista de servicios a ofrecer.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Una instancia de Polo debe estar ejecutándose en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario o aplicación solicita la publicación de un servicio a través de los diferentes mecanismos de interconexión presentes, indicando que el servicio debe alcanzar a todo el sistema.</li>
+<li>Dicho componente verifica que todos los parámetros son correctos y solicita la inclusión a la instancia de Polo.</li>
+<li>Esta instancia valida de nuevo los parámetros y la identidad del usuario que realiza la operación. En caso de que sean correctos (el identificador no está repetido y es válido, los parámetros adicionales son válidos...) se añade a la lista de servicios a ofrecer. Si el usuario no es válido o no cuenta con los suficientes privilegios, un error es lanzado y comienza el caso de uso <strong>RF-4</strong>.</li>
+<li>La instancia de Polo retorna el identificador final del servicio.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es publicado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Polo</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>Los parámetros son inválidos</strong>: Generalmente el mecanismo de interconexión detectará este tipo de situaciones, retornando un mensaje de error (a través de una excepción, un código de retorno) al usuario. En caso de que el error sea detectado por la instancia de Polo, esta solicitará al conector que informe al usuario, aprovechando el mismo método de notificación.</li>
+<li><strong>El identificador ya se encuentra en uso</strong>: A través del mecanismo de notificación de errores utilizado en el resto de excepciones se indica esta situación. Sin embargo, el tipo de error deberá ser diferente (no se viola ninguna regla semántica, simplemente se solicita la inclusión de un identificador de servicio ya publicado).</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong>: Este tipo de servicios son conocidos como &#8220;raíz&#8221; (<em>root</em>), y no incluyen en el identificador el nombre del usuario que los ha publicado. Si bien el valor de retorno no es de importancia en este tipo de servicios (pues es idéntico al del identificador solicitado), se incluye para homogeneizar los diferentes puntos de entrada, posibilitando en una misma función la publicación de diferentes tipos de servicios.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-6-publicar-un-servicio-de-usuario">
+<h2>RF-6 Publicar un servicio de usuario<a class="headerlink" href="#rf-6-publicar-un-servicio-de-usuario" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Evaluación de usuarios</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-16</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Se contempla la posibilidad de que cualquier usuario pueda publicar servicios aprovechando una instancia de Polo local. Sin embargo, estos servicios contarán con una serie de limitaciones respecto a los servicios publicados por usuarios sin privilegios.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Una instancia de Polo debe estar ejecutándose en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>El usuario o aplicación solicita la publicación de un servicio a través de los diferentes mecanismos de interconexión presentes.</li>
+<li>Se realizan los pasos 2 y 3 del caso de uso <strong>RF-5</strong>.</li>
+<li>La instancia de Polo retorna el identificador final del servicio, que consistirá en una combinación del nombre del usuario (u otra cadena distintiva) con el identificador del servicio.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es publicado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Polo</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>Los parámetros son inválidos</strong>: Generalmente el mecanismo de interconexión detectará este tipo de situaciones, retornando un mensaje de error (a través de una excepción, un código de retorno) al usuario. En caso de que el error sea detectado por la instancia de Polo, esta solicitará al conector que informe al usuario, aprovechando el mismo método de notificación.</li>
+<li><strong>El identificador ya se encuentra en uso</strong>: A través del mecanismo de notificación de errores utilizado en el resto de excepciones se indica esta situación. Sin embargo, el tipo de error deberá ser diferente (no se viola ninguna regla semántica, simplemente se solicita la inclusión de un identificador de servicio ya publicado).</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-7-eliminar-un-servicio">
+<h2>RF-7 Eliminar un servicio<a class="headerlink" href="#rf-7-eliminar-un-servicio" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que una aplicación (generalmente, la ofertante) o un usuario (generalmente el propietario) decidan eliminar un servicio de la lista de ofrecidos, la instancia local de Polo deberá realizar dicha operación.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Una instancia de Polo debe estar ejecutándose en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Se solicita a través de uno de los mecanismos de interconexión la eliminación de un servicio, invocando para realizar dicha acción a uno de los elementos de interconexión presentes, adjuntando el identificador para indicar qué servicio eliminar.</li>
+<li>Dicho componente verifica que todos los parámetros son correctos y solicita la inclusión a la instancia de Polo.</li>
+<li>Esta instancia valida de nuevo los parámetros y la identidad del usuario que realiza la operación. En caso de que sean correctos (el servicio a eliminar está publicado) se elimina de la lista de servicios a ofrecer. Si el usuario no es el &#8220;propietario&#8221; del servicio o no cuenta con los suficientes privilegios, un error es lanzado y comienza el caso de uso <strong>RF-4</strong>.</li>
+<li>El usuario o aplicación es notificado del resultado de la operación.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es eliminado de la lista de servicios a ofrecer.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Polo</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>Los parámetros son inválidos</strong>: Generalmente el mecanismo de interconexión detectará este tipo de situaciones, retornando un mensaje de error (a través de una excepción, un código de retorno) al usuario. En caso de que el error sea detectado por la instancia de Polo, esta solicitará al conector que informe al usuario, aprovechando el mismo método de notificación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-8-eliminar-servicio-de-usuario">
+<h2>RF-8: Eliminar servicio de usuario<a class="headerlink" href="#rf-8-eliminar-servicio-de-usuario" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fase de análisis</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: En caso de que una aplicación (generalmente, la ofertante) o un usuario (generalmente el propietario) decidan eliminar un servicio no global de la lista de ofrecidos, la instancia local de Polo deberá realizar dicha operación.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Una instancia de Polo debe estar ejecutándose en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Se solicita a través de uno de los mecanismos de interconexión la eliminación de un servicio, invocando para realizar dicha acción a uno de los elementos de interconexión presentes, adjuntando el identificador para indicar qué servicio eliminar e indicando que el servicio no es de carácter global.</li>
+<li>Se realiza la secuencia de pasos 2 a 4 del caso de uso <strong>RF-7</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es eliminado de la lista de servicios a ofrecer.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Polo</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>Los parámetros son inválidos</strong>: Generalmente el mecanismo de interconexión detectará este tipo de situaciones, retornando un mensaje de error (a través de una excepción, un código de retorno) al usuario. En caso de que el error sea detectado por la instancia de Polo, esta solicitará al conector que informe al usuario, aprovechando el mismo método de notificación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-9-creacion-de-un-servicio-estatico">
+<h2>RF-9 Creación de un servicio estático<a class="headerlink" href="#rf-9-creacion-de-un-servicio-estatico" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fase de análisis y de desarrollo del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Un servicio estático es aquel que es registrado en un fichero de texto, y por tanto es persistente (en caso de que el sistema sea reiniciado no se pierde la información). Todos los usuarios podrán publicar este tipo de servicios, sujetos a las mismas restricciones que el resto de variedades, a partir de ahora denominados servicios &#8220;dinámicos&#8221;.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Un usuario o aplicación crea un fichero con la estructura requerida para que la instancia de Polo pueda procesarla (ver NFR ).</li>
+<li>En caso de que el servicio sea raíz, se deberá recargar o reiniciar la instancia de Polo (si no se encuentra activa, se deberá iniciar). En caso contrario, el sistema procesará el servicio en el momento en el que se solicite el mismo (de esta forma se evita el sondeo de todos los directorios de usuario).</li>
+<li>Si los parámetros son válidos, el servicio es publicado. En caso contrario una entrada en un registro de errores es almacenada.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es publicado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Si la sintaxis es inválida, el servicio no es publicado y se almacena un mensaje de error en un registro..</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-10-modificar-servicio">
+<h2>RF-10 Modificar servicio<a class="headerlink" href="#rf-10-modificar-servicio" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo del sistema</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: La información adicional que un servicio ofrece puede ser modificada tras ser publicado.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: El servicio debe estar publicado en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Se solicita a través de uno de los mecanismos de interconexión la modificación de un servicio, indicando dicha acción a uno de los elementos de interconexión presentes. En la invocación se incluyen los valores a incluir.</li>
+<li>Dicho componente verifica que todos los parámetros son correctos y solicita la inclusión a la instancia de Polo.</li>
+<li>Esta instancia valida de nuevo los parámetros y la identidad del usuario que realiza la operación. En caso de que sean correctos (el servicio a modificar está publicado) se realiza la acción solicitada. Si el usuario no es el &#8220;propietario&#8221; del servicio o no cuenta con los suficientes privilegios, un error es lanzado y comienza el caso de uso <strong>RF-4</strong>. En caso de que sea un servicio estático, los nuevos valores se almacenarán en el fichero.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es modificado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Polo</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>Los parámetros son inválidos</strong>: Generalmente el mecanismo de interconexión detectará este tipo de situaciones, retornando un mensaje de error (a través de una excepción, un código de retorno) al usuario. En caso de que el error sea detectado por la instancia de Polo, esta solicitará al conector que informe al usuario, aprovechando el mismo método de notificación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Parcialmente completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-11-modificar-servicio-de-usuario">
+<h2>RF-11 Modificar servicio de usuario<a class="headerlink" href="#rf-11-modificar-servicio-de-usuario" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, NFR-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: La información adicional que un servicio no global ofrece puede ser modificada tras ser publicado.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Se solicita a través de uno de los mecanismos de interconexión la modificación de un servicio, indicando dicha acción a uno de los elementos de interconexión presentes. En la invocación se incluyen los valores a incluir.</li>
+<li>Se ejecutan los pasos 2 y 3 del caso de uso <strong>RF-10</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El servicio es modificado.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se puede establecer una conexión con la instancia de Polo</strong>: En este caso el conector envía un mensaje de error específico para cada plataforma (excepción, código de estado...) indicando esta situación, con el objetivo de que la aplicación pueda recuperarse del error (asumir unos valores por defecto que sustituyan a los datos solicitados, realizar la operación de nuevo...).</li>
+<li><strong>Los parámetros son inválidos</strong>: Generalmente el mecanismo de interconexión detectará este tipo de situaciones, retornando un mensaje de error (a través de una excepción, un código de retorno) al usuario. En caso de que el error sea detectado por la instancia de Polo, esta solicitará al conector que informe al usuario, aprovechando el mismo método de notificación.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Medio</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Parcialmente completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-12-proceso-de-datos-recibidos">
+<h2>RF-12: Proceso de datos recibidos<a class="headerlink" href="#rf-12-proceso-de-datos-recibidos" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fase de análisis</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: IRQ-1, IRQ-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Las diferentes secuencias de comunicación requieren un procesado del contenido de los mensajes recibidos. Dado que todos los mensajes siguen una estructura similar, su procesado es idéntico.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Un mensaje es recibido como respuesta a un mensaje enviado anteriormente o como inicio de una transmisión.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Al recibir una cadena de texto, esta es procesada siguiendo las especificaciones del requisito no funcional <strong>NFR 9</strong> (todas las cadenas siguen el formato JSON).</li>
+<li>La cadena es convertida en una estructura de datos nativa del lenguaje en el que se implementa la funcionalidad.</li>
+<li>Se extraen de dicha estructura los datos de relevancia para el solicitante. En caso de que no existan, se emitirá un error, comenzando el caso de uso <strong>RF-4</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: Los datos han sido extraídos.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>En caso de que el procesamiento de la cadena emita un error (por fallos en la estructura de la misma), comienza el caso de uso <strong>RF-4</strong>.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-13-serializacion-de-la-informacion">
+<h2>RF-13: Serialización de la información<a class="headerlink" href="#rf-13-serializacion-de-la-informacion" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fase de análisis</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2, OBJ-3</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: NFR-1, RF-1, RF-2</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Los diferentes datos a transmitir han de ser estructurados siguiendo las especificaciones del requisito no funcional <strong>NFR9</strong>.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong></p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Se crea una estructura de datos nativa que recoge toda la información a transmitir.</li>
+<li>Una herramienta de conversión recorre todos los campos y traduce los mismos al formato definido en el requisito no funcional <strong>NFR9</strong>.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong></p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Un tipo de dato no es serializable</strong>: La herramienta de conversión emitirá un error que será procesado por el caso de uso <strong>RF-4</strong>.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alto</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Muy alta</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Completo</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Estable</p>
+</li>
+<li><p class="first"><strong>Comentarios</strong>: Generalmente se delegará la tarea de la conversión a bibliotecas incluidas en el sistema o herramientas de terceros.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="rf-14-consulta-sobre-la-informacion-sobre-un-servicio">
+<h2>RF-14: Consulta sobre la información sobre un servicio<a class="headerlink" href="#rf-14-consulta-sobre-la-informacion-sobre-un-servicio" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><strong>Versión</strong>: 1</p>
+</li>
+<li><p class="first"><strong>Autores</strong>: Diego Martín</p>
+</li>
+<li><p class="first"><strong>Fuentes</strong>: Fases de desarrollo</p>
+</li>
+<li><p class="first"><strong>Objetivos asociados</strong>: OBJ-1, OBJ-2</p>
+</li>
+<li><p class="first"><strong>Requisitos asociados</strong>: RF-13, NFR-1</p>
+</li>
+<li><p class="first"><strong>Descripción</strong>: Es posible realizar consultas a la instancia local de Polo sobre los servicios que ofrece.</p>
+</li>
+<li><p class="first"><strong>Precondición</strong>: Una instancia de Polo debe estar ejecutándose en el sistema.</p>
+</li>
+<li><p class="first"><strong>Secuencia normal</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A través de uno de los diferentes mecanismos de interconexión se solicitará la consulta de información.</li>
+<li>Este mecanismo validará los valores de los parámetros con los que se le invoca.</li>
+<li>Se envía la solicitud a la instancia de Polo.</li>
+<li>La instancia retorna los datos solicitados.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Poscondición</strong>: El usuario o aplicación obtiene los datos.</p>
+</li>
+<li><p class="first"><strong>Excepciones</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>No se dispone de información sobre el servicio indicado</strong>: Se indica esta condición con un mensaje o código informativo.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Rendimiento</strong>: Alta</p>
+</li>
+<li><p class="first"><strong>Frecuencia</strong>: Media</p>
+</li>
+<li><p class="first"><strong>Importancia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Urgencia</strong>: Baja</p>
+</li>
+<li><p class="first"><strong>Estado</strong>: Por completar</p>
+</li>
+<li><p class="first"><strong>Estabilidad</strong>: Baja</p>
+</li>
+</ul>
+<p class="rubric">Casos de uso</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uc.html">Diagramas de casos de uso</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uc.html#paquete-de-casos-de-uso">Paquete de casos de uso</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="uc.html#paquete-marco">Paquete Marco</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uc.html#paquete-polo">Paquete Polo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="uc.html" class="btn btn-neutral float-right" title="Diagramas de casos de uso">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ir.html" class="btn btn-neutral" title="Requisitos de información"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+Vista estática del sistema
+==========================
+
+Paquetes backend y models
+-------------------------
+
+.. image:: ../img/design_static_marco-bootstrap_backend.*
+    :align: center
+
+Paquete slave
+-------------
+
+.. image:: ../img/design_static_marco-bootstrap_slave.*
+    :align: center

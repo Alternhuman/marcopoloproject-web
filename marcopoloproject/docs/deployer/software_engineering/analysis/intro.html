@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fase de análisis &mdash; deployer 1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="deployer 1 documentation" href="../../index.html"/>
+        <link rel="up" title="Ingeniería del software" href="../intro.html"/>
+        <link rel="next" title="Dominio del problema" href="domain.html"/>
+        <link rel="prev" title="Ingeniería del software" href="../intro.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> deployer</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual/intro.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/statusmonitor.html">Status Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/deployer.html">Deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/logger.html">Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual/receiver.html">Receiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical/intro.html">Technical details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#security-concerns">Security concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technical/intro.html#authentication">Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/intro.html">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/deployer.html">The deployer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/receiver.html">The receiver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/statusmonitor.html">The statusmonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/utils.html">The utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/bufferprocessor.html">The bufferprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../reference/js/intro.html">JavaScript files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Ingeniería del software</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Fase de análisis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design/intro.html">Fase de diseño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_mgmt/intro.html">Gestión del proyecto</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">deployer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../intro.html">Ingeniería del software</a> &raquo;</li>
+      
+    <li>Fase de análisis</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/software_engineering/analysis/intro.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="fase-de-analisis">
+<h1>Fase de análisis<a class="headerlink" href="#fase-de-analisis" title="Permalink to this headline">¶</a></h1>
+<p>En este documento se detallan los diferentes aspectos de las fases de análisis de la aplicación a crear. Recogiendo los diferentes requisitos a satisfacer y una serie de elementos que detallan el modelado propuesto.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">Dominio del problema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goals.html">Objetivos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj-1-despliegue-de-ejecutables">OBJ-1: Despliegue de ejecutables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj-2-monitorizacion-del-sistema">OBJ-2: Monitorización del sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj-3-operaciones-de-depuracion-y-control">OBJ-3: Operaciones de depuración y control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="goals.html#obj-4-ordenes">OBJ-4: Órdenes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="actors.html">Actores</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#actor-1-estudiante">Actor 1: Estudiante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#actor-2-profesor">Actor 2: Profesor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#actor-3-administrador">Actor 3: Administrador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#actor-4-sistema">Actor 4: Sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actors.html#diagrama-de-actores-del-sistema">Diagrama de actores del sistema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ir.html">Requisitos de información</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ir.html#irq-1-informacion-sobre-los-usuarios-del-sistema">IRQ-1: Información sobre los usuarios del sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ir.html#irq-2-informacion-de-estado">IRQ-2: Información de estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ir.html#irq-3-estadisticas-del-sistema">IRQ-3: Estadísticas del sistema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fr.html">Requisitos funcionales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-1-ordenar-despliegue">RF-1: Ordenar despliegue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-2-monitorizacion-de-estado">RF-2: Monitorización de estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-3-ejecucion-de-comandos">RF-3: Ejecución de comandos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-4-autenticacion">RF-4: Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-5-validar-una-conexion-websocket">RF-5: Validar una conexión <strong>WebSocket</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-6-instalacion-del-sistema">RF-6: Instalación del sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-7-gestion-de-errores">RF-7: Gestión de errores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-8-procesar-peticion">RF-8: Procesar petición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-9-realizar-despliegue">RF-9: Realizar despliegue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-10-enviar-estado">RF-10: Enviar estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-11-ejecutar-comando">RF-11: Ejecutar comando</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-12-procesar-mensaje">RF-12: Procesar mensaje</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#rf-13-recoger-estado">RF-13 Recoger estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fr.html#vista-de-casos-de-uso">Vista de casos de uso</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uc.html">Vista de paquetes de casos de uso</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uc.html#paquete-deployer">Paquete deployer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uc.html#paquetes-receiver-statusmonitor-y-buffereceiver">Paquetes receiver, statusmonitor y buffereceiver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nfr.html">Requisitos no funcionales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-1-autenticacion-con-credenciales-ya-conocidas-por-los-usuarios">NFR-1: Autenticación con credenciales ya conocidas por los usuarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-2-frecuencia-de-actualizacion-del-monitor-de-estado">NFR-2: Frecuencia de actualización del monitor de estado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-3-eliminacion-de-cuellos-de-botella">NFR-3: Eliminación de &#8220;cuellos de botella&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-4-descubrimiento-de-los-nodos-con-marcopolo">NFR-4: Descubrimiento de los nodos con MarcoPolo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-5-servicios-dinamicos">NFR-5: Servicios dinámicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-6-tornado">NFR-6: Tornado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-7-encriptacion">NFR-7 Encriptación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-8-permisos">NFR-8 Permisos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nfr.html#nfr-9-visualizacion-de-la-salida">NFR-9 Visualización de la salida</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="static.html">Vista estática del sistema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">Vista de interacción</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interaction.html#inicio-de-sesion">Inicio de sesión</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="state.html">Vista de estados</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="state.html#estados-durante-una-fase-de-despliegue">Estados durante una fase de despliegue</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="activity.html">Vista de actividad</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html#ejecucion-de-un-comando">Ejecución de un comando</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">Ingeniería web</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="domain.html" class="btn btn-neutral float-right" title="Dominio del problema">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../intro.html" class="btn btn-neutral" title="Ingeniería del software"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Diego Martín.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

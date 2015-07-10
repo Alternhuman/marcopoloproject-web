@@ -1,0 +1,25 @@
+The slave module
+================
+ 
+The UpdateHandler class
+-----------------------
+
+.. autoclass:: marcobootstrap.slave.slave.UpdateHandler
+	:members:
+
+The CancelHandler class
+-----------------------
+
+.. autoclass:: marcobootstrap.slave.slave.CancelHandler
+	:members:
+
+The RebootHandler class
+-----------------------
+
+.. autoclass:: marcobootstrap.slave.slave.RebootHandler
+	:members:
+
+The main function
+-----------------
+
+.. autofunction:: marcobootstrap.slave.slave.main
