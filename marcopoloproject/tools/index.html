@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,150 +11,190 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/modern-business.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display-->
-        <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">Start Bootstrap</a>
-          <!-- Collect the nav links, forms, and other content for toggling-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">MarcoPolo cluster</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/tools/">Tools</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">About</a>
+                    </li>
+                    <!--<li>
+                        <a href="/gallery/">Gallery</a>
+                    </li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://redmine.martinarroyo.net/projects/tfg">Redmine project management</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/docs">Technical documentation</a>
+                            </li>
+                            <li>
+                                <a href="/docs/main.pdf">Main dissertation (spanish)</a>
+                            </li>
+                            <li>
+                                <a href="/docs/nontechnical">Other</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/documentation">Tools</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio-1-col.html">1 Column Portfolio                    </a></li>
-                <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
-                <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
-                <li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
-                <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+        <!-- /.container -->
     </nav>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Tools</h1>
-          <p>The different toolset</p>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Tools</h1>
+                <p>The different toolset</p>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4> <i class="fa fa-fw">marcopolo</i></h4>
+                        <p>MarcoPolo is a service discovery protocol</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <a href="/docs/marcopolo" class="list-group-item"> <i class="fa fa-book"> Documentation</i></a>
+                            <a href="https://bitbucket.org/Alternhuman/marcopolo" class="list-group-item"> <i class="fa fa-bitbucket"> Code</i></a>
+                            <a href="pypi.python.org/pypi/marcopolo" class="list-group-item"> <i class="fa fa-download"> Package</i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4> <i class="fa fa-fw">marcopolo.bindings</i></h4>
+                        <p>Language-specific connections to MarcoPolo</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <a href="/docs/marcopolo/bindings/intro.html" class="list-group-item"> 
+                            <i class="fa fa-book"> Documentation</i></a>
+                            <ul style="margin:0px" class="list-group row"><a href="https://bitbucket.org/Alternhuman/marcopolo-bindings-python" class="list-group-item col-xs-4"><i class="fa fa-bitbucket"> Python</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-bindings-java" class="list-group-item col-xs-4"><i class="fa fa-bitbucket"> Java</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-bindings-cpp" class="list-group-item col-xs-4"><i class="fa fa-bitbucket"> C/C++</i></a></ul>
+                            <a href="pypi.python.org/pypi/marcopolo.bindings" class="list-group-item"> <i class="fa fa-download"> Python package</i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw">Marcopolo-utils</i></h4>
+                        <p>Console utilities for MarcoPolo</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <a href="/docs/marcopolo/utilities/intro.html" class="list-group-item"> <i class="fa fa-book"> Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-shell" class="list-group-item"><i class="fa fa-bitbucket"> Code</i></a>
+                            <a href="https://pypi.python.org/pypi/marcopolo-shell" class="list-group-item"> <i class="fa fa-download"> Package</i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4> <i class="fa fa-fw">marcopolo</i></h4>
-              <p>MarcoPolo is a service discovery protocol</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw">Deployer</i></h4>
+                        <p>Several monitoring, deployment and debugging utilities</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group"><a href="/docs/deployer/" class="list-group-item"><i class="fa fa-book"> Documentation</i></a><a href="https://bitbucket.org/Alternhuman/deployer/" class="list-group-item"><i class="fa fa-bitbucket"> Code</i></a><a href="https://pypi.python.org/pypi/marcopolo-deployer" class="list-group-item"><i class="fa fa-download"> Package</i></a></ul>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/marcopolo" class="list-group-item"> <i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo" class="list-group-item"> <i class="fa fa-bitbucket">Code</i></a><a href="pypi.python.org/pypi/marcopolo" class="list-group-item"> <i class="fa fa-download">Package</i></a></ul>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa">Structure</i></h4>
+                        <p>The physical structure of the system</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group"><a href="https://bitbucket.org/Alternhuman/marcopolo-cluster-estructura/src" class="list-group-item"><i class="fa fa-book"> Blueprints</i></a></ul>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw">quick2wire-cpp-api</i></h4>
+                        <p>A port of the <a href="https://github.com/quick2wire/quick2wire-python-api">quick2wire-python-api</a> API for C++.</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group"><a href="/docs/quick2wire-cpp-api" class="list-group-item"><i class="fa fa-book"> Documentation</i></a><a href="https://bitbucket.org/Alternhuman/quick2wire-cpp-api/" class="list-group-item"><i class="fa fa-bitbucket"> Code</i></a></ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4> <i class="fa fa-fw">marcopolo.bindings</i></h4>
-              <p>Language-specific connections to MarcoPolo</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw">marcopolo-manager</i></h4>
+                        <p>Service manager and scheduler with MarcoPolo integration</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group"><a href="/docs/marcopolo-manager/" class="list-group-item"><i class="fa fa-book"> Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-manager/" class="list-group-item"><i class="fa fa-bitbucket"> Code</i></a><a href="https://pypi.python.org/pypi/marcopolo-manager" class="list-group-item"><i class="fa fa-download"> Package</i></a></ul>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/marcopolo/bindings/intro.html" class="list-group-item"> <i class="fa fa-book">Documentation</i></a>
-                <ul class="list-group row"><a href="https://bitbucket.org/Alternhuman/marcopolo-bindings-python" class="list-group-item col-xs-4"><i class="fa fa-bitbucket">Python</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-bindings-java" class="list-group-item col-xs-4"><i class="fa fa-bitbucket">Java</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-bindings-cpp" class="list-group-item col-xs-4"><i class="fa fa-bitbucket">C/C++</i></a></ul><a href="pypi.python.org/pypi/marcopolo.bindings" class="list-group-item"> <i class="fa fa-download">Python package</i></a>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">           
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw">Marcopolo-utils</i></h4>
-              <p>Console utilities for MarcoPolo</p>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/marcopolo/utilities/intro.html" class="list-group-item"> <i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-shell" class="list-group-item"><i class="fa fa-bitbucket">Code</i></a><a href="https://pypi.python.org/pypi/marcopolo-shell" class="list-group-item"> <i class="fa fa-download">Package</i></a></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw">Deployer utility</i></h4>
-              <p>Several monitoring, deployment and debugging utilities</p>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/deployer/" class="list-group-item"><i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/deployer/" class="list-group-item"><i class="fa fa-bitbucket">Code</i></a><a href="https://pypi.python.org/pypi/marcopolo-deployer" class="list-group-item"><i class="fa fa-download">Package</i></a></ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw fa-check">Structure</i></h4>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="https://bitbucket.org/Alternhuman/marcopolo-cluster-estructura/src" class="list-group-item"><i class="fa fa-book">Blueprints</i></a></ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw fa-check">quick2wire-cpp-api</i></h4>
-              <p>A port of the <a href="https://github.com/quick2wire/quick2wire-python-api">quick2wire-python-api</a> API for C++.</p>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/quick2wire-cpp-api" class="list-group-item"><i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/quick2wire-cpp-api/" class="list-group-item"><i class="fa fa-bitbucket">Code</i></a></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw">marcopolo-manager</i></h4>
-              <p>Service manager and scheduler with MarcoPolo integration</p>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/marcopolo-manager/" class="list-group-item"><i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marcopolo-manager/" class="list-group-item"><i class="fa fa-bitbucket">Code</i></a><a href="https://pypi.python.org/pypi/marcopolo-manager" class="list-group-item"><i class="fa fa-download">Package</i></a></ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw">polousers</i></h4>
-              <p>Distributed user managerment with MarcoPolo</p>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/polousers/" class="list-group-item"><i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/polousers/" class="list-group-item"><i class="fa fa-bitbucket">Code</i></a>
-                <!--a.list-group-item(href="https://pypi.python.org/pypi/polousers")i.fa.fa-download Package
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw">polousers</i></h4>
+                        <p>Distributed user managerment with MarcoPolo</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group"><a href="/docs/polousers/" class="list-group-item"><i class="fa fa-book"> Documentation</i></a><a href="https://bitbucket.org/Alternhuman/polousers/" class="list-group-item"><i class="fa fa-bitbucket"> Code</i></a>
+                            <!--a.list-group-item(href="https://pypi.python.org/pypi/polousers")i.fa.fa-download Package
                 -->
-              </ul>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw">marco-netinst</i></h4>
+                        <p>Unattended installation and system administration</p>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group"><a href="/docs/marco-netinst/" class="list-group-item"><i class="fa fa-book"> Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marco-netinst/" class="list-group-item"><i class="fa fa-bitbucket"> Code</i></a><a href="https://pypi.python.org/pypi/marcobootstrap.backend" class="list-group-item"><i class="fa fa-download"> Backend package</i></a><a href="https://pypi.python.org/pypi/marcobootstrap.slave" class="list-group-item"><i class="fa fa-download"> Slave package</i></a></ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4><i class="fa fa-fw">marco-netinst</i></h4>
-              <p>Unattended installation and system administration</p>
-            </div>
-            <div class="panel-body">
-              <ul class="list-group"><a href="/docs/marco-netinst/" class="list-group-item"><i class="fa fa-book">Documentation</i></a><a href="https://bitbucket.org/Alternhuman/marco-netinst/" class="list-group-item"><i class="fa fa-bitbucket">Code</i></a><a href="https://pypi.python.org/pypi/marcobootstrap.backend" class="list-group-item"><i class="fa fa-download">Backend package</i></a><a href="https://pypi.python.org/pypi/marcobootstrap.slave" class="list-group-item"><i class="fa fa-download">Slave package</i></a></ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
-  <script src="/js/jquery.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+</body>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
 </html>

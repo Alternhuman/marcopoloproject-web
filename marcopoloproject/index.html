@@ -12,13 +12,13 @@
     <title>MarcoPolo cluster</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="/css/modern-business.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,21 +62,6 @@
                             <li>
                                 <a href="http://redmine.martinarroyo.net/projects/tfg">Redmine project management</a>
                             </li>
-                            <li>
-                                <a href="portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -90,26 +75,6 @@
                             </li>
                             <li>
                                 <a href="/docs/nontechnical">Other</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
                             </li>
                         </ul>
                     </li>
@@ -127,6 +92,9 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -145,6 +113,24 @@
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('/img/general.jpg');"></div>
+                <!--<div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>-->
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('/img/statusmonitor.png');"></div>
+                <!--<div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>-->
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('/img/leds.jpg');"></div>
+                <!--<div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>-->
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('/img/marcobootstrap.png');"></div>
                 <!--<div class="carousel-caption">
                     <h2>Caption 3</h2>
                 </div>-->
@@ -176,7 +162,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Raspberry Pi</h4>
+                        <h4><img style="height:1em" src="/img/Raspberry_Pi_Logo.svg"/> Raspberry Pi</h4>
                     </div>
                     <div class="panel-body">
                         <p>The cluster is based on low-cost hardware, taking advantage of the powerful Raspberry Pi boards.</p>
@@ -187,7 +173,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Scalable</h4>
+                        <h4><i class="fa fa-fw fa-level-up"></i> Scalable</h4>
                     </div>
                     <div class="panel-body">
                         <p>The system has no defined hyerarchy. This allows it to scale up and down even during execution time.</p>
@@ -198,33 +184,30 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i>MarcoPolo</h4>
+                        <h4><i class="fa fa-fw fa-compass"></i>MarcoPolo</h4>
                     </div>
                     <div class="panel-body">
                         <p>MarcoPolo is a service discovery protocol specifically built for the cluster. It is based on multicast messaging and allows the coexistence of several independent groups of nodes in the same network space.</p>
-                        <a href="/docs/marcopolo" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Services</h4>
+                        <h4><i class="fa fa-fw fa-exchange"></i> Services</h4>
                     </div>
                     <div class="panel-body">
                         <p>The cluster is designed following a service-focused approach. It is compatible with the majority of service containers and provides support for Apache Tomcat for multiple users.</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Self-configured</h4>
+                        <h4><i class="fa fa-fw fa-refresh"></i> Self-configured</h4>
                     </div>
                     <div class="panel-body">
                         <p>Using MarcoPolo the system can configure itself for a broad range of different setups, involving address spacing, number and type of nodes, services... It includes distributed user management, deployment, administration, and even unattended <a href="/docs/marco-netinst">automatic installation of the system</a>.</p>
-                        <a href="/docs/polousers" class="btn btn-default">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -232,50 +215,57 @@
         <!-- /.row -->
 
         <!-- Portfolio Section -->
-        <div class="row">
+        <div class="row" id="gallery">
             <div class="col-lg-12">
                 <h2 class="page-header">Gallery</h2>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+                <a href="/gallery/board.html">
                     <img class="img-responsive img-portfolio img-hover" src="/img/general.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="/img/leds.jpg" alt="">
+                <a href="/gallery/leds.html">
+                    <img class="img-responsive img-portfolio img-hover" src="/img/cropped/leds.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="/img/placaanverso.jpg" alt="">
+                <a href="/gallery/pcb.html">
+                    <img class="img-responsive img-portfolio img-hover" src="/img/cropped/placaanverso.jpg" alt="">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <a href="/gallery/statusmonitor.html">
+                    <img class="img-responsive img-portfolio img-hover" src="/img/cropped/statusmonitor.png" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="/img/statusmonitor.png" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="/img/capas.svg" alt="">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+                <a href="/gallery/deployer.html">
                     <img class="img-responsive img-portfolio img-hover" src="/img/deployer.png" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="/img/marcobootstrap.png" alt="">
+                <a href="/gallery/marcobootstrap.html">
+                    <img class="img-responsive img-portfolio img-hover" src="/img/cropped/marcobootstrap.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <a href="/gallery/layers.html">
+                    <img class="img-responsive img-portfolio img-hover" src="/img/capas.svg" alt="">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+                <a href="/gallery/structure.html">
                     <img class="img-responsive img-portfolio img-hover" src="/img/fuentedetalle.jpg" alt="">
                 </a>
             </div>
+        </div>
             <!--<div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
                     <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
@@ -291,7 +281,6 @@
                     <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
                 </a>
             </div>-->
-        </div>
         <!-- /.row -->
 
         <!-- Features Section -->
@@ -335,13 +324,13 @@
         <hr>
 
         <!-- Footer -->
-        <footer>
+        <!--<footer>
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
-        </footer>
+        </footer>-->
 
     </div>
     <!-- /.container -->
