@@ -1,0 +1,23 @@
+img{
+	border: none !important;
+	background: none !important;
+}
+
+/*ul{
+	margin-left: 0 !important;
+}*/
+li{
+	list-style: none;
+}
+
+ul.images, ul.images li{
+	display: inline;
+}
+
+ul.images li img{
+	
+}
+
+.soa{
+	width: 75%;
+}
