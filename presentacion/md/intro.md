@@ -11,12 +11,27 @@
 [marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net/)
 
 
+## Índice
+
+- Propuesta y evaluación de alternativas
+    - Propuesta de solución
+- Sistema Operativo
+- Servicios sobre el sistema operativo
+    - Propios
+    - De terceros
+- Aplicaciones de usuario
+- Resultado final
+    - Estructura física
+- Herramientas
+- Gestión del proyecto, integración, etc
+
+
 
 ## Propuesta
 
 - Análisis de sistemas similares
     - Hardware de muy bajo coste
-- Experimentar con este tipo de *hardware*
+- Experimentar con este tipo de componentes
 - Solución a problemas de sobrecarga
 - Componente didáctico
     - Estudiar la aplicabilidad en diferentes asignaturas
@@ -51,9 +66,7 @@
 - __*Hardware*__: Raspberry Pi 2 
 - __Sistema operativo__: Arch Linux ARM
 - __Lenguaje de programación principal__: Python
-- Interconexión mediante una red existente
-- Posibilidad de adición de nuevos nodos
-- Escalable
+- Interconexión mediante la red existente
 
 Note: Comenzar con herramientas similares, enseguida se identifica la necesidad de un protocolo de descubrimiento. Python. Rendimiento/sencillez + Frameworks
 
@@ -61,7 +74,7 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 ## Requisitos
 
 - Mínimo coste
-- Sistema escalable
+- Escalabilidad
 - Mantenimiento sencillo
 - Autoconfigurado
 - Aplicable a diferentes asignaturas
@@ -69,7 +82,8 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 - *Transparente*
 
 
-## Hardware
+<!-- .slide: style="background-repeat:no-repeat;" data-background="url('img/raspberrypi.jpg') no-repeat center" -->
+## 
 
 <img src="img/capa-0.svg" width="40%" alt="Capa 0"/>
 
@@ -81,6 +95,8 @@ Las placas Raspberry Pi son la mejor alternativa
 - Soporte
 - Potencia de cálculo
 
+El proyecto comienza con 5 nodos
+
 
 
 ## Sistema operativo
@@ -90,7 +106,9 @@ Las placas Raspberry Pi son la mejor alternativa
 
 ## Sistema operativo
 
-__Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como __Raspbian__ por su rendimiento y versatilidad
+__Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como __Raspbian__ por su rendimiento y versatilidad.
+
+Supera al resto de alternativas en consumo de recursos, modularidad, disponibilidad de paquetes y adaptabilidad.
 
 
 
@@ -98,11 +116,13 @@ __Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como _
 
 <img src="img/capa-2.svg" width="60%" alt="Capa 2"/>
 
+Note: Los servicios que provee el sistema operativo son el fundamento sobre el que se apoyan el resto de componentes *software*, y por tanto cubrirán las necesidades básicas de todos los componentes.
+
 
 ## Autoconfiguración
 
 - Problema detectado rápidamente
-- Mecanismo que identifique todos los nodos presentes en una red sin configuración previa
+- Es necesario un mecanismo que identifique todos los nodos presentes en una red sin configuración previa
 - Independiente de la red
 - Compatible con los objetivos de transparencia
 - Alternativas como *Bonjour* o *Avahi* no son viables
@@ -117,52 +137,70 @@ __Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como _
 
 ## Características
 
-- Dos roles independientes
-- Un nodo en múltiples mallas
+- Dos roles independientes (Marco, Polo)
+- Un nodo puede operar de forma independiente en múltiples mallas
 - Independiente de plataforma
-- Mensajes JSON enviados por *Multicast*
-- Conectable: Bindings en 4 lenguajes
-- Utilidades
+    - Mensajes JSON enviados por *Multicast*
+- Mensajes UDP (protocolo no fiable)
+- Conectable: *bindings* en 4 lenguajes, extensible a más
+- Conjunto de utilidades de consola
 
 Note:JSON, Twisted, Demo
 
 
+## Funcionamiento
+
+Note: Funcionamiento de MarcoPolo
+
+
 ## Gestión de usuarios
 
-- Se utiliza el servidor LDAP del centro para realizar la gestión de usuarios.
+- Servidor LDAP del centro para realizar la gestión de usuarios (simplifica el uso del sistema)
 - Es necesario garantizar la transparencia de acceso.
 - Solución: módulo propio para __PAM__ (implementado en C/C++ e integrado con *MarcoPolo* a través del *binding*)
 
 
-## PXE
+## Funcionamiento
 
-- Uno de los objetivos del proyecto es simplificar la gestión manual del mismo
+Note: Funcionamiento
+
+
+## Arranque en red
+
+- Uno de los objetivos del proyecto es simplificar la administración del mismo
 - Operaciones como la instalación del sistema operativo o tareas rutinarias pueden ser tediosas para el administrador
+- Las placas Raspberry Pi no son compatibles con __PXE__
 
 
 ## Marcobootstrap
 
-Herramienta de gestión de la instalación y actualización del sistema operativo, reinicio del sistema, apagado...
+- Herramienta de gestión de la instalación y actualización del sistema operativo, reinicio del sistema, apagado...
+- Instalación desatendida y autoconfigurada (mediante MarcoPolo) del sistema operativo en red
 
 
 ### MarcoBootstrap-Backend
 <img src="img/marcobootstrap.png" alt="Vista de la interfaz de la herramienta marcobootstrap" width="80%"/>
 - Ofrece imágenes del sistema operativo y el *bootcode*
-- Planificación de operaciones
+- Planificación, gestión y cancelación de operaciones
 
 
 ### MarcoBootstrap-Slave
 
 - Recibe peticiones de *MarcoBootstrap-backend*, programando las operaciones requeridas
+- Proceso *daemon* en cada uno de los nodos, detectable a través de __MarcoPolo__
 
 
 ### marco-netinst
 
-- Instalación desatendida del SO
+- Instalación desatendida del sistema operativo
 - Utiliza una versión mínima de *MarcoPolo* para el descubrimiento de un servidor *MarcoBootstrap*
 - Reduce el tiempo de atención humana a menos de 2 minutos por cada nodo a instalar
+- Instalable manualmente o a través de Marcobootstrap-slave para operaciones de actualización
 
 Note: Demo. Cargar la imagen de S.O. Herramientas de creación. Prueba la versatilidad de Marco-Polo
+
+
+## Servicios de terceros
 
 
 ## DistCC
@@ -190,19 +228,6 @@ El tiempo de compilación se reduce drásticamente.
     - __Distcc__ con 4 trabajos paralelos (`make -j4`): 21 minutos
 
 
-## MarcoManager
-
-- Integración de *MarcoPolo* en servicios de terceros
-- Permite realizar operaciones típicas de __cron__
-- Integrado con __Tomcat__ y __Distcc__
-
-
-## Características
-
-- Se ha portado toda la funcionalidad relativa a la manipulación de los pines en modo salida
-- Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin
-
-
 ## OpenMPI
 
 - Integración con las diferentes herramientas del sistema.
@@ -216,40 +241,6 @@ El tiempo de compilación se reduce drásticamente.
 - Una instancia independiente para cada usuario
 
 
-
-## Aplicaciones de usuario
-
-<img src="img/capa-3.svg" width="40%" alt="Capa 3"/>
-
-
-## Despliegue
-
-Realizar operaciones de despliegue en diferentes equipos suele ser un proceso tedioso
-
-
-## Deployer
-
-<img src="img/screenshot-deployer.png" alt="Vista de la herramienta deployer" width="70%"/>
-- Detección de nodos con *MarcoPolo*
-- Integración directa con __Tomcat__
-- Integrado con Diaweb
-
-
-## Status Monitor
-<img src="img/screenshot-statusmonitor.png" alt="Vista de la herramienta statusmonitor" width="35%"/>
-- Herramienta que permite evaluar el estado de los diferentes nodos presentes en la red
-- Detección mediante *MarcoPolo*
-- Elimina cuellos de botella
-
-
-## Shell
-<img src="img/loggermain.png" alt="Vista de la herramienta shell" width="80%"/>
-- Permite realizar operaciones de depuración sencillas
-- Ejecución asíncrona
-
-Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
-
-
 ## quick2wire
 
 Se plantea el uso del puerto GPIO para las diferentes aplicaciones creadas
@@ -259,40 +250,108 @@ Problemas:
 - Solución: portar la API de Python a C++
 
 
+## Características
+
+- Se ha portado toda la funcionalidad relativa a la manipulación de los pines en modo salida
+- Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin
+
+
+## MarcoManager
+
+- Integración de *MarcoPolo* en servicios de terceros
+- Permite realizar operaciones típicas de __cron__
+- Integrado con __Tomcat__ y __Distcc__
+
+
+
+## Aplicaciones de usuario
+
+<img src="img/capa-3.svg" width="40%" alt="Capa 3"/>
+
+
+## Despliegue
+
+- Realizar operaciones de despliegue en diferentes equipos suele ser un proceso tedioso
+- Herramientas como __scp__ o __ftp__ son poco versátiles
+- Se suma el problema de la detección de nodos
+
+
+## Deployer
+
+<img src="img/screenshot-deployer.png" alt="Vista de la herramienta deployer" width="65%"/>
+- Detección de nodos con *MarcoPolo*
+- Integración directa con __Tomcat__
+- Integrado con Diaweb
+- Versátil
+
+
+## Status Monitor
+<img src="img/screenshot-statusmonitor.png" alt="Vista de la herramienta statusmonitor" width="35%"/>
+- Herramienta que permite evaluar el estado de los diferentes nodos presentes en la red
+- Detección mediante *MarcoPolo*
+- Elimina cuellos de botella
+- Completamente asíncrono
+
+
+## Funcionamiento
+
+1. El cliente web solicita al nodo al que se ha conectado todos los miembros de la red con el servicio "statusmonitor".
+2. El servidor utiliza el *binding* de Marco para realizar esta consulta
+3. Se retorna la información y el cliente establece conexiones __WebSocket__ __directas__ con cada uno de los nodos.
+4. El cliente recibe la información en directo, sin *polling*.
+
+
+## Shell
+<img src="img/loggermain.png" alt="Vista de la herramienta shell" width="80%"/>
+- Permite realizar operaciones de depuración sencillas
+- Ejecución completamente asíncrona (incluyendo la recolección de datos)
+
+Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
 
 
 ## Resultado final
 
 Arquitectura orientada a servicios
-
-<img width="40%" src="img/capas.svg" alt="Vista conceptual de la arquitectura por capas del sistema"/>
+<img width="64%" src="img/capas.svg" alt="Vista conceptual de la arquitectura por capas del sistema"/>
 
 
 ## Estructura física
 
-- 3 prototipos
+- 3 diseños
 - Integración de todos los componentes principales en una única estructura
 - Centralización de las funciones de red y alimentación eléctrica
 
 
+## Prototipos iniciales
+
+1. Inicialmente se plantea una estructura muy rudimentaria con separadores hexagonales (se descarta antes de comenzar su desarrollo)
+2. El segundo diseño utiliza una estructura de metacrilato para sostener todos los nodos 
+
+<img width="60%" src="img/prototipo1vistageneral.jpg"/>
+<img width="19%" src="img/prototipo1vistaperfil.jpg"/>
+
+
 ## Propuesta final
 
-- Estructura de metacrilato
+- Estructura de metacrilato (del segundo diseño)
 - Un único punto de red y alimentación
 
 <ul class="images">
 <br>
-<li><img width="40%" src="img/general.jpg" alt="Vista de la estructura física"/></li>
-<li><img width="40%" src="img/fuentedetalle.jpg" alt="Vista en detalle de la fuente de alimentación"/></li>
+<li><img width="49%" src="img/general.jpg" alt="Vista de la estructura física"/></li>
+<li><img width="49%" src="img/fuentedetalle.jpg" alt="Vista en detalle de la fuente de alimentación"/></li>
 </ul>
 
 
 ## Propuesta final
 
+Se han modificado varios componentes, como la instalación eléctrica.
 <ul class="images">
 <br>
-<li><img width="40%" src="img/dc.jpg" alt="Vista del cable DC modificado"/></li>
-<li><img width="40%" src="img/fusibles.jpg" alt="Vista de la placa de fusibles"/></li>
+<li><img width="23%" src="img/dc.jpg" alt="Vista del cable DC modificado"/></li>
+<li><img width="23%" src="img/usb.jpg" alt="Vista del cable USB modificado"/></li>
+<br>
+<li><img width="35%" src="img/fusibles.jpg" alt="Vista de la placa de fusibles"/></li>
 </ul>
 
 
@@ -316,15 +375,33 @@ Arquitectura orientada a servicios
 
 
 
-## Herramientas
+# Herramientas utilizadas
 
 
 ## Mecanismos de evaluación
 
 - Test unitarios
     - __Unittest__, __Pylint__
+    - Facilitan el desarrollo y permiten detectar errores antes de que el código sea ejecutado
 - Evaluaciones de usuario
 - Pruebas de integración en entornos reales
+
+
+## Evaluaciones de usuario
+
+- Se han realizado evaluaciones a todos los tipos de usuario potencial del sistema (profesores, estudiantes, administradores)
+- Varios tipos de evaluación (seguimiento continuo, diferentes dinámicas...)
+- Documentadas como parte del proyecto
+- Han probado ser uno de los mejores mecanismos para identificar necesidades
+
+
+## Pruebas de integración en entornos reales
+
+- Pruebas durante las diferentes fases del proyecto para determinar la compatibilidad del mismo con el entorno
+- La mayor parte del desarrollo del proyecto se ha realizado en entornos reales
+- Pruebas en diferentes condiciones:
+    - Varios puntos de la red de la Facultad, redes domésticas
+    - Equipos de aulas de informática, equipos personales, *workstations*, Raspberry Pi...
 
 
 ## Herramientas utilizadas
@@ -338,13 +415,11 @@ Twisted y Tornado siguen este enfoque
 
 ## Interfaces web
 
-La mayoría de las conexiones son asíncronas
-
 - AJAX es utilizado minoritariamente
 - La mayoría de las comunicaciones se realizan a través de *WebSockets*
     - Elimina cuellos de botella
     - Comunicación asíncrona bidireccional
-- Boostrap y jQuery para la funcionalidad básica
+- Bootstrap y jQuery para la funcionalidad básica
 - d3.js para visualización de datos
 
 
@@ -360,6 +435,8 @@ La mayoría de las conexiones son asíncronas
     - __Xubuntu__, __Ubuntu__
     - __Raspbian__
     - __Arch Linux ARM__
+- Todos los paquetes *software* gestionan de forma transparente las diferencias entre cada configuración
+- Compatible con init.d y systemd
 
 
 ## Gestión del proyecto
@@ -374,8 +451,8 @@ La mayoría de las conexiones son asíncronas
 
 - ~ 600 *commits*
 - 500 horas de trabajo
-- 6 paquetes públicos en __Pypi__
-- 18 repositorios públicos
+- 7 paquetes públicos en __Pypi__
+- 18 repositorios públicos en Bitbucket
 - 3 lenguajes de programación principales y dos secundarios (Python, C, Bash, C++, Java)
 
 
@@ -390,4 +467,4 @@ La mayoría de las conexiones son asíncronas
 
 - Mejoras en MarcoPolo y el resto de herramientas
 - Estudio de implementación en las asignaturas propuestas
-
+- Promoción del proyecto ([marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net))
