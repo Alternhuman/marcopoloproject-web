@@ -11,7 +11,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="1426.5382"
-   height="1565.8317"
+   height="1254.7047"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -1464,7 +1464,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
      inkscape:cx="770.53431"
-     inkscape:cy="963.90473"
+     inkscape:cy="963.90478"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1485,7 +1485,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1493,10 +1493,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(53.269142,588.77187)">
+     transform="translate(53.269142,277.64489)">
     <path
        style="fill:none;stroke:#7e7e7e;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-mid:none;marker-end:none"
-       d="M 844.68288,-426.69281 867.77377,27.994095"
+       d="M 700.4331,-92.938409 867.77377,27.994095"
        id="path5688-33"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -2315,15 +2315,15 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="865.53625"
-       y="-333.72879"
+       x="538.1994"
+       y="-551.2226"
        id="text6868"
        sodipodi:linespacing="125%"
-       transform="matrix(0.99203753,0.12594258,-0.12594258,0.99203753,0,0)"><tspan
+       transform="matrix(0.77661944,0.62997003,-0.62997003,0.77661944,0,0)"><tspan
          sodipodi:role="line"
          id="tspan6870"
-         x="865.53625"
-         y="-333.72879">Marco</tspan></text>
+         x="538.1994"
+         y="-551.2226">Marco</tspan></text>
     <g
        id="g3846-5-7"
        transform="translate(695.40949,444.06677)">
@@ -2421,7 +2421,7 @@
     </g>
     <g
        id="g4402"
-       transform="matrix(0.84688321,0,0,0.8468862,742.16769,-588.77187)">
+       transform="matrix(0.84688321,0,0,0.8468862,498.92296,-277.64489)">
       <path
          id="path4394"
          d="m 283.465,141.734 c 0,78.273 -63.457,141.73 -141.734,141.73 C 63.454,283.464 0,220.008 0,141.734 0,63.455 63.453,0 141.73,0 220.007,0 283.465,63.455 283.465,141.734 z"

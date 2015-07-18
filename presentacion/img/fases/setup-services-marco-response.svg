@@ -1485,7 +1485,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2359,7 +2359,7 @@
          sodipodi:role="line"
          id="tspan6870"
          x="393.1983"
-         y="237.80011">OK + Parámetros</tspan></text>
+         y="237.80011">Polo + Parámetros</tspan></text>
     <g
        id="g3846-5-7"
        transform="translate(695.40949,444.06677)">

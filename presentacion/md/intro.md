@@ -42,31 +42,53 @@
 - Virtualización, **COTS**, equipos multimedia, computadores de placa única...
 
 <ul class="images">
-<li><img width="23%"src="img/virtualization.svg"/></li>
+<li><img width="27%"src="img/virtualization.svg"/></li>
+<li><img width="27%"src="img/chromecast.jpg"/></li>
+<br>
+<li><img width="27%"src="img/raspberrypi.jpg"/></li>
 <li><img width="23%"src="img/beowulf.jpg"/></li>
-<li><img width="23%"src="img/chromecast.jpg"/></li>
-<li><img width="23%"src="img/raspberrypi.jpg"/></li>
 </ul>
 
 
-## State of the art
+## Situación actual
+
+- Facultad con ~ 600 alumnos en titulaciones de Ingeniería Informática
+- Toda la gestión está centralizada en servidores NFS y LDAP
+    - Potencial cuello de botella, con sobrecargas ya apreciables
+- Las prácticas asignadas consumen un mínimo de tres equipos por grupo
+- Tareas como la identificación de nodos o el despliegue son realizadas de forma manual
+
+
+## Propuestas
+#### RPiCluster - J. Kiepert
 
 <img class="soa" src="img/kiepert-main.jpg"/>
 
+Herramienta de desarrollo de aplicaciones distribuidas
+
+
+## Propuestas
+#### Simon J. Cox - Iridis-Pi
 
 <img class="soa" src="img/iridis-pi.jpg"/>
 
+Prueba de concepto
+
+
+## Propuestas
+#### GCHQ - Bramble
 
 <img class="soa" src="img/bramblegchq.jpg"/>
 
+Proyecto educativo
 
 
 ## Propuesta de solución
 
-- __*Hardware*__: Raspberry Pi 2 
+<!--- __*Hardware*__: Raspberry Pi 2 
 - __Sistema operativo__: Arch Linux ARM
 - __Lenguaje de programación principal__: Python
-- Interconexión mediante la red existente
+- Interconexión mediante la red existente-->
 
 Note: Comenzar con herramientas similares, enseguida se identifica la necesidad de un protocolo de descubrimiento. Python. Rendimiento/sencillez + Frameworks
 
@@ -91,11 +113,11 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 ## Hardware
 
 Las placas Raspberry Pi son la mejor alternativa
-- Precio
-- Soporte
-- Potencia de cálculo
+- Precio (~40 €)
+- Soporte (Placa más popular en términos de software disponible y comunidad de desarrolladores)
+- Potencia de cálculo y paralelización (4 núcleos ARMv7 a 1 GHz)
 
-El proyecto comienza con 5 nodos
+El proyecto comienza con 5 nodos Raspberry Pi B 1 y 2
 
 
 
@@ -106,9 +128,14 @@ El proyecto comienza con 5 nodos
 
 ## Sistema operativo
 
-__Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como __Raspbian__ por su rendimiento y versatilidad.
+__Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como __Raspbian__.
 
-Supera al resto de alternativas en consumo de recursos, modularidad, disponibilidad de paquetes y adaptabilidad.
+Supera al resto de alternativas en:
+- Consumo de recursos (500 MB de espacio, 16 MB de RAM)
+- Modularidad y adaptabilidad.
+- Disponibilidad de paquetes
+
+Note: Características de Arch
 
 
 
@@ -149,8 +176,33 @@ Note:JSON, Twisted, Demo
 
 
 ## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/setup-services-marco.svg"/>
 
 Note: Funcionamiento de MarcoPolo
+
+
+## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/setup-services-marco-response.svg"/>
+
+
+## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/setup-services-marco-2.svg"/>
+<img width="45%" src="img/fases/setup-services-marco-2-response.svg"/>
+
+
+## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/setup-services-request-for.svg"/>
+<img width="45%" src="img/fases/setup-services-request-for-response.svg"/>
+
+
+## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/setup-services-request-for-2.svg"/>
+<img width="45%" src="img/fases/setup-services-request-for-2-response.svg"/>
 
 
 ## Gestión de usuarios
@@ -161,6 +213,14 @@ Note: Funcionamiento de MarcoPolo
 
 
 ## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/polousers.svg"/>
+<img width="45%" src="img/fases/polousers-response.svg"/>
+
+
+## Funcionamiento
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="55%" src="img/fases/polousers-connect.svg"/>
 
 Note: Funcionamiento
 
@@ -237,7 +297,7 @@ El tiempo de compilación se reduce drásticamente.
 
 ## Tomcat
 
-- Integrado con las herramientas creadas
+- Integrado con las herramientas creadas (__Polousers__, __Deployer__)
 - Una instancia independiente para cada usuario
 
 
@@ -250,7 +310,7 @@ Problemas:
 - Solución: portar la API de Python a C++
 
 
-## Características
+## quick2wire
 
 - Se ha portado toda la funcionalidad relativa a la manipulación de los pines en modo salida
 - Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin
@@ -307,6 +367,10 @@ Problemas:
 - Ejecución completamente asíncrona (incluyendo la recolección de datos)
 
 Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
+
+
+## Estructura
+
 
 
 ## Resultado final
