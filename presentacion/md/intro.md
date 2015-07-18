@@ -369,10 +369,19 @@ Problemas:
 Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
 
 
-## Estructura
+## Funcionamiento
 <!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
-<img width="45%" src="img/fases/deployer.svg"/>
-<img width="45%" src="img/fases/deployer-request-for.svg"/>
+<img width="35%" src="img/fases/deployer.svg"/>
+<img width="35%" src="img/fases/deployer-request-for.svg"/>
+<br>
+<img width="35%" src="img/fases/deployer-connection.svg"/>
+
+## Seguridad
+
+- Los usuarios confían información personal (contraseñas de acceso al sistema) a la aplicación.
+- Las solicitudes que un nodo envía al resto desencadenan acciones realizadas por el superusuario. Los nodos receptores deben confiar en el emisor.
+- Solución: conexiones TLS (HTTPS) con validación doble.
+    - Enfoque aplicado a todas las aplicaciones que requieren autenticación.
 
 
 ## Resultado final
