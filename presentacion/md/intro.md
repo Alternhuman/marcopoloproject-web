@@ -176,31 +176,31 @@ Note:JSON, Twisted, Demo
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-marco.svg"/>
 
 Note: Funcionamiento de MarcoPolo
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-marco-response.svg"/>
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-marco-2.svg"/>
 <img width="45%" src="img/fases/setup-services-marco-2-response.svg"/>
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-request-for.svg"/>
 <img width="45%" src="img/fases/setup-services-request-for-response.svg"/>
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-request-for-2.svg"/>
 <img width="45%" src="img/fases/setup-services-request-for-2-response.svg"/>
 
@@ -213,13 +213,13 @@ Note: Funcionamiento de MarcoPolo
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/polousers.svg"/>
 <img width="45%" src="img/fases/polousers-response.svg"/>
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="55%" src="img/fases/polousers-connect.svg"/>
 
 Note: Funcionamiento
@@ -370,7 +370,7 @@ Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
 
 
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="35%" src="img/fases/deployer.svg"/>
 <img width="35%" src="img/fases/deployer-request-for.svg"/>
 <br>
