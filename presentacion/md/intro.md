@@ -370,7 +370,9 @@ Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
 
 
 ## Estructura
-
+<!-- .slide: style="background-repeat:no-repeat;" data-background="#fff" -->
+<img width="45%" src="img/fases/deployer.svg"/>
+<img width="45%" src="img/fases/deployer-request-for.svg"/>
 
 
 ## Resultado final
