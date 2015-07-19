@@ -113,9 +113,9 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 ## Hardware
 
 Las placas Raspberry Pi son la mejor alternativa
-- Precio (~40 €)
-- Soporte (Placa más popular en términos de software disponible y comunidad de desarrolladores)
-- Potencia de cálculo y paralelización (4 núcleos ARMv7 a 1 GHz)
+- __Precio__ (40 €)
+- __Soporte__ (Placa más popular en términos de software disponible y comunidad de desarrolladores)
+- __Potencia de cálculo y paralelización__ (4 núcleos ARMv7 a 1 GHz)
 
 El proyecto comienza con 5 nodos Raspberry Pi B 1 y 2
 
@@ -131,7 +131,7 @@ El proyecto comienza con 5 nodos Raspberry Pi B 1 y 2
 __Arch Linux ARM__ es elegido como la mejor opción frente a alternativas como __Raspbian__.
 
 Supera al resto de alternativas en:
-- Consumo de recursos (500 MB de espacio, 16 MB de RAM)
+- Consumo de recursos (500 MB de espacio, 16 MB de RAM en la instalación base)
 - Modularidad y adaptabilidad.
 - Disponibilidad de paquetes
 
@@ -152,7 +152,7 @@ Note: Los servicios que provee el sistema operativo son el fundamento sobre el q
 - Es necesario un mecanismo que identifique todos los nodos presentes en una red sin configuración previa
 - Independiente de la red
 - Compatible con los objetivos de transparencia
-- Alternativas como *Bonjour* o *Avahi* no son viables
+- Alternativas como *Bonjour* o *Avahi* no son viables (no soportan segmentación de red)
 
 
 ## MarcoPolo
@@ -169,7 +169,7 @@ Note: Los servicios que provee el sistema operativo son el fundamento sobre el q
 - Independiente de plataforma
     - Mensajes JSON enviados por *Multicast*
 - Mensajes UDP (protocolo no fiable)
-- Conectable: *bindings* en 4 lenguajes, extensible a más
+- Conectable: *bindings* en 4 lenguajes, extensible
 - Conjunto de utilidades de consola
 
 Note:JSON, Twisted, Demo
@@ -203,6 +203,52 @@ Note: Funcionamiento de MarcoPolo
 <!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-request-for-2.svg"/>
 <img width="45%" src="img/fases/setup-services-request-for-2-response.svg"/>
+
+
+## *Bindings*
+
+- Emiten mensajes JSON a la instancia local de Marco o Polo, delegando toda la funcionalidad a estas
+    - Reduce la complejidad del *binding*
+    - No obstante, se validan los parámetros antes de enviarlos.
+- Todos los bindings siguen una misma convención de nombres
+
+
+## *Bindings*
+
+```c
+# C
+int marco(marco_t mp, node_t** nodes, int max_nodes, 
+          char* exclude[], int exclude_len, parameter_t* params, 
+          int params_len, int timeout, int retries);
+```
+```cpp
+# C++
+int marco(std::vector<Node>& nodes, int max_nodes=0, 
+          std::vector<std::string> exclude=std::vector<std::string>(), 
+          std::map<std::string, parameter> params=std::map<std::string, parameter>(), 
+          int timeout=0, int retries=0);
+```
+```python
+# Python
+def marco(self, max_nodes=None, exclude=[], 
+          params={}, timeout=None, retries=0):
+```
+```java
+# Java
+public int marco(ArrayList<Node> nodes, int max_nodes, 
+                 ArrayList<String> exclude, 
+                 HashMap<String, Parameter> params, 
+                 int timeout, int retries)
+```
+
+
+## Utilidades de consola
+
+- El paquete marcopolo-shell incluye una serie de utilidades que permiten el acceso a la funcionalidad de MarcoPolo desde la *shell*
+- `marcodiscover`
+- `marcosshcommand`
+- `marcoinstallkey`
+- `marcoscp`
 
 
 ## Gestión de usuarios
@@ -252,12 +298,18 @@ Note: Funcionamiento
 
 ### marco-netinst
 
-- Instalación desatendida del sistema operativo
+- Imagen mínima de un sistema operativo que realiza la instalación de forma desatendida del *software*
 - Utiliza una versión mínima de *MarcoPolo* para el descubrimiento de un servidor *MarcoBootstrap*
 - Reduce el tiempo de atención humana a menos de 2 minutos por cada nodo a instalar
 - Instalable manualmente o a través de Marcobootstrap-slave para operaciones de actualización
 
 Note: Demo. Cargar la imagen de S.O. Herramientas de creación. Prueba la versatilidad de Marco-Polo
+
+
+## Funcionamiento
+
+- La imagen creada actúa como sistema initramfs (*initial RAM file system*), cargándose por completo en la memoria RAM de la placa. Configura el acceso a la red y detecta los servidores `Marcobootstrap-slave`. A continuación da formato a la tarjeta SD, descarga el sistema operativo y lo configura.
+- El tiempo de instalación es de ~15 minutos y no requiere atención humana
 
 
 ## Servicios de terceros
@@ -270,7 +322,7 @@ Las placas elegidas tienen una potencia de cómputo baja
 - Soluciones como QEMU no son factibles
 
 - Solución: Compilación distribuida
-- Para aprovechar un equipo más potente, pero de arquitectura x86, se crea un compilador cruzado específico
+- Para aprovechar un equipo más potente, pero de arquitectura x86, se crea un compilador cruzado específico con `crosstool-ng`
 - Transparente: 
 
 > distcc gcc -c main.c -o main.o
@@ -376,12 +428,13 @@ Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
 <br>
 <img width="35%" src="img/fases/deployer-connection.svg"/>
 
+
 ## Seguridad
 
 - Los usuarios confían información personal (contraseñas de acceso al sistema) a la aplicación.
 - Las solicitudes que un nodo envía al resto desencadenan acciones realizadas por el superusuario. Los nodos receptores deben confiar en el emisor.
 - Solución: conexiones TLS (HTTPS) con validación doble.
-    - Enfoque aplicado a todas las aplicaciones que requieren autenticación.
+    - Enfoque aplicado a todas las aplicaciones que requieren autenticación (__Polousers__, __Marcobootstrap__...).
 
 
 ## Resultado final
@@ -453,6 +506,35 @@ Se han modificado varios componentes, como la instalación eléctrica.
 # Herramientas utilizadas
 
 
+#### Orientación a eventos
+
+<img width="40%" src="img/threadcomparison.png" alt="Comparación de diferentes modelos de paralelismo"/>
+
+- Reduce el tiempo de de contexto
+- Maximiza el tiempo de uso de la CPU
+- Twisted y Tornado siguen este enfoque
+
+
+## Interfaces web
+
+- AJAX es utilizado minoritariamente
+- La mayoría de las comunicaciones se realizan a través de *WebSockets*
+    - Elimina cuellos de botella
+    - Comunicación asíncrona bidireccional
+- Bootstrap y jQuery para la funcionalidad básica
+- d3.js para visualización de datos
+- Jade para la generación de HTML
+
+
+## Optimización del rendimiento
+
+- Versión modificada de SSH (HPN-SSH), del centro de supercomputación de Pittsburgh
+    - Aprovecha las ventajas de las arquitecturas multinúcleo en SSH
+- El uso de Tornado y Twisted minimiza el consumo de recursos
+- La instalación de todos los paquetes necesarios consume 64 MB de RAM y 1.6 GB de espacio en disco
+- Compilación distribuida
+
+
 ## Mecanismos de evaluación
 
 - Test unitarios
@@ -479,27 +561,6 @@ Se han modificado varios componentes, como la instalación eléctrica.
     - Equipos de aulas de informática, equipos personales, *workstations*, Raspberry Pi...
 
 
-## Herramientas utilizadas
-
-Orientación a eventos y programación en un único hilo
-
-<img width="40%" src="img/threadcomparison.png" alt="Comparación de diferentes modelos de paralelismo"/>
-
-Twisted y Tornado siguen este enfoque
-
-
-## Interfaces web
-
-- AJAX es utilizado minoritariamente
-- La mayoría de las comunicaciones se realizan a través de *WebSockets*
-    - Elimina cuellos de botella
-    - Comunicación asíncrona bidireccional
-- Bootstrap y jQuery para la funcionalidad básica
-- d3.js para visualización de datos
-
-
-
-
 ## Integración
 
 - *Hardware*
@@ -518,14 +579,27 @@ Twisted y Tornado siguen este enfoque
 
 - Proceso incremental basado en prototipos
 - Herramientas de gestión:
-    - Redmine
     - Git
+    - Redmine
+
+<img src="img/redminevista-cropped.png"/>
+
+
+## Gestión del proyecto
+
+- Iteraciones cortas con objetivos definidos
+- Prototipos para detectar de forma rápida la viabilidad de una propuesta
+- Los prototipos evolucionan hasta las versiones finales
+- Reuniones de evaluación al finalizar cada iteración
+- 13 iteraciones (duración media de 10 días)
+
 
 
 ## TFG en números
 
 - ~ 600 *commits*
-- 500 horas de trabajo
+- 500 horas de trabajo registradas en Redmine
+    - 190 tareas
 - 7 paquetes públicos en __Pypi__
 - 18 repositorios públicos en Bitbucket
 - 3 lenguajes de programación principales y dos secundarios (Python, C, Bash, C++, Java)
@@ -543,3 +617,8 @@ Twisted y Tornado siguen este enfoque
 - Mejoras en MarcoPolo y el resto de herramientas
 - Estudio de implementación en las asignaturas propuestas
 - Promoción del proyecto ([marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net))
+
+
+## 
+
+<img width="100%" src="img/capas.svg"/>
