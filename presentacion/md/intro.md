@@ -25,16 +25,19 @@
 - Herramientas
 - Gestión del proyecto, integración, etc
 
+Note: 
 
 
 ## Propuesta
 
-- Análisis de sistemas similares
-    - Hardware de muy bajo coste
+- Estudio en profundidad de un sistema distribuido
 - Experimentar con este tipo de componentes
-- Solución a problemas de sobrecarga
+- Solución a problemas de sobrecarga en la Facultad de Ciencias
 - Componente didáctico
     - Estudiar la aplicabilidad en diferentes asignaturas
+- Análisis de sistemas similares
+
+Note:
 
 
 ## Alternativas
@@ -49,8 +52,10 @@
 <li><img width="23%"src="img/beowulf.jpg"/></li>
 </ul>
 
+Note: Finalmente, la mejor alternativa es el uso de computadores de placa única
 
-## Situación actual
+
+## Dominio del problema
 
 - Facultad con ~ 600 alumnos en titulaciones de Ingeniería Informática
 - Toda la gestión está centralizada en servidores NFS y LDAP
@@ -58,29 +63,18 @@
 - Las prácticas asignadas consumen un mínimo de tres equipos por grupo
 - Tareas como la identificación de nodos o el despliegue son realizadas de forma manual
 
+Note:
+
 
 ## Propuestas
 #### RPiCluster - J. Kiepert
+<img width="30%" class="soa-2" src="img/kiepert-main.jpg"/>
+<img width="30%" class="soa-2" src="img/iridis-pi.jpg"/>
+<img width="30%" class="soa-2" src="img/bramblegchq.jpg"/>
 
-<img class="soa" src="img/kiepert-main.jpg"/>
+Problema: Propósito único
 
-Herramienta de desarrollo de aplicaciones distribuidas
-
-
-## Propuestas
-#### Simon J. Cox - Iridis-Pi
-
-<img class="soa" src="img/iridis-pi.jpg"/>
-
-Prueba de concepto
-
-
-## Propuestas
-#### GCHQ - Bramble
-
-<img class="soa" src="img/bramblegchq.jpg"/>
-
-Proyecto educativo
+Note:
 
 
 ## Propuesta de solución
@@ -104,14 +98,7 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 - *Transparente*
 
 
-<!-- .slide: style="background-repeat:no-repeat;" data-background="url('img/raspberrypi.jpg') no-repeat center" -->
-## 
-
-<img src="img/capa-0.svg" width="40%" alt="Capa 0"/>
-
-
-## Hardware
-
+## Hardware <img width="10%" src="img/capa-0.svg" width="40%" alt="Capa 0"/>
 Las placas Raspberry Pi son la mejor alternativa
 - __Precio__ (40 €)
 - __Soporte__ (Placa más popular en términos de software disponible y comunidad de desarrolladores)
@@ -135,7 +122,7 @@ Supera al resto de alternativas en:
 - Modularidad y adaptabilidad.
 - Disponibilidad de paquetes
 
-Note: Características de Arch
+Note: Características de Arch, aquí comienza la fase de desarrollo
 
 
 
@@ -178,13 +165,9 @@ Note:JSON, Twisted, Demo
 ## Funcionamiento
 <!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-marco.svg"/>
+<img width="45%" src="img/fases/setup-services-marco-response.svg"/>
 
 Note: Funcionamiento de MarcoPolo
-
-
-## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
-<img width="45%" src="img/fases/setup-services-marco-response.svg"/>
 
 
 ## Funcionamiento
@@ -256,17 +239,13 @@ public int marco(ArrayList<Node> nodes, int max_nodes,
 - Servidor LDAP del centro para realizar la gestión de usuarios (simplifica el uso del sistema)
 - Es necesario garantizar la transparencia de acceso.
 - Solución: módulo propio para __PAM__ (implementado en C/C++ e integrado con *MarcoPolo* a través del *binding*)
-
-
-## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
+<!--## Funcionamiento
+<!- slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
 <img width="45%" src="img/fases/polousers.svg"/>
 <img width="45%" src="img/fases/polousers-response.svg"/>
-
-
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
-<img width="55%" src="img/fases/polousers-connect.svg"/>
+<!-slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
+<img width="55%" src="img/fases/polousers-connect.svg"/>-->
 
 Note: Funcionamiento
 
@@ -304,12 +283,10 @@ Note: Funcionamiento
 - Instalable manualmente o a través de Marcobootstrap-slave para operaciones de actualización
 
 Note: Demo. Cargar la imagen de S.O. Herramientas de creación. Prueba la versatilidad de Marco-Polo
-
-
-## Funcionamiento
+<!-- Comentar## Funcionamiento
 
 - La imagen creada actúa como sistema initramfs (*initial RAM file system*), cargándose por completo en la memoria RAM de la placa. Configura el acceso a la red y detecta los servidores `Marcobootstrap-slave`. A continuación da formato a la tarjeta SD, descarga el sistema operativo y lo configura.
-- El tiempo de instalación es de ~15 minutos y no requiere atención humana
+- El tiempo de instalación es de ~15 minutos y no requiere atención humana-->
 
 
 ## Servicios de terceros
@@ -404,13 +381,12 @@ Problemas:
 - Elimina cuellos de botella
 - Completamente asíncrono
 
-
-## Funcionamiento
+<!-- Comentar## Funcionamiento
 
 1. El cliente web solicita al nodo al que se ha conectado todos los miembros de la red con el servicio "statusmonitor".
 2. El servidor utiliza el *binding* de Marco para realizar esta consulta
 3. Se retorna la información y el cliente establece conexiones __WebSocket__ __directas__ con cada uno de los nodos.
-4. El cliente recibe la información en directo, sin *polling*.
+4. El cliente recibe la información en directo, sin *polling*.-->
 
 
 ## Shell
@@ -420,13 +396,12 @@ Problemas:
 
 Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
 
-
-## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
+<!--## Funcionamiento
+<!-slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
 <img width="35%" src="img/fases/deployer.svg"/>
 <img width="35%" src="img/fases/deployer-request-for.svg"/>
 <br>
-<img width="35%" src="img/fases/deployer-connection.svg"/>
+<img width="35%" src="img/fases/deployer-connection.svg"/>-->
 
 
 ## Seguridad
@@ -448,18 +423,18 @@ Arquitectura orientada a servicios
 - 3 diseños
 - Integración de todos los componentes principales en una única estructura
 - Centralización de las funciones de red y alimentación eléctrica
+- Estructura de metacrilato
+- Un único punto de red y alimentación
 
-
-## Prototipos iniciales
+<!-- Comentar## Prototipos iniciales
 
 1. Inicialmente se plantea una estructura muy rudimentaria con separadores hexagonales (se descarta antes de comenzar su desarrollo)
 2. El segundo diseño utiliza una estructura de metacrilato para sostener todos los nodos 
 
 <img width="60%" src="img/prototipo1vistageneral.jpg"/>
-<img width="19%" src="img/prototipo1vistaperfil.jpg"/>
+<img width="19%" src="img/prototipo1vistaperfil.jpg"/>-->
 
-
-## Propuesta final
+<!--## Propuesta final
 
 - Estructura de metacrilato (del segundo diseño)
 - Un único punto de red y alimentación
@@ -469,8 +444,6 @@ Arquitectura orientada a servicios
 <li><img width="49%" src="img/general.jpg" alt="Vista de la estructura física"/></li>
 <li><img width="49%" src="img/fuentedetalle.jpg" alt="Vista en detalle de la fuente de alimentación"/></li>
 </ul>
-
-
 ## Propuesta final
 
 Se han modificado varios componentes, como la instalación eléctrica.
@@ -480,7 +453,7 @@ Se han modificado varios componentes, como la instalación eléctrica.
 <li><img width="23%" src="img/usb.jpg" alt="Vista del cable USB modificado"/></li>
 <br>
 <li><img width="35%" src="img/fusibles.jpg" alt="Vista de la placa de fusibles"/></li>
-</ul>
+</ul>-->
 
 
 ## PCB
@@ -491,15 +464,15 @@ Se han modificado varios componentes, como la instalación eléctrica.
 <li><img width="30%" src="img/general-placa.jpg" alt="Vista general de la placa Raspberry Pi con el circuito impreso conectado"/></li>
 <li><img width="30%" src="img/leds.jpg" alt="Vista de la placa en funcionamiento"/></li>
 <li><img width="30%" src="img/vista2.jpg" alt="Vista en otra perspectiva del PCB"/></li>
+<li><img width="40%" src="img/placareverso.jpg" alt="Vista del reverso de la placa PCB"/></li>
 </ul>
 
-
-## PCB
+<!--## PCB
 
 <ul class="images">
 <li><img width="40%" src="img/placaanverso.jpg" alt="Vista del anverso de la placa PCB"/></li>
-<li><img width="40%" src="img/placareverso.jpg" alt="Vista del reverso de la placa PCB"/></li>
-</ul>
+
+</ul>-->
 
 
 
