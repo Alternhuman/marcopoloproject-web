@@ -25,16 +25,19 @@
 - Herramientas
 - Gestión del proyecto, integración, etc
 
+Note: 
 
 
 ## Propuesta
 
-- Análisis de sistemas similares
-    - Hardware de muy bajo coste
-- Experimentar con este tipo de componentes
-- Solución a problemas de sobrecarga
+- Estudio en profundidad de un sistema distribuido
+- Experimentar con este tipo de componentes *hardware*
+- Solución a problemas de sobrecarga en la Facultad de Ciencias
 - Componente didáctico
     - Estudiar la aplicabilidad en diferentes asignaturas
+- Análisis de sistemas similares
+
+Note:
 
 
 ## Alternativas
@@ -49,8 +52,10 @@
 <li><img width="23%"src="img/beowulf.jpg"/></li>
 </ul>
 
+Note: Finalmente, la mejor alternativa es el uso de computadores de placa única
 
-## Situación actual
+
+## Dominio del problema
 
 - Facultad con ~ 600 alumnos en titulaciones de Ingeniería Informática
 - Toda la gestión está centralizada en servidores NFS y LDAP
@@ -58,42 +63,21 @@
 - Las prácticas asignadas consumen un mínimo de tres equipos por grupo
 - Tareas como la identificación de nodos o el despliegue son realizadas de forma manual
 
+Note:
+
 
 ## Propuestas
 #### RPiCluster - J. Kiepert
+<img width="30%" class="soa-2" src="img/kiepert-main.jpg"/>
+<img width="30%" class="soa-2" src="img/iridis-pi.jpg"/>
+<img width="30%" class="soa-2" src="img/bramblegchq.jpg"/>
 
-<img class="soa" src="img/kiepert-main.jpg"/>
+Problema: Propósito único
 
-Herramienta de desarrollo de aplicaciones distribuidas
-
-
-## Propuestas
-#### Simon J. Cox - Iridis-Pi
-
-<img class="soa" src="img/iridis-pi.jpg"/>
-
-Prueba de concepto
+Note:
 
 
-## Propuestas
-#### GCHQ - Bramble
-
-<img class="soa" src="img/bramblegchq.jpg"/>
-
-Proyecto educativo
-
-
-## Propuesta de solución
-
-<!--- __*Hardware*__: Raspberry Pi 2 
-- __Sistema operativo__: Arch Linux ARM
-- __Lenguaje de programación principal__: Python
-- Interconexión mediante la red existente-->
-
-Note: Comenzar con herramientas similares, enseguida se identifica la necesidad de un protocolo de descubrimiento. Python. Rendimiento/sencillez + Frameworks
-
-
-## Requisitos
+## Propuesta de solución. Requisitos
 
 - Mínimo coste
 - Escalabilidad
@@ -103,15 +87,9 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 - Independencia de la plataforma
 - *Transparente*
 
+Note: Comenzar con herramientas similares, enseguida se identifica la necesidad de un protocolo de descubrimiento. Python. Rendimiento/sencillez + Frameworks
 
-<!-- .slide: style="background-repeat:no-repeat;" data-background="url('img/raspberrypi.jpg') no-repeat center" -->
-## 
-
-<img src="img/capa-0.svg" width="40%" alt="Capa 0"/>
-
-
-## Hardware
-
+## Hardware <img width="10%" src="img/capa-0.svg" width="40%" alt="Capa 0"/>
 Las placas Raspberry Pi son la mejor alternativa
 - __Precio__ (40 €)
 - __Soporte__ (Placa más popular en términos de software disponible y comunidad de desarrolladores)
@@ -135,7 +113,7 @@ Supera al resto de alternativas en:
 - Modularidad y adaptabilidad.
 - Disponibilidad de paquetes
 
-Note: Características de Arch
+Note: Características de Arch, aquí comienza la fase de desarrollo
 
 
 
@@ -159,7 +137,7 @@ Note: Los servicios que provee el sistema operativo son el fundamento sobre el q
 
 - Protocolo propio de descubrimiento
 - Orientado a servicios
-- Implementado sobre Twisted
+- Implementado sobre Python utilizando Twisted
 
 
 ## Características
@@ -168,7 +146,6 @@ Note: Los servicios que provee el sistema operativo son el fundamento sobre el q
 - Un nodo puede operar de forma independiente en múltiples mallas
 - Independiente de plataforma
     - Mensajes JSON enviados por *Multicast*
-- Mensajes UDP (protocolo no fiable)
 - Conectable: *bindings* en 4 lenguajes, extensible
 - Conjunto de utilidades de consola
 
@@ -178,13 +155,9 @@ Note:JSON, Twisted, Demo
 ## Funcionamiento
 <!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
 <img width="45%" src="img/fases/setup-services-marco.svg"/>
+<img width="45%" src="img/fases/setup-services-marco-response.svg"/>
 
 Note: Funcionamiento de MarcoPolo
-
-
-## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
-<img width="45%" src="img/fases/setup-services-marco-response.svg"/>
 
 
 ## Funcionamiento
@@ -212,33 +185,16 @@ Note: Funcionamiento de MarcoPolo
     - No obstante, se validan los parámetros antes de enviarlos.
 - Todos los bindings siguen una misma convención de nombres
 
-
-## *Bindings*
-
 ```c
 # C
 int marco(marco_t mp, node_t** nodes, int max_nodes, 
           char* exclude[], int exclude_len, parameter_t* params, 
           int params_len, int timeout, int retries);
 ```
-```cpp
-# C++
-int marco(std::vector<Node>& nodes, int max_nodes=0, 
-          std::vector<std::string> exclude=std::vector<std::string>(), 
-          std::map<std::string, parameter> params=std::map<std::string, parameter>(), 
-          int timeout=0, int retries=0);
-```
 ```python
 # Python
 def marco(self, max_nodes=None, exclude=[], 
           params={}, timeout=None, retries=0):
-```
-```java
-# Java
-public int marco(ArrayList<Node> nodes, int max_nodes, 
-                 ArrayList<String> exclude, 
-                 HashMap<String, Parameter> params, 
-                 int timeout, int retries)
 ```
 
 
@@ -256,17 +212,13 @@ public int marco(ArrayList<Node> nodes, int max_nodes,
 - Servidor LDAP del centro para realizar la gestión de usuarios (simplifica el uso del sistema)
 - Es necesario garantizar la transparencia de acceso.
 - Solución: módulo propio para __PAM__ (implementado en C/C++ e integrado con *MarcoPolo* a través del *binding*)
-
-
-## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
+<!--## Funcionamiento
+<!- slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
 <img width="45%" src="img/fases/polousers.svg"/>
 <img width="45%" src="img/fases/polousers-response.svg"/>
-
-
 ## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
-<img width="55%" src="img/fases/polousers-connect.svg"/>
+<!-slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
+<img width="55%" src="img/fases/polousers-connect.svg"/>-->
 
 Note: Funcionamiento
 
@@ -304,12 +256,10 @@ Note: Funcionamiento
 - Instalable manualmente o a través de Marcobootstrap-slave para operaciones de actualización
 
 Note: Demo. Cargar la imagen de S.O. Herramientas de creación. Prueba la versatilidad de Marco-Polo
-
-
-## Funcionamiento
+<!-- Comentar## Funcionamiento
 
 - La imagen creada actúa como sistema initramfs (*initial RAM file system*), cargándose por completo en la memoria RAM de la placa. Configura el acceso a la red y detecta los servidores `Marcobootstrap-slave`. A continuación da formato a la tarjeta SD, descarga el sistema operativo y lo configura.
-- El tiempo de instalación es de ~15 minutos y no requiere atención humana
+- El tiempo de instalación es de ~15 minutos y no requiere atención humana-->
 
 
 ## Servicios de terceros
@@ -346,7 +296,6 @@ El tiempo de compilación se reduce drásticamente.
 - Compatible con las prácticas de __Arquitectura de Computadores__
 - Pruebas de concepto creadas
 
-
 ## Tomcat
 
 - Integrado con las herramientas creadas (__Polousers__, __Deployer__)
@@ -361,19 +310,10 @@ Problemas:
 - Existe una biblioteca capaz, __quick2wire-python-api__, escrita en Python, pero se desea utilizar el puerto en aplicaciones escritas en C/C++
 - Solución: portar la API de Python a C++
 
-
-## quick2wire
+<!--## quick2wire
 
 - Se ha portado toda la funcionalidad relativa a la manipulación de los pines en modo salida
-- Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin
-
-
-## MarcoManager
-
-- Integración de *MarcoPolo* en servicios de terceros
-- Permite realizar operaciones típicas de __cron__
-- Integrado con __Tomcat__ y __Distcc__
-
+- Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin-->
 
 
 ## Aplicaciones de usuario
@@ -386,9 +326,12 @@ Problemas:
 - Realizar operaciones de despliegue en diferentes equipos suele ser un proceso tedioso
 - Herramientas como __scp__ o __ftp__ son poco versátiles
 - Se suma el problema de la detección de nodos
+- Depuración
+- Ejecución remota
+- Monitorización de estado
 
 
-## Deployer
+## Marcodeployer
 
 <img src="img/screenshot-deployer.png" alt="Vista de la herramienta deployer" width="65%"/>
 - Detección de nodos con *MarcoPolo*
@@ -396,37 +339,33 @@ Problemas:
 - Integrado con Diaweb
 - Versátil
 
-
-## Status Monitor
+<!--## Status Monitor
 <img src="img/screenshot-statusmonitor.png" alt="Vista de la herramienta statusmonitor" width="35%"/>
 - Herramienta que permite evaluar el estado de los diferentes nodos presentes en la red
 - Detección mediante *MarcoPolo*
 - Elimina cuellos de botella
-- Completamente asíncrono
+- Completamente asíncrono-->
 
-
-## Funcionamiento
+<!-- Comentar## Funcionamiento
 
 1. El cliente web solicita al nodo al que se ha conectado todos los miembros de la red con el servicio "statusmonitor".
 2. El servidor utiliza el *binding* de Marco para realizar esta consulta
 3. Se retorna la información y el cliente establece conexiones __WebSocket__ __directas__ con cada uno de los nodos.
-4. El cliente recibe la información en directo, sin *polling*.
+4. El cliente recibe la información en directo, sin *polling*.-->
 
-
-## Shell
+<!--## Shell
 <img src="img/loggermain.png" alt="Vista de la herramienta shell" width="80%"/>
 - Permite realizar operaciones de depuración sencillas
 - Ejecución completamente asíncrona (incluyendo la recolección de datos)
 
-Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
+Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad-->
 
-
-## Funcionamiento
-<!-- .slide: style="background-repeat:no-repeat;" data-background="#ccc" -->
+<!--## Funcionamiento
+<!-slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
 <img width="35%" src="img/fases/deployer.svg"/>
 <img width="35%" src="img/fases/deployer-request-for.svg"/>
 <br>
-<img width="35%" src="img/fases/deployer-connection.svg"/>
+<img width="35%" src="img/fases/deployer-connection.svg"/>-->
 
 
 ## Seguridad
@@ -448,18 +387,18 @@ Arquitectura orientada a servicios
 - 3 diseños
 - Integración de todos los componentes principales en una única estructura
 - Centralización de las funciones de red y alimentación eléctrica
+- Estructura de metacrilato
+- Todos los componentes han sido hechos o modificados
 
-
-## Prototipos iniciales
+<!-- Comentar## Prototipos iniciales
 
 1. Inicialmente se plantea una estructura muy rudimentaria con separadores hexagonales (se descarta antes de comenzar su desarrollo)
 2. El segundo diseño utiliza una estructura de metacrilato para sostener todos los nodos 
 
 <img width="60%" src="img/prototipo1vistageneral.jpg"/>
-<img width="19%" src="img/prototipo1vistaperfil.jpg"/>
+<img width="19%" src="img/prototipo1vistaperfil.jpg"/>-->
 
-
-## Propuesta final
+<!--## Propuesta final
 
 - Estructura de metacrilato (del segundo diseño)
 - Un único punto de red y alimentación
@@ -469,8 +408,6 @@ Arquitectura orientada a servicios
 <li><img width="49%" src="img/general.jpg" alt="Vista de la estructura física"/></li>
 <li><img width="49%" src="img/fuentedetalle.jpg" alt="Vista en detalle de la fuente de alimentación"/></li>
 </ul>
-
-
 ## Propuesta final
 
 Se han modificado varios componentes, como la instalación eléctrica.
@@ -480,7 +417,7 @@ Se han modificado varios componentes, como la instalación eléctrica.
 <li><img width="23%" src="img/usb.jpg" alt="Vista del cable USB modificado"/></li>
 <br>
 <li><img width="35%" src="img/fusibles.jpg" alt="Vista de la placa de fusibles"/></li>
-</ul>
+</ul>-->
 
 
 ## PCB
@@ -488,18 +425,18 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - Simplifica la instalación de los diferentes LEDs de cada nodo
 
 <ul class="images">
-<li><img width="30%" src="img/general-placa.jpg" alt="Vista general de la placa Raspberry Pi con el circuito impreso conectado"/></li>
-<li><img width="30%" src="img/leds.jpg" alt="Vista de la placa en funcionamiento"/></li>
-<li><img width="30%" src="img/vista2.jpg" alt="Vista en otra perspectiva del PCB"/></li>
+<li><img width="37%" src="img/general-placa.jpg" alt="Vista general de la placa Raspberry Pi con el circuito impreso conectado"/></li>
+<li><img width="20%" src="img/leds.jpg" alt="Vista de la placa en funcionamiento"/></li>
+<!--<li><img width="30%" src="img/vista2.jpg" alt="Vista en otra perspectiva del PCB"/></li>-->
+<li><img width="25%" src="img/placareverso.jpg" alt="Vista del reverso de la placa PCB"/></li>
 </ul>
 
-
-## PCB
+<!--## PCB
 
 <ul class="images">
 <li><img width="40%" src="img/placaanverso.jpg" alt="Vista del anverso de la placa PCB"/></li>
-<li><img width="40%" src="img/placareverso.jpg" alt="Vista del reverso de la placa PCB"/></li>
-</ul>
+
+</ul>-->
 
 
 
@@ -510,7 +447,7 @@ Se han modificado varios componentes, como la instalación eléctrica.
 
 <img width="40%" src="img/threadcomparison.png" alt="Comparación de diferentes modelos de paralelismo"/>
 
-- Reduce el tiempo de de contexto
+- Reduce los cambios de contexto
 - Maximiza el tiempo de uso de la CPU
 - Twisted y Tornado siguen este enfoque
 
@@ -552,27 +489,18 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - Han probado ser uno de los mejores mecanismos para identificar necesidades
 
 
-## Pruebas de integración en entornos reales
-
-- Pruebas durante las diferentes fases del proyecto para determinar la compatibilidad del mismo con el entorno
-- La mayor parte del desarrollo del proyecto se ha realizado en entornos reales
-- Pruebas en diferentes condiciones:
-    - Varios puntos de la red de la Facultad, redes domésticas
-    - Equipos de aulas de informática, equipos personales, *workstations*, Raspberry Pi...
-
-
 ## Integración
-
-- *Hardware*
-    - Máquinas virtuales
-    - Equipos de escritorio y portátiles
-    - __Raspberry Pi__
-- *Software*
-    - __Xubuntu__, __Ubuntu__
-    - __Raspbian__
-    - __Arch Linux ARM__
-- Todos los paquetes *software* gestionan de forma transparente las diferencias entre cada configuración
-- Compatible con init.d y systemd
+- Pruebas durante las diferentes fases del proyecto
+- La fase de desarrollo transcurre en entornos reales
+    - *Hardware*
+        - Máquinas virtuales
+        - Equipos de escritorio y portátiles
+        - __Raspberry Pi__
+    - *Software*
+        - __Xubuntu__, __Ubuntu__
+        - __Raspbian__
+        - __Arch Linux ARM__
+- Gestión de forma transparente las diferencias entre equipos. Compatible con init.d y systemd y Python 2 y 3.
 
 
 ## Gestión del proyecto
@@ -600,7 +528,7 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - ~ 600 *commits*
 - 500 horas de trabajo registradas en Redmine
     - 190 tareas
-- 7 paquetes públicos en __Pypi__
+- 7 paquetes públicos en __Pypi__ (MPL 2.0)
 - 18 repositorios públicos en Bitbucket
 - 3 lenguajes de programación principales y dos secundarios (Python, C, Bash, C++, Java)
 
@@ -612,11 +540,18 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - Propone un nuevo punto de vista a este tipo de clústers
 
 
-## Conclusiones y líneas de trabajo futuro
+## Conclusiones
+
+- Creación de un sistema distribuido completo
+- Integración de todos los servicios con MarcoPolo
+- Evaluación del sistema de forma exhaustiva
+
+
+## Líneas de trabajo futuro
 
 - Mejoras en MarcoPolo y el resto de herramientas
 - Estudio de implementación en las asignaturas propuestas
-- Promoción del proyecto ([marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net))
+- Promoción ([marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net))
 
 
 ## 
