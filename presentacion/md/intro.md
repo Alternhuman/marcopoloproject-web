@@ -31,7 +31,7 @@ Note:
 ## Propuesta
 
 - Estudio en profundidad de un sistema distribuido
-- Experimentar con este tipo de componentes
+- Experimentar con este tipo de componentes *hardware*
 - Solución a problemas de sobrecarga en la Facultad de Ciencias
 - Componente didáctico
     - Estudiar la aplicabilidad en diferentes asignaturas
@@ -74,20 +74,8 @@ Note:
 
 Problema: Propósito único
 
-Note:
 
-
-## Propuesta de solución
-
-<!--- __*Hardware*__: Raspberry Pi 2 
-- __Sistema operativo__: Arch Linux ARM
-- __Lenguaje de programación principal__: Python
-- Interconexión mediante la red existente-->
-
-Note: Comenzar con herramientas similares, enseguida se identifica la necesidad de un protocolo de descubrimiento. Python. Rendimiento/sencillez + Frameworks
-
-
-## Requisitos
+## Propuesta de solución. Requisitos
 
 - Mínimo coste
 - Escalabilidad
@@ -97,6 +85,7 @@ Note: Comenzar con herramientas similares, enseguida se identifica la necesidad 
 - Independencia de la plataforma
 - *Transparente*
 
+Note: Comenzar con herramientas similares, enseguida se identifica la necesidad de un protocolo de descubrimiento. Python. Rendimiento/sencillez + Frameworks
 
 ## Hardware <img width="10%" src="img/capa-0.svg" width="40%" alt="Capa 0"/>
 Las placas Raspberry Pi son la mejor alternativa
@@ -146,7 +135,7 @@ Note: Los servicios que provee el sistema operativo son el fundamento sobre el q
 
 - Protocolo propio de descubrimiento
 - Orientado a servicios
-- Implementado sobre Twisted
+- Implementado sobre Python utilizando Twisted
 
 
 ## Características
@@ -155,7 +144,6 @@ Note: Los servicios que provee el sistema operativo son el fundamento sobre el q
 - Un nodo puede operar de forma independiente en múltiples mallas
 - Independiente de plataforma
     - Mensajes JSON enviados por *Multicast*
-- Mensajes UDP (protocolo no fiable)
 - Conectable: *bindings* en 4 lenguajes, extensible
 - Conjunto de utilidades de consola
 
@@ -195,33 +183,16 @@ Note: Funcionamiento de MarcoPolo
     - No obstante, se validan los parámetros antes de enviarlos.
 - Todos los bindings siguen una misma convención de nombres
 
-
-## *Bindings*
-
 ```c
 # C
 int marco(marco_t mp, node_t** nodes, int max_nodes, 
           char* exclude[], int exclude_len, parameter_t* params, 
           int params_len, int timeout, int retries);
 ```
-```cpp
-# C++
-int marco(std::vector<Node>& nodes, int max_nodes=0, 
-          std::vector<std::string> exclude=std::vector<std::string>(), 
-          std::map<std::string, parameter> params=std::map<std::string, parameter>(), 
-          int timeout=0, int retries=0);
-```
 ```python
 # Python
 def marco(self, max_nodes=None, exclude=[], 
           params={}, timeout=None, retries=0):
-```
-```java
-# Java
-public int marco(ArrayList<Node> nodes, int max_nodes, 
-                 ArrayList<String> exclude, 
-                 HashMap<String, Parameter> params, 
-                 int timeout, int retries)
 ```
 
 
@@ -323,7 +294,6 @@ El tiempo de compilación se reduce drásticamente.
 - Compatible con las prácticas de __Arquitectura de Computadores__
 - Pruebas de concepto creadas
 
-
 ## Tomcat
 
 - Integrado con las herramientas creadas (__Polousers__, __Deployer__)
@@ -338,19 +308,10 @@ Problemas:
 - Existe una biblioteca capaz, __quick2wire-python-api__, escrita en Python, pero se desea utilizar el puerto en aplicaciones escritas en C/C++
 - Solución: portar la API de Python a C++
 
-
-## quick2wire
+<!--## quick2wire
 
 - Se ha portado toda la funcionalidad relativa a la manipulación de los pines en modo salida
-- Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin
-
-
-## MarcoManager
-
-- Integración de *MarcoPolo* en servicios de terceros
-- Permite realizar operaciones típicas de __cron__
-- Integrado con __Tomcat__ y __Distcc__
-
+- Permite la manipulación de cualquier pin, estableciendo relaciones de "posesión" entre un usuario y un pin-->
 
 
 ## Aplicaciones de usuario
@@ -363,9 +324,12 @@ Problemas:
 - Realizar operaciones de despliegue en diferentes equipos suele ser un proceso tedioso
 - Herramientas como __scp__ o __ftp__ son poco versátiles
 - Se suma el problema de la detección de nodos
+- Depuración
+- Ejecución remota
+- Monitorización de estado
 
 
-## Deployer
+## Marcodeployer
 
 <img src="img/screenshot-deployer.png" alt="Vista de la herramienta deployer" width="65%"/>
 - Detección de nodos con *MarcoPolo*
@@ -373,14 +337,12 @@ Problemas:
 - Integrado con Diaweb
 - Versátil
 
-
-## Status Monitor
+<!--## Status Monitor
 <img src="img/screenshot-statusmonitor.png" alt="Vista de la herramienta statusmonitor" width="35%"/>
 - Herramienta que permite evaluar el estado de los diferentes nodos presentes en la red
 - Detección mediante *MarcoPolo*
 - Elimina cuellos de botella
-- Completamente asíncrono
-
+- Completamente asíncrono-->
 <!-- Comentar## Funcionamiento
 
 1. El cliente web solicita al nodo al que se ha conectado todos los miembros de la red con el servicio "statusmonitor".
@@ -388,13 +350,11 @@ Problemas:
 3. Se retorna la información y el cliente establece conexiones __WebSocket__ __directas__ con cada uno de los nodos.
 4. El cliente recibe la información en directo, sin *polling*.-->
 
-
-## Shell
+<!--## Shell
 <img src="img/loggermain.png" alt="Vista de la herramienta shell" width="80%"/>
 - Permite realizar operaciones de depuración sencillas
 - Ejecución completamente asíncrona (incluyendo la recolección de datos)
-
-Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad
+Note: WebSockets, Tornado, Ejemplo de ejecución asíncrona, Seguridad-->
 
 <!--## Funcionamiento
 <!-slide: style="background-repeat:no-repeat;" data-background="#ccc" ->
@@ -424,7 +384,7 @@ Arquitectura orientada a servicios
 - Integración de todos los componentes principales en una única estructura
 - Centralización de las funciones de red y alimentación eléctrica
 - Estructura de metacrilato
-- Un único punto de red y alimentación
+- Todos los componentes han sido hechos o modificados
 
 <!-- Comentar## Prototipos iniciales
 
@@ -461,10 +421,10 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - Simplifica la instalación de los diferentes LEDs de cada nodo
 
 <ul class="images">
-<li><img width="30%" src="img/general-placa.jpg" alt="Vista general de la placa Raspberry Pi con el circuito impreso conectado"/></li>
-<li><img width="30%" src="img/leds.jpg" alt="Vista de la placa en funcionamiento"/></li>
-<li><img width="30%" src="img/vista2.jpg" alt="Vista en otra perspectiva del PCB"/></li>
-<li><img width="40%" src="img/placareverso.jpg" alt="Vista del reverso de la placa PCB"/></li>
+<li><img width="37%" src="img/general-placa.jpg" alt="Vista general de la placa Raspberry Pi con el circuito impreso conectado"/></li>
+<li><img width="20%" src="img/leds.jpg" alt="Vista de la placa en funcionamiento"/></li>
+<!--<li><img width="30%" src="img/vista2.jpg" alt="Vista en otra perspectiva del PCB"/></li>-->
+<li><img width="25%" src="img/placareverso.jpg" alt="Vista del reverso de la placa PCB"/></li>
 </ul>
 
 <!--## PCB
@@ -483,7 +443,7 @@ Se han modificado varios componentes, como la instalación eléctrica.
 
 <img width="40%" src="img/threadcomparison.png" alt="Comparación de diferentes modelos de paralelismo"/>
 
-- Reduce el tiempo de de contexto
+- Reduce los cambios de contexto
 - Maximiza el tiempo de uso de la CPU
 - Twisted y Tornado siguen este enfoque
 
@@ -525,27 +485,18 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - Han probado ser uno de los mejores mecanismos para identificar necesidades
 
 
-## Pruebas de integración en entornos reales
-
-- Pruebas durante las diferentes fases del proyecto para determinar la compatibilidad del mismo con el entorno
-- La mayor parte del desarrollo del proyecto se ha realizado en entornos reales
-- Pruebas en diferentes condiciones:
-    - Varios puntos de la red de la Facultad, redes domésticas
-    - Equipos de aulas de informática, equipos personales, *workstations*, Raspberry Pi...
-
-
 ## Integración
-
-- *Hardware*
-    - Máquinas virtuales
-    - Equipos de escritorio y portátiles
-    - __Raspberry Pi__
-- *Software*
-    - __Xubuntu__, __Ubuntu__
-    - __Raspbian__
-    - __Arch Linux ARM__
-- Todos los paquetes *software* gestionan de forma transparente las diferencias entre cada configuración
-- Compatible con init.d y systemd
+- Pruebas durante las diferentes fases del proyecto
+- La fase de desarrollo transcurre en entornos reales
+    - *Hardware*
+        - Máquinas virtuales
+        - Equipos de escritorio y portátiles
+        - __Raspberry Pi__
+    - *Software*
+        - __Xubuntu__, __Ubuntu__
+        - __Raspbian__
+        - __Arch Linux ARM__
+- Gestión de forma transparente las diferencias entre equipos. Compatible con init.d y systemd y Python 2 y 3.
 
 
 ## Gestión del proyecto
@@ -573,7 +524,7 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - ~ 600 *commits*
 - 500 horas de trabajo registradas en Redmine
     - 190 tareas
-- 7 paquetes públicos en __Pypi__
+- 7 paquetes públicos en __Pypi__ (MPL 2.0)
 - 18 repositorios públicos en Bitbucket
 - 3 lenguajes de programación principales y dos secundarios (Python, C, Bash, C++, Java)
 
@@ -585,11 +536,18 @@ Se han modificado varios componentes, como la instalación eléctrica.
 - Propone un nuevo punto de vista a este tipo de clústers
 
 
-## Conclusiones y líneas de trabajo futuro
+## Conclusiones
+
+- Creación de un sistema distribuido completo
+- Integración de todos los servicios con MarcoPolo
+- Evaluación del sistema de forma exhaustiva
+
+
+## Líneas de trabajo futuro
 
 - Mejoras en MarcoPolo y el resto de herramientas
 - Estudio de implementación en las asignaturas propuestas
-- Promoción del proyecto ([marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net))
+- Promoción ([marcopoloproject.martinarroyo.net](http://marcopoloproject.martinarroyo.net))
 
 
 ## 
