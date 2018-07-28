@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    container_name: marcopoloproject-web-server
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:8001:80"
+    restart: always
