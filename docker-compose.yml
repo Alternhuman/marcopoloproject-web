@@ -1,7 +1,6 @@
 version: "3"
 services:
   web:
-    container_name: marcopoloproject-web-server
     build:
       context: .
     ports:
